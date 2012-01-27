@@ -1,6 +1,6 @@
 require('object')
 
-Entity = Obejct:new()
+Entity = Object:new()
 
 function Entity:draw()
 end

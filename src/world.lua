@@ -1,4 +1,6 @@
 require('object')
+require('state')
+require('player')
 
 World = Object:new()
 
@@ -6,6 +8,10 @@ World.entities = {}
 
 function World:init()
 	self.entities = {}
+	
+	if State.player == null then
+		State.player = Player:new()
+	end
 end
 
 function World:add(entity)
@@ -16,6 +22,8 @@ function World:draw()
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
+	
+	State.player:draw()
 end
 
 function World:update(dtime)
