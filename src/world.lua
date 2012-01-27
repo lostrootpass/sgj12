@@ -9,8 +9,9 @@ World.entities = {}
 function World:init()
 	self.entities = {}
 	
-	if State.player == null then
+	if State.player == nil then
 		State.player = Player:new()
+		print(State.player)
 	end
 end
 
@@ -30,6 +31,8 @@ function World:update(dtime)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:update(dtime)
 	end
+	
+	State.player:update(dtime)
 end
 
 function World:remove(entity)

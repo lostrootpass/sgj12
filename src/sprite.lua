@@ -6,7 +6,6 @@ Sprite.x = 0
 Sprite.y = 0
 Sprite.time = 0
 Sprite.frame = 1
-Sprite.frameTime = 0.1
 Sprite.animation = ''
 Sprite.animations = {}
 Sprite.frameWidth = 32
@@ -24,6 +23,10 @@ function Sprite:add(animation, frames, frameTime)
 		local x = self.frameWidth * (frames[i]-1)
 		table.insert(self.animations[animation].frames, love.graphics.newQuad(x, 0, self.frameWidth, self.frameHeight, self.image:getWidth(), self.image:getHeight()))
 	end
+	
+	if self.animation == "" then
+		self.animation = animation
+	end
 end
 
 function Sprite:draw()
@@ -31,6 +34,11 @@ function Sprite:draw()
 end	
 
 function Sprite:play(animation)
+	if self.animation == animation then
+		return
+	end
+
+	self.frame = 1
 	self.animation = animation
 end
 

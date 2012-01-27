@@ -1,4 +1,4 @@
 require('object')
 
 State = {}
-State.player = {}
+State.player = nil
