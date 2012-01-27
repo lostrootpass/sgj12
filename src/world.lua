@@ -1,13 +1,15 @@
 require('object')
 require('state')
 require('player')
+require('tmap')
 
 World = Object:new()
 
 World.entities = {}
 
 function World:init(tilemap)
-	tilemap = tilemap or "tile1"
+	tilemap = tilemap or "assets/level/tile1.tmx"
+	TiledMap_Load(tilemap)
 	
 	self.entities = {}
 	
@@ -22,6 +24,7 @@ function World:add(entity)
 end
 
 function World:draw()
+	TiledMap_DrawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
