@@ -17,11 +17,11 @@ setmetatable(Object, mt)
 function Object:init()
 end
 
-function Object:new()
+function Object:new(...)
 	local o = {}
 	
-	o.prototype = self	
+	o.prototype = self
 	setmetatable(o, mt)
-	o:init()
+	o:init(unpack(arg))
 	return o
 end
