@@ -6,7 +6,9 @@ World = Object:new()
 
 World.entities = {}
 
-function World:init()
+function World:init(tilemap)
+	tilemap = tilemap or "tile1"
+	
 	self.entities = {}
 	
 	if State.player == nil then
