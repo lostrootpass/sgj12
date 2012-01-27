@@ -61,6 +61,6 @@ function Player:checkOffScreen()
 	if y > 600 then
 		y = 0
 	elseif y < 0 then
-		y = 800
+		y = 600
 	end
 end
