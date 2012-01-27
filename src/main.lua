@@ -1,17 +1,17 @@
 require('object')
 require('world')
-
-world = World:new()
+require('state')
 
 function love.load()
 	love.graphics.setCaption('Ouroboros')
+	State.world = World:new()
 end
 
 function love.draw()
-	world:draw()
+	State.world:draw()
 end
 
 
 function love.update(dtime)
-	world:update(dtime)
+	State.world:update(dtime)
 end
