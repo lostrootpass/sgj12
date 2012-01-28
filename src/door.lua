@@ -33,6 +33,14 @@ function Door:init(dir, st)
 	self.hitbox = Hitbox:new(self.x, self.y, x, y)
 end
 
+
+function Door:setPosition(x, y)
+	self.x = x
+	self.y = y
+	
+	self.hitbox = Hitbox:new(self.x, self.y, x, y)
+end
+
 function Door:update(dtime)
 	self.graphic:update(dtime)
 	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then --and self.state == "open" then
