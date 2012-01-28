@@ -1444,5 +1444,6 @@
   <object type="pit" x="224" y="448" width="32" height="32"/>
   <object type="door" x="736" y="384" width="32" height="64"/>
   <object type="door" x="608" y="512" width="64" height="32"/>
+  <object x="352" y="-32"/>
  </objectgroup>
 </map>
