@@ -5,8 +5,11 @@ Pit = Entity:new()
 
 function Pit:init()
 	self.type = "pit"
-	self.sprite = Image:new('graphics/pit.png')
+	self.sprite = Sprite:new('graphics/pit.png')
 	self.hitbox = Hitbox:new(0, 0, 32, 32)
+	self.sprite:add("visible", {2})
+	self.sprite:play("visible", 1)
+	self.graphic = self.sprite
 end
 
 function Pit:draw()
