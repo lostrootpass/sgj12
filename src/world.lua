@@ -36,7 +36,7 @@ function World:init(tilemap)
 
 	if State.player == nil then
 		State.player = Player:new()
-		print(State.player)
+		self:add(State.player)
 	end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
@@ -61,8 +61,6 @@ function World:draw()
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
-	
-	State.player:draw()
 
 	Dialogue:draw()
 end
@@ -74,8 +72,6 @@ function World:update(dtime)
 		end
 	end
 	
-	State.player:update(dtime)
-
 	Dialogue:update(dtime)
 
 	if love.keyboard.isDown("a") then
@@ -85,6 +81,15 @@ function World:update(dtime)
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
 	end
+
+	for dead=1, table.getn(self.deadpool) do
+		for index=1, table.getn(self.entities) do
+			if self.entities[index] == self.deadpool[dead] then
+				table.remove(self.entities, index)
+			end
+		end
+	end
+	self.deadpool = {}
 end
 
 function World:blocked(tx, ty)
