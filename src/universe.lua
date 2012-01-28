@@ -6,10 +6,24 @@ function Universe:init()
 	self.startingArea = nil
 	self.areas = {}
 	self.links = {}
+	self.available = {}
 end
 
 function Universe:link(from, to, direction)
 	table.insert(self.links, {to = to, from = from, direction = direction})
+end
+
+function Universe:generateLinks()
+	local lfs = love.filesystem
+	local filetable = lfs.enumerate("level")
+	
+	for _, name in ipairs(filetable) do
+		local file = "level/" .. name
+		local parsedArea = self:loadArea(file)
+		
+		self.available[file] = parsedArea:getDoors()
+		self.areas[file] = parsedArea
+	end
 end
 
 function Universe:loadArea(file)

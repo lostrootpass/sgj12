@@ -37,10 +37,10 @@ function World:init(tilemap)
 
 	PlayerGen:newPlayer()
 
-	--if State.player == nil then
-	--	State.player = Player:new()
-	--	self:add(State.player)
-	--end
+	if State.player == nil then
+		State.player = Player:new()
+		self:add(State.player)
+	end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
 end
@@ -92,4 +92,17 @@ end
 
 function World:remove(entity)
 	table.insert(self.deadpool, entity)
+end
+
+function World:getDoors()
+	local doors = {n = false, s = false, w = false, e = false}
+	
+	for i = 1, table.getn(self.entities) do
+		if self.entities[i] ~= nil and self.entities[i].type == "door" then
+			local dir = self.entities[i].dir
+			doors[dir] = true
+		end
+	end 
+	
+	return doors
 end
