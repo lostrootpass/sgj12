@@ -38,23 +38,38 @@ function Player:update(dtime)
 	self.moving = false
 	
 	if love.keyboard.isDown("up") then
-		self.y = self.y - (self.movementSpeed * dtime)
-		self.moving = true
-		self.direction = 'up'
+		local nextY = self.y - (self.movementSpeed * dtime)
+		
+		if not self:checkCollisions(self.x, nextY) then
+			self.y = nextY
+			self.moving = true
+			self.direction = 'up'
+		end
 	elseif love.keyboard.isDown("down") then
-		self.y = self.y + (self.movementSpeed * dtime) 
-		self.moving = true
-		self.direction = 'down'
+		local nextY = self.y + (self.movementSpeed * dtime)
+		
+		if not self:checkCollisions(self.x, nextY) then
+			self.y = nextY
+			self.moving = true
+			self.direction = 'down'
+		end
 	end
 	
 	if love.keyboard.isDown("left") then
-		self.x = self.x - (self.movementSpeed * dtime)
-		self.moving = true
-		self.direction = 'left'
+		local nextX = self.x - (self.movementSpeed * dtime)
+		if not self:checkCollisions(nextX, self.y) then
+			self.x = nextX
+			self.moving = true
+			self.direction = 'left'
+		end
+			
 	elseif love.keyboard.isDown("right") then
-		self.x = self.x + (self.movementSpeed * dtime)
-		self.moving = true
-		self.direction = 'right'
+		local nextX = self.x + (self.movementSpeed * dtime)
+		if not self:checkCollisions(nextX, self.y) then
+			self.x = nextX
+			self.moving = true
+			self.direction = 'right'
+		end
 	end
 	
 	if self.moving == true then
@@ -65,14 +80,13 @@ function Player:update(dtime)
 	
 	self.hitbox.x = self.x
 	self.hitbox.y = self.y
-	self:checkCollisions()
 	self:checkOffScreen()
 	
 	sprite:update(dtime)
 end
 
-function Player:checkCollisions()
-	
+function Player:checkCollisions(x, y)
+	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
 end
 
 function Player:checkOffScreen()

@@ -24,7 +24,7 @@ function World:init(tilemap)
 	self.height = 576
 
 	Dialogue:setGraphic("graphics/dialogueBg.png")
-	Dialogue:setPosition(0, 480)
+	Dialogue:setPosition(0, 470)
 	Dialogue:setTextPosition(40, 40)
 	Dialogue:setFont("fonts/verdana.ttf", 16)
 	Dialogue:setTextColor(255, 255, 255, 255)
@@ -45,7 +45,8 @@ function World:add(entity)
 end
 
 function World:draw()
-	TiledMap_DrawNearCam(432,332 - 12)
+	love.graphics.translate(0, 12)
+	TiledMap_DrawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
@@ -71,6 +72,10 @@ function World:update(dtime)
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
 	end
+end
+
+function World:blocked(tx, ty)
+	return TiledMap_GetMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
 end
 
 function World:remove(entity)
