@@ -1,25 +1,27 @@
-require('entity')
+--[[require('entity')
 require('sprite')
 require('hitbox')
 require('state')
 
-Door = Entity:new()
+Gate = Entity:new()
 
-function Door:init(dir, st)
-	self.type = "door"
-	self.state = st or "closed"
-	self.dir = dir
+function Gate:init(dir)
+	self.type = "gate"
+	self.state = "closed"
 	self.switchOffsetX = 0
 	self.switchOffsetY = 0
 	self.id = nil
+	
+	if dir > 32 then
+		self.dir = "n"
 
 	local x = 0
 	local y = 0
 
-	if dir == "n" or dir == "s" then
+	if dir == "n" then
 		x = 64
 		y = 32
-	elseif dir =="e"  or dir == "w" then
+	elseif dir =="e" then
 		x = 32
 		y = 64
 	end
@@ -55,22 +57,22 @@ function Door:init(dir, st)
 end
 
 
-function Door:activate()
+function Gate:activate()
 	self:open()
 end
 
-function Door:setPosition(x, y)
+function Gate:setPosition(x, y)
 	self.x = x
 	self.y = y
 	
 	self.hitbox = Hitbox:new(self.x, self.y, x, y)
 end
 
-function Door:open()
+function Gate:open()
 	self.state = "open"
 end
 
-function Door:update(dtime)
+function Gate:update(dtime)
 	self.doorHitbox.x = self.x
 	self.doorHitbox.y = self.y
 	self.switchHitbox.x = self.x + self.switchOffsetX
@@ -79,10 +81,7 @@ function Door:update(dtime)
 	if self.state == "closed" and self.switchHitbox ~= nil and self.switchHitbox:intersects(State.player.hitbox) then
 		self.graphic:play("opening", true)
 	end
-
-	if self.doorHitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then--and self.state == "open" then
-		State.player:changeRoom( self.dir )
-	end
-
 	self.graphic:update(dtime)
+	
 end
+--]]
