@@ -1,6 +1,7 @@
 require('entity')
 require('sprite')
 require('hitbox')
+require('state')
 
 Door = Entity:new()
 
@@ -29,13 +30,13 @@ function Door:init(dir, st)
 	self.is_pressed = false
 	self.graphic:play("open")
 	
-	self.hitbox = Hitbox:new(0, 0, x, y)
+	self.hitbox = Hitbox:new(self.x, self.y, x, y)
 end
 
 function Door:update(dtime)
 	self.graphic:update(dtime)
-	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) and self.state == "open" then
-		State.player:change_room( self.dir )
+	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then --and self.state == "open" then
+		State.player:changeRoom( self.dir )
 	end
 	
 end
