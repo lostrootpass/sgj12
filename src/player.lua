@@ -90,16 +90,16 @@ function Player:checkCollisions(x, y)
 end
 
 function Player:checkOffScreen()
-	if self.x > world.width then
+	if self.x > State.world.width then
 		self.x = 0
 	elseif self.x < 0 then
-		self.x = world.width
+		self.x = State.world.width
 	end
 	
-	if self.y > world.height then
+	if self.y > State.world.height then
 		self.y = 0
 	elseif self.y < 0 then
-		self.y = world.height
+		self.y = State.world.height
 	end
 end
 
