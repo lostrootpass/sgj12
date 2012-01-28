@@ -14,6 +14,9 @@ function World:init(tilemap)
 	TiledMap_Load(tilemap)
 	
 	self.entities = {}
+	
+	self.width = 800
+	self.height = 576
 
 	Dialogue:setGraphic("graphics/dialogueBg.png")
 	Dialogue:setPosition(0, 480)
