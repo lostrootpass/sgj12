@@ -4,7 +4,7 @@ require("button")
 require("pit")
 require("door")
 require("sign")
-require("conveyer")
+require("conveyor")
 
 mobiles = {
 	laser = Laser,
@@ -13,7 +13,7 @@ mobiles = {
 	pit = Pit,
 	door = Door,
 	sign = Sign,
-	conveyer = Conveyer
+	conveyor = Conveyor
 }
 
 function loadEntities(world, map_objects)

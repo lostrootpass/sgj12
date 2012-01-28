@@ -1,10 +1,13 @@
 require('entity')
 require('sprite')
+require('dialogue')
 
 Sign = Entity:new()
 
 function Sign:init()
-	self.sprite = Sprite:new('graphics/terminal.png', 32, 32)
+	self.sprite = Image:new('graphics/sign.png')
+	self.text = "This is a sign."
+	self.hitbox = Hitbox:new(0, 32, 32, 32)
 end
 
 function Sign:draw()
@@ -12,5 +15,14 @@ function Sign:draw()
 end
 
 function Sign:update(dtime)
-	self.sprite:update(dtime)
+	self.sprite.x = self.x
+	self.sprite.y = self.y
+	self.hitbox.x = self.x
+	self.hitbox.y = self.y + 32
+	
+	if love.keyboard.isDown(' ') then
+		if self.hitbox:intersects(State.player.hitbox) then
+			Dialogue:show(self.text)
+		end
+	end
 end
