@@ -7,7 +7,7 @@ function MapLoader:init(filepath)
 	self.tileSize = 32
 	self.emptyType = 0
 	self.tileGfx = {}
-	self.tiletype, self.layers, self.objects = self.parse(filepath)
+	self.tiletype, self.layers, self.objects = self:parse(filepath)
 	
 	for gid, path in pairs(self.tiletype) do
 		local raw = love.image.newImageData(path)
@@ -43,11 +43,11 @@ function MapLoader:drawNearCam(camx, camy)
 	for z = 1,#self.layers do
 		for x = minx, maxx do
 			for y = miny, maxy do
-				local gfx = self.tileGfx[self.getMapTile(x, y, z)]
+				local gfx = self.tileGfx[self:getMapTile(x, y, z)]
 				
 				if gfx then
 					local sx = x * self.tileSize - camx + sw / 2
-					local sy = x * self.tileSize - camy + sh / 2
+					local sy = y * self.tileSize - camy + sh / 2
 					
 					love.graphics.draw(gfx, sx, sy)
 				end
@@ -121,7 +121,7 @@ end
 
 -- ***** ***** ***** ***** ***** parsing the tilemap xml file
 
-local function getTilesets(node)
+function getTilesets(node)
     local tiles = {}
     for k, sub in ipairs(node) do
         if (sub.label == "tileset") then
@@ -131,7 +131,7 @@ local function getTilesets(node)
     return tiles
 end
 
-local function getLayers(node)
+function getLayers(node)
     local layers = {}
     for k, sub in ipairs(node) do
         if (sub.label == "layer") then --  and sub.xarg.name == layer_name
@@ -156,7 +156,7 @@ local function getLayers(node)
     return layers
 end
 
-local function getObjects(node)
+function getObjects(node)
 	local olayer = {}
     for k, sub in ipairs(node) do
         if (sub.label == "objectgroup") then --  and sub.xarg.name == layer_name

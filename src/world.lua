@@ -7,9 +7,7 @@ require('dialogue')
 require('entloader')
 require('playergen')
 require('entloader')
-
-
-require('sign')
+require('maploader')
 
 World = Object:new()
 
@@ -17,11 +15,11 @@ World.entities = {}
 
 function World:init(tilemap)
 	tilemap = tilemap or "level/test4.tmx"
-	TiledMap_Load(tilemap)
+	self.map = MapLoader:new(tilemap)
 	
 	self.entities = {}
 	
-	loadEntities(self, TiledMap_GetMapObjects())
+	loadEntities(self, self.map:getMapObjects())
 	
 	self.width = 800
 	self.height = 576
@@ -39,17 +37,8 @@ function World:init(tilemap)
 		State.player = Player:new()
 		print(State.player)
 	end
-	
-	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
-	local sign = Sign:new()
-	sign.x = 320
-	sign.y = 32
-	self:add(sign)
-	
-	local pit = Pit:new()
-	pit.x = 320
-	pit.y = 320
-	self:add(pit)
+
+	Dialogue:show("Welcome")
 end
 
 function World:add(entity)
@@ -58,7 +47,7 @@ end
 
 function World:draw()
 	love.graphics.translate(0, 12)
-	TiledMap_DrawNearCam(432,332)
+	self.map:drawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
@@ -87,7 +76,7 @@ function World:update(dtime)
 end
 
 function World:blocked(tx, ty)
-	return TiledMap_GetMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
+	return self.map:getMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
 end
 
 function World:remove(entity)
