@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="room_tileset" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" width="192" height="224"/>
+  <image source="../graphics/room_tileset.png" width="192" height="256"/>
  </tileset>
  <layer name="Tile Layer 2" width="25" height="18">
   <data>
@@ -912,8 +912,8 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
-  <object x="32" y="416" width="32" height="64"/>
-  <object x="736" y="416" width="32" height="64"/>
+  <object type="door" x="32" y="416" width="32" height="64"/>
+  <object type="door" x="736" y="416" width="32" height="64"/>
   <object type="hiddenpit" x="128" y="224" width="32" height="32"/>
   <object type="hiddenpit" x="320" y="96" width="32" height="32"/>
   <object type="hiddenpit" x="352" y="96" width="32" height="32"/>
