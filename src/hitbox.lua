@@ -3,14 +3,14 @@ require('object')
 Hitbox = Object:new()
 
 function Hitbox:init(x, y, w, h)
-	this.x = x
-	this.y = y
-	this.width = w
-	this.height = h
+	self.x = x
+	self.y = y
+	self.width = w
+	self.height = h
 end
 
 function Hitbox:bottom()
-	return this.y + this.h
+	return self.y + self.h
 end
 
 function Hitbox:intersects(box)
@@ -22,13 +22,13 @@ function Hitbox:intersects(box)
 end
 
 function Hitbox:left()
-	return this.x
+	return self.x
 end
 
 function Hitbox:right()
-	return this.x + this.width
+	return self.x + self.width
 end
 
 function Hitbox:top()
-	return this.y
+	return self.y
 end

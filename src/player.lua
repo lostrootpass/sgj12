@@ -1,5 +1,6 @@
 require('entity')
 require('sprite')
+require('hitbox')
 
 Player = Entity:new()
 
@@ -29,6 +30,8 @@ function Player:init()
 	
 	sprite:play("stand_down")
 	self.graphic = sprite
+	
+	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
 end
 
 function Player:update(dtime)
@@ -60,6 +63,8 @@ function Player:update(dtime)
 		sprite:play("stand_" .. self.direction)
 	end
 	
+	self.hitbox.x = self.x
+	self.hitbox.y = self.y
 	self:checkCollisions()
 	self:checkOffScreen()
 	
