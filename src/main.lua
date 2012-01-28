@@ -4,7 +4,7 @@ require('state')
 
 function love.load()
 	love.graphics.setCaption('Ouroboros')
-	State.world = World:new("assets/level/test3.tmx")
+	State.world = World:new("level/test4.tmx")
 end
 
 function love.draw()

@@ -24,7 +24,7 @@ function World:add(entity)
 end
 
 function World:draw()
-	TiledMap_DrawNearCam(432,332)
+	TiledMap_DrawNearCam(432,332 - 12)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
