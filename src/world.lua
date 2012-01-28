@@ -19,6 +19,7 @@ function World:init(tilemap)
 	self.map = MapLoader:new(tilemap)
 	
 	self.entities = {}
+	self.deadpool = {}
 	
 	loadEntities(self, self.map:getMapObjects())
 	
@@ -86,6 +87,16 @@ function World:update(dtime)
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
 	end
+	
+	for dead=1, table.getn(self.deadpool) do
+		for index=1, table.getn(self.entities) do
+			if self.entities[index] == self.deadpool[dead] then
+				table.remove(self.entities, index)
+				print(index)
+			end
+		end
+	end
+	self.deadpool = {}
 end
 
 function World:blocked(tx, ty)
@@ -93,9 +104,5 @@ function World:blocked(tx, ty)
 end
 
 function World:remove(entity)
-	for index=1, table.getn(self.entities) do
-		if self.entities[index] == entity then
-			table.remove(self.entities, index)
-		end
-	end
+	table.insert(self.deadpool, entity)
 end
