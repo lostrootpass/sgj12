@@ -11,6 +11,9 @@ function Player:init()
 	self.moving = false
 	self.direction = 'down'
 	
+	self.name = "NAME NOT SET"
+	self.bio = "BIO NOT SET"
+
 	sprite = Sprite:new("graphics/contestant.png", 32,  32)
 	sprite:add("stand_up", {1})
 	sprite:add("walk_up", {2, 3, 4, 5}, 0.1)
@@ -79,4 +82,20 @@ function Player:checkOffScreen()
 	elseif self.y < 0 then
 		self.y = 600
 	end
+end
+
+function Player:getName()
+	return self.name
+end
+
+function Player:setName(name)
+	self.name = name
+end
+
+function Player:getBio()
+	return self.bio
+end
+
+function Player:setBio(bio)
+	self.bio = bio
 end

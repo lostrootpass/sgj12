@@ -4,6 +4,7 @@ require('player')
 require('tmap')
 require('entity')
 require('dialogue')
+require('playergen')
 
 World = Object:new()
 
@@ -24,6 +25,8 @@ function World:init(tilemap)
 	Dialogue:setFont("fonts/verdana.ttf", 16)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
+
+	PlayerGen:newPlayer()
 
 	if State.player == nil then
 		State.player = Player:new()
@@ -59,6 +62,10 @@ function World:update(dtime)
 
 	if love.keyboard.isDown("a") then
 		Dialogue:hide()
+	end
+	
+	if love.keyboard.isDown("z") then
+		PlayerGen:newPlayer()
 	end
 end
 
