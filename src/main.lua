@@ -8,7 +8,6 @@ function love.load()
 end
 
 function love.draw()
-	love.graphics.translate(0, 12)
 	State.world:draw()
 end
 
