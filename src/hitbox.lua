@@ -22,11 +22,7 @@ function Hitbox:intersects(box)
 end
 
 function Hitbox:pointIntersects(x, y)
-	if self.x > x then return false end
-	if self:right() < x  then return false end
-	if self.y > y then return false end
-	if self:bottom() < y then return false end
-	return true
+	return x >= self:left() and x < self:right() and y >= self:top() and y < self:bottom()
 end
 
 function Hitbox:left()
