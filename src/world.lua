@@ -41,15 +41,6 @@ function World:init(tilemap)
 	end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
-	local sign = Sign:new()
-	sign.x = 320
-	sign.y = 32
-	self:add(sign)
-	
-	local turret = LaserTurret:new()
-	turret.x = 320
-	turret.y = 320
-	self:add(turret)
 end
 
 function World:add(entity)

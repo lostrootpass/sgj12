@@ -4,21 +4,33 @@ require('player')
 PlayerGen = Object:new()
 
 PlayerGen.forenames = {
-	"Albert",
-	"Barry",
-	"Charles"
+	"Forename 1",
+	"Forename 2",
+	"Forename 3"
 }
 
 PlayerGen.surnames = {
-	"Xylophone",
-	"Yellowson",
-	"Zebra-Smith"
+	"Surname 1",
+	"Surname 2",
+	"Surname 3"
 }
 
-PlayerGen.bios = {
-	"Has hair",
-	"Does not like peaches",
-	"Wishes he was massive, like REALLY massive"
+PlayerGen.bios1 = {
+	"Bio 1 - 1",
+	"Bio 1 - 2",
+	"Bio 1 - 3"
+}
+
+PlayerGen.bios2 = {
+	"Bio 2 - 1",
+	"Bio 2 - 2",
+	"Bio 2 - 3"
+}
+
+PlayerGen.bios3 = {
+	"Bio 3 - 1",
+	"Bio 3 - 2",
+	"Bio 3 - 3"
 }
 
 function PlayerGen:newPlayer()
@@ -36,7 +48,7 @@ function PlayerGen:randomName()
 end
 
 function PlayerGen:randomBio()
-	bio = self.bios[math.random(#self.bios)] .. " " .. self.bios[math.random(#self.bios)] .. " " .. self.bios[math.random(#self.bios)]
+	bio = self.bios1[math.random(#self.bios1)] .. " " .. self.bios2[math.random(#self.bios2)] .. " " .. self.bios3[math.random(#self.bios3)]
 	print(bio)
 	return bio
 end

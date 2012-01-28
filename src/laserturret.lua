@@ -16,7 +16,7 @@ function LaserTurret:fire(targetX, targetY)
 	State.world:add(Laser:new(self.x + 16, self.y + 16, targetX, targetY))
 	love.audio.play(love.audio.newSource('audio/laser.wav'))
 	
-	State.player:die()
+	State.player:die("ash")
 end
 
 function LaserTurret:scanX(dx, dtime)
