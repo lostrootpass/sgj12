@@ -1,4 +1,4 @@
-require("laser")
+require("laserturret")
 require("blade")
 require("button")
 require("pit")
@@ -7,7 +7,7 @@ require("sign")
 require("conveyor")
 
 mobiles = {
-	laser = Laser,
+	laser = LaserTurret,
 	blade = Blade,
 	button = Button,
 	pit = Pit,
