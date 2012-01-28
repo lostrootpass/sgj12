@@ -8,7 +8,7 @@ function Player:init()
 	y = 300
 	movementSpeed = 100
 	spriteWidth = 32
-	sprite = Sprite:new("assets/graphics/contestant.png", 32,  32)
+	sprite = Sprite:new("graphics/contestant.png", 32,  32)
 	sprite:add("stand", {1})
 	sprite:add("walk", {2, 3, 4, 5}, 0.1)
 	sprite:play("stand")
@@ -46,9 +46,14 @@ function Player:update(dtime)
 		sprite:play("stand")
 	end
 	
+	self.checkCollisions()
 	self.checkOffScreen()
 	
 	sprite:update(dtime)
+end
+
+function Player:checkCollisions()
+	
 end
 
 function Player:checkOffScreen()

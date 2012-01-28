@@ -10,7 +10,7 @@ World = Object:new()
 World.entities = {}
 
 function World:init(tilemap)
-	tilemap = tilemap or "assets/level/tile1.tmx"
+	tilemap = tilemap or "level/test4.tmx"
 	TiledMap_Load(tilemap)
 	
 	self.entities = {}
@@ -19,17 +19,6 @@ function World:init(tilemap)
 		State.player = Player:new()
 		print(State.player)
 	end
-	player = Entity:new()
-	player:setGraphic("assets/graphics/tile.png")
-	player:setPosition(100, 100)
-	self:add(player)
-
-	local hints = Dialogue:new()
-	hints:setText("Hello World")
-	hints:setGraphic("assets/graphics/dialogueBg.png")
-	hints:setPosition(0, 400)
-	hints:setVisible(false)
-	self.dialogue = hints
 end
 
 function World:add(entity)
@@ -37,13 +26,12 @@ function World:add(entity)
 end
 
 function World:draw()
-	TiledMap_DrawNearCam(432,332)
+	TiledMap_DrawNearCam(432,332 - 12)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
 	
 	State.player:draw()
-	self.dialogue:draw()
 end
 
 function World:update(dtime)
