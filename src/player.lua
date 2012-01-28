@@ -1,106 +1,120 @@
 require('entity')
 require('sprite')
-require('tmap')
+require('hitbox')
 
 Player = Entity:new()
 
 function Player:init()
-	x = 400
-	y = 300
-	movementSpeed = 100
-	spriteWidth = 16
-	spriteHeight = 32
-	sprite = Sprite:new("graphics/contestant.png", 32,  32)
-	sprite:add("stand", {1})
-	sprite:add("walk", {2, 3, 4, 5}, 0.1)
-	sprite:play("stand")
-end
+	self.x = 400
+	self.y = 300
+	self.movementSpeed = 100
+	self.spriteWidth = 32
+	self.moving = false
+	self.direction = 'down'
+	
+	self.name = "NAME NOT SET"
+	self.bio = "BIO NOT SET"
 
-function Player:draw()
-	love.graphics.push()
-		love.graphics.translate(x, y)
-		sprite:draw()
-	love.graphics.pop()
+	sprite = Sprite:new("graphics/contestant.png", 32,  32)
+	sprite:add("stand_up", {1})
+	sprite:add("walk_up", {2, 3, 4, 5}, 0.1)
+	
+	sprite:add("stand_down", {6})
+	sprite:add("walk_down", {7, 8, 9, 10}, 0.1)
+	
+	sprite:add("stand_left", {11})
+	sprite:add("walk_left", {12, 13, 14, 15}, 0.1)
+	
+	sprite:add("stand_right", {16})
+	sprite:add("walk_right", {17, 18, 19, 20}, 0.1)
+	
+	sprite:play("stand_down")
+	self.graphic = sprite
+	
+	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
 end
 
 function Player:update(dtime)
-	local moving = false
+	self.moving = false
 	
 	if love.keyboard.isDown("up") then
-		desiredY = y - (movementSpeed * dtime)
-		local tile = TiledMap_GetMapTile(math.ceil(x/32)+1, math.floor((desiredY + 8)/32)+1, 1)
+		local nextY = self.y - (self.movementSpeed * dtime)
 		
-		if tile == 0 then
-			y = desiredY
-			moving = true
-		else
-			return
+		if not self:checkCollisions(self.x, nextY) then
+			self.y = nextY
+			self.moving = true
+			self.direction = 'up'
 		end
 	elseif love.keyboard.isDown("down") then
-		desiredY = y + (movementSpeed * dtime)
-		local tile = TiledMap_GetMapTile(math.ceil(x/32)+1, math.floor((desiredY + spriteHeight)/32)+1, 1)
+		local nextY = self.y + (self.movementSpeed * dtime)
 		
-		if tile == 0 then
-			y = desiredY
-			moving = true
-		else
-			return
+		if not self:checkCollisions(self.x, nextY) then
+			self.y = nextY
+			self.moving = true
+			self.direction = 'down'
 		end
 	end
 	
 	if love.keyboard.isDown("left") then
-		desiredX = x - (movementSpeed * dtime)
-		local tile = TiledMap_GetMapTile(math.floor((desiredX +16)/32)+1, math.ceil(y/32)+1, 1)
-		local tile2 = TiledMap_GetMapTile(math.floor((desiredX + 16)/32)+1, math.floor(y/32)+1, 1)
-		
-		if tile == 0 and tile2 == 0 then
-			x = desiredX
-			moving = true
-		else
-			return
+		local nextX = self.x - (self.movementSpeed * dtime)
+		if not self:checkCollisions(nextX, self.y) then
+			self.x = nextX
+			self.moving = true
+			self.direction = 'left'
 		end
+			
 	elseif love.keyboard.isDown("right") then
-		desiredX = x + (movementSpeed * dtime)
-		local tile = TiledMap_GetMapTile(math.floor((desiredX + spriteWidth + 8)/32)+1, math.floor(y/32)+1, 1)
-		local tile2 = TiledMap_GetMapTile(math.floor((desiredX + spriteWidth + 8)/32)+1, math.ceil(y/32)+1, 1)
-		
-		if tile == 0 and tile2 == 0 then
-			x = desiredX
-			moving = true
-		else
-			return
+		local nextX = self.x + (self.movementSpeed * dtime)
+		if not self:checkCollisions(nextX, self.y) then
+			self.x = nextX
+			self.moving = true
+			self.direction = 'right'
 		end
 	end
 	
-	if love.keyboard.isDown(" ") then
-		print("X: " .. x)
-	end
-	
-	if moving == true then
-		sprite:play("walk")
+	if self.moving == true then
+		sprite:play("walk_" .. self.direction)
 	else
-		sprite:play("stand")
+		sprite:play("stand_" .. self.direction)
 	end
 	
-	self.checkOffScreen()
+	self.hitbox.x = self.x
+	self.hitbox.y = self.y
+	self:checkOffScreen()
 	
 	sprite:update(dtime)
 end
 
-function Player:checkCollisions()
-	local tile = TiledMap_GetMapTile(math.floor(x/32), math.floor(y/32), 0)
+function Player:checkCollisions(x, y)
+	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
 end
 
 function Player:checkOffScreen()
-	if x > 800 then
-		x = 0
-	elseif x < 0 then
-		x = 800
+	if self.x > 800 then
+		self.x = 0
+	elseif self.x < 0 then
+		self.x = 800
 	end
 	
-	if y > 600 then
-		y = 0
-	elseif y < 0 then
-		y = 600
+	if self.y > 600 then
+		self.y = 0
+	elseif self.y < 0 then
+		self.y = 600
 	end
+end
+
+function Player:getName()
+	return self.name
+end
+
+function Player:setName(name)
+	self.name = name
+end
+
+function Player:getBio()
+	return self.bio
+end
+
+function Player:setBio(bio)
+	self.bio = bio
 end

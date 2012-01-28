@@ -1,4 +1,5 @@
 require('object')
+require('image')
 
 Entity = Object:new()
 
@@ -10,7 +11,7 @@ function Entity:init()
 end
 
 function Entity:setGraphic(filepath)
-	self.graphic = love.graphics.newImage(filepath)
+	self.graphic = Image:new(filepath)
 end
 
 function Entity:setPosition(x, y)
@@ -29,7 +30,9 @@ end
 function Entity:draw()
 	if self.visible then
 		if self.graphic ~= nil then
-			love.graphics.draw(self.graphic, self.x, self.y)
+			self.graphic.x = self.x
+			self.graphic.y = self.y
+			self.graphic:draw()
 		end
 	end
 end

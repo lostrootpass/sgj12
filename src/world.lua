@@ -4,6 +4,9 @@ require('player')
 require('tmap')
 require('entity')
 require('dialogue')
+require('entloader')
+require('playergen')
+require('entloader')
 
 World = Object:new()
 
@@ -15,19 +18,26 @@ function World:init(tilemap)
 	
 	self.entities = {}
 	
+	loadEntities(self, TiledMap_GetMapObjects())
+	
+	self.width = 800
+	self.height = 576
+
+	Dialogue:setGraphic("graphics/dialogueBg.png")
+	Dialogue:setPosition(0, 470)
+	Dialogue:setTextPosition(40, 40)
+	Dialogue:setFont("fonts/verdana.ttf", 16)
+	Dialogue:setTextColor(255, 255, 255, 255)
+	Dialogue:setVisible(false)
+
+	PlayerGen:newPlayer()
+
 	if State.player == nil then
 		State.player = Player:new()
 		print(State.player)
 	end
 
-	self.dialogue = Dialogue:new()
-	self.dialogue:setGraphic("graphics/dialogueBg.png")
-	self.dialogue:setPosition(0, 300)
-	self.dialogue:setTextPosition(40, 40)
-	self.dialogue:setText("hello world")
-	self.dialogue:setFont("fonts/verdana.ttf", 72)
-	self.dialogue:setColor(0, 0, 0, 255)
-	self.dialogue:setVisible(true)
+	Dialogue:show("Welcome")
 end
 
 function World:add(entity)
@@ -35,6 +45,7 @@ function World:add(entity)
 end
 
 function World:draw()
+	love.graphics.translate(0, 12)
 	TiledMap_DrawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
@@ -42,9 +53,7 @@ function World:draw()
 	
 	State.player:draw()
 
-	if self.dialogue ~= nil then
-		self.dialogue:draw()
-	end
+	Dialogue:draw()
 end
 
 function World:update(dtime)
@@ -53,6 +62,20 @@ function World:update(dtime)
 	end
 	
 	State.player:update(dtime)
+
+	Dialogue:update(dtime)
+
+	if love.keyboard.isDown("a") then
+		Dialogue:hide()
+	end
+	
+	if love.keyboard.isDown("z") then
+		PlayerGen:newPlayer()
+	end
+end
+
+function World:blocked(tx, ty)
+	return TiledMap_GetMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
 end
 
 function World:remove(entity)
