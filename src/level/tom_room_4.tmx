@@ -4,7 +4,7 @@
   <image source="../Art/room_tileset.png" trans="ff00ff" width="192" height="256"/>
  </tileset>
  <tileset firstgid="49" name="GGJ2012" tilewidth="32" tileheight="32">
-  <image source="../../GameJam2012/src/graphics/room_tileset.png" trans="ff00ff" width="192" height="256"/>
+  <image source="../graphics/room_tileset.png" trans="ff00ff" width="192" height="256"/>
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data>
