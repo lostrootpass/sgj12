@@ -3,9 +3,10 @@ require('object')
 Entity = Object:new()
 
 function Entity:init()
-	graphic = nil
-	x = 0
-	y = 0
+	self.graphic = nil
+	self.x = 0
+	self.y = 0
+	self.visible = true
 end
 
 function Entity:setGraphic(filepath)
@@ -17,9 +18,15 @@ function Entity:setPosition(x, y)
 	self.y = y
 end
 
+function Entity:setVisible(isVisible)
+	self.visible = isVisible or true
+end
+
 function Entity:draw()
-	if self.graphic ~= nil then
-		love.graphics.draw(self.graphic, self.x, self.y)
+	if self.visible then
+		if self.graphic ~= nil then
+			love.graphics.draw(self.graphic, self.x, self.y)
+		end
 	end
 end
 
