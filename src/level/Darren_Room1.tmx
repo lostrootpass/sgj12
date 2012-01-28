@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="room_tileset" tilewidth="32" tileheight="32">
+  <image source="../graphics/room_tileset.png" width="192" height="128"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="25" height="18">
+  <data encoding="base64" compression="zlib">
+   eJy9lN0KgCAMRlddlPRf7/+u7cJARL+50frgYIFy3LRmIlodWZid6ZjBgZ45oiMwtwKqjPlzAI7aGm0sjtI7qjV1eOVvh6ZX6A7k55Y7KJlbcqQjSquj5b6iWiSHJVqH1B/Nd2TtVc1pqQPt3cMhBa35wiH18nWM5PNvn6LjZDZHLuYBCTIOrw==
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="25" height="18">
+  <object name="DOOR" type="door" x="32" y="160" width="32" height="64"/>
+  <object name="DOOR" type="door" x="736" y="448" width="32" height="64"/>
+  <object name="Gate" type="hiddenpit" x="672" y="384" width="64" height="32"/>
+  <object name="Blade" type="blade" x="96" y="256" width="32" height="160"/>
+  <object name="Blade" type="blade" x="257" y="97" width="30" height="188"/>
+  <object name="laser" type="laser" x="352" y="96" width="32" height="32"/>
+  <object name="Button" type="button" x="64" y="448" width="32" height="29"/>
+  <object name="Blade" type="blade" x="160" y="96" width="30" height="188"/>
+  <object name="laser" type="laser" x="512" y="448" width="32" height="32"/>
+  <object name="Blade" type="blade" x="320" y="256" width="32" height="160"/>
+  <object name="laser" type="laser" x="608" y="256" width="32" height="32"/>
+  <object name="laser" type="laser" x="576" y="480" width="32" height="32"/>
+  <object name="Blade" type="blade" x="448" y="384" width="32" height="128"/>
+  <object name="Pit" type="pit" x="224" y="448" width="32" height="32"/>
+  <object name="Pit" type="pit" x="160" y="480" width="32" height="32"/>
+  <object name="Pit" type="pit" x="224" y="480" width="32" height="32"/>
+  <object name="Pit" type="pit" x="160" y="448" width="32" height="32"/>
+  <object name="Button" type="button" x="192" y="480" width="32" height="32"/>
+  <object name="Pit" type="pit" x="160" y="416" width="32" height="32"/>
+  <object name="Pit" type="pit" x="608" y="160" width="32" height="32"/>
+  <object name="laser" type="laser" x="65" y="321" width="32" height="32"/>
+  <object name="Pit" type="pit" x="480" y="192" width="32" height="32"/>
+  <object name="Pit" type="pit" x="448" y="160" width="32" height="32"/>
+  <object name="Pit" type="pit" x="384" y="192" width="32" height="32"/>
+  <object name="Pit" type="pit" x="288" y="160" width="32" height="32"/>
+  <object name="Pit" type="pit" x="256" y="160" width="32" height="32"/>
+  <object name="Pit" type="pit" x="192" y="192" width="32" height="32"/>
+  <object name="Pit" type="pit" x="160" y="192" width="32" height="32"/>
+  <object name="Pit" type="pit" x="96" y="160" width="32" height="32"/>
+ </objectgroup>
+</map>
