@@ -33,7 +33,7 @@ function Player:init()
 	sprite:play("stand_down")
 	self.graphic = sprite
 	
-	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
+	self.hitbox = Hitbox:new(self.x + 8, self.y + 2, 16, 30)
 	
 	self.alive = true
 	
@@ -52,7 +52,7 @@ function Player:update(dtime)
 	if love.keyboard.isDown("up") then
 		local nextY = self.y - (self.movementSpeed * dtime)
 		
-		if not self:checkCollisions(self.x, nextY) then
+		if not self:checkCollisions(self.x + 8, nextY + 2) then
 			self.y = nextY
 			self.moving = true
 			self.direction = 'up'
@@ -61,7 +61,7 @@ function Player:update(dtime)
 		
 		local nextY = self.y + (self.movementSpeed * dtime)
 		
-		if not self:checkCollisions(self.x, nextY) then
+		if not self:checkCollisions(self.x + 8, nextY + 2) then
 			self.y = nextY
 			self.moving = true
 			self.direction = 'down'
@@ -70,7 +70,7 @@ function Player:update(dtime)
 	
 	if love.keyboard.isDown("left") then
 		local nextX = self.x - (self.movementSpeed * dtime)
-		if not self:checkCollisions(nextX, self.y) then
+		if not self:checkCollisions(nextX + 8, self.y + 2) then
 			self.x = nextX
 			self.moving = true
 			self.direction = 'left'
@@ -78,7 +78,7 @@ function Player:update(dtime)
 			
 	elseif love.keyboard.isDown("right") then
 		local nextX = self.x + (self.movementSpeed * dtime)
-		if not self:checkCollisions(nextX, self.y) then
+		if not self:checkCollisions(nextX + 8, self.y + 2) then
 			self.x = nextX
 			self.moving = true
 			self.direction = 'right'
@@ -91,8 +91,8 @@ function Player:update(dtime)
 		sprite:play("stand_" .. self.direction)
 	end
 	
-	self.hitbox.x = self.x
-	self.hitbox.y = self.y
+	self.hitbox.x = self.x + 8
+	self.hitbox.y = self.y + 2
 	self:checkOffScreen()
 	
 	if self.moving and self.footsteps:isStopped() then 
@@ -106,7 +106,7 @@ function Player:update(dtime)
 end
 
 function Player:checkCollisions(x, y)
-	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
+	return State.world:blocked(x, y) or State.world:blocked(self.hitbox.x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
 end
 
 function Player:checkOffScreen()
