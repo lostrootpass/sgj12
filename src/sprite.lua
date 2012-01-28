@@ -16,6 +16,7 @@ function Sprite:init(imageName, frameWidth, frameHeight)
 	self.image = love.graphics.newImage(imageName)
 	self.frameWidth = frameWidth or 32
 	self.frameHeight = frameHeight or 32	
+	self.loop = true
 end
 
 function Sprite:add(animation, frames, frameTime)
@@ -37,12 +38,10 @@ end
 
 function Sprite:draw()
 	love.graphics.drawq(self.image, self.animations[self.animation].frames[self.frame], self.x, self.y)
-end	
+end
 
-function Sprite:play(animation, loop)
-	if loop == nil then loop = true end
-	self.loop = loop
-	
+function Sprite:play(animation, disableLoop)
+	self.loop = not disableLoop
 	if self.animation == animation then
 		return
 	end
@@ -56,13 +55,10 @@ function Sprite:update(dtime)
 	local animation = self.animations[self.animation]
 	if(self.time >= animation.frameTime) then
 		self.time = 0
-		self.frame = self.frame + 1
-		if self.frame > table.getn(animation.frames) then 
-			if self.loop then
-				self.frame = 1 
-			else
-				self.frame = table.getn(animation.frames)
-			end
+		if self.frame + 1 > table.getn(animation.frames) then
+			if self.loop then self.frame = 1 end
+		else
+			self.frame = self.frame + 1
 		end
 	end
 end

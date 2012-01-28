@@ -4,7 +4,7 @@
   <image source="black.png" width="32" height="32"/>
  </tileset>
  <tileset firstgid="2" name="room_tileset" tilewidth="32" tileheight="32">
-  <image source="../../Desktop/sgj12/src/graphics/room_tileset.png" width="192" height="128"/>
+  <image source="../../Desktop/sgj12/src/graphics/room_tileset.png" width="192" height="224"/>
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data>
@@ -469,6 +469,14 @@
   <object name="button (kill)" type="button" x="224" y="256" width="32" height="32"/>
   <object name="button (kill)" type="button" x="320" y="256" width="32" height="32"/>
   <object name="button (kill)" type="button" x="512" y="256" width="32" height="32"/>
-  <object name="Sign" type="sign" x="256" y="352" width="32" height="32"/>
+  <object name="Sign" type="sign" x="256" y="352" width="32" height="32">
+   <properties>
+    <property name="text">A opens the doors \n
+
+B is to the left of C
+\n
+D is three to the right of B</property>
+   </properties>
+  </object>
  </objectgroup>
 </map>
