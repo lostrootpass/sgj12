@@ -24,6 +24,7 @@ function LaserTurret:update(dtime)
 
 	if State.player.hitbox:intersects(leftRay) and State.player.alive then		
 		State.world:add(Laser:new(self.x + 16, self.y + 16, rayX, rayY + 1))
+		love.audio.play(love.audio.newSource('audio/laser.wav'))
 		
 		State.player:die()
 	end
