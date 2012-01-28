@@ -12,7 +12,6 @@ Sprite.frameWidth = 32
 Sprite.frameHeight = 32
 
 function Sprite:init(imageName, frameWidth, frameHeight)
-print(imageName)
 	self.image = love.graphics.newImage(imageName)
 end
 
@@ -20,8 +19,12 @@ function Sprite:add(animation, frames, frameTime)
 	frameTime = frameTime or 1
 	self.animations[animation] = {frames = {}, frameTime = frameTime}
 	for i = 1, table.getn(frames) do
-		local x = self.frameWidth * (frames[i]-1)
-		table.insert(self.animations[animation].frames, love.graphics.newQuad(x, 0, self.frameWidth, self.frameHeight, self.image:getWidth(), self.image:getHeight()))
+		
+		local rowLength = self.image:getWidth() / self.frameWidth
+		local fx = (frames[i]-1) % rowLength
+		local fy = math.floor((frames[i]-1) / rowLength)
+		
+		table.insert(self.animations[animation].frames, love.graphics.newQuad(fx * self.frameWidth, fy * self.frameHeight, self.frameWidth, self.frameHeight, self.image:getWidth(), self.image:getHeight()))
 	end
 	
 	if self.animation == "" then
