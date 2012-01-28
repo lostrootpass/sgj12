@@ -120,5 +120,5 @@ function Player:setBio(bio)
 end
 
 function Player:die()
-	return
+	print "Player has died..."
 end
