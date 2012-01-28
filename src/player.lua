@@ -6,8 +6,8 @@ require('corpse')
 Player = Entity:new()
 
 function Player:init()
-	self.x = 420
-	self.y = 280
+	self.x = 400
+	self.y = 300
 	self.movementSpeed = 100
 	self.spriteWidth = 32
 	self.moving = false
@@ -18,25 +18,21 @@ function Player:init()
 
 	sprite = Sprite:new("graphics/contestant.png", 32,  32)
 	sprite:add("stand_up", {1})
-	sprite:add("walk_up", {2, 3, 4, 5}, 0.2)
+	sprite:add("walk_up", {2, 3, 4, 5}, 0.1)
 	
 	sprite:add("stand_down", {6})
-	sprite:add("walk_down", {7, 8, 9, 10}, 0.2)
+	sprite:add("walk_down", {7, 8, 9, 10}, 0.1)
 	
 	sprite:add("stand_left", {11})
-	sprite:add("walk_left", {12, 13, 14, 15}, 0.2)
+	sprite:add("walk_left", {12, 13, 14, 15}, 0.1)
 	
 	sprite:add("stand_right", {16})
-	sprite:add("walk_right", {17, 18, 19, 20}, 0.2)
+	sprite:add("walk_right", {17, 18, 19, 20}, 0.1)
 	
 	sprite:play("stand_down")
 	self.graphic = sprite
 	
 	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
-	
-	self.alive = true
-	
-	self.footsteps = love.audio.newSource('audio/footsteps.ogg')
 end
 
 function Player:update(dtime)
@@ -87,13 +83,6 @@ function Player:update(dtime)
 	self.hitbox.y = self.y
 	self:checkOffScreen()
 	
-	if self.moving and self.footsteps:isStopped() then 
-		self.footsteps:play()
-		self.footsteps:setLooping(true)
-	elseif not self.moving then
-		self.footsteps:stop()
-	end
-	
 	sprite:update(dtime)
 end
 
@@ -131,18 +120,16 @@ function Player:setBio(bio)
 	self.bio = bio
 end
 
-function Player:die(animation)
-	animation = animation or ''
+function Player:die()
 	print "Player has died..."
 	self.alive = false
 	State.world:remove(self)
-	local corpse = Corpse:new(animation)
+	local corpse = Corpse:new()
 	corpse.x = self.x
 	corpse.y = self.y
 	State.world:add(corpse)
-	self.footsteps:stop()
 end
 
 function Player:changeRoom(newRoom)
-	print(newRoom)
+	State.director:loadNextLevel(newRoom)
 end

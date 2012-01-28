@@ -14,9 +14,14 @@ end
 
 function love.draw()
 	love.graphics.translate(0, 12)
-	State.world:draw()
+	
+	if State.world ~= nil then
+		State.world:draw()
+	end
 end
 
 function love.update(dtime)
-	State.world:update(dtime)
+	if State.world ~= nil then
+		State.world:update(dtime)
+	end
 end

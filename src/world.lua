@@ -15,8 +15,9 @@ World = Object:new()
 World.entities = {}
 
 function World:init(tilemap)
-	tilemap = tilemap or "level/Darren_Room1.tmx"
-	self.map = MapLoader:new(tilemap)
+	--tilemap = tilemap or "level/Darren_Room1.tmx"
+	--self.map = MapLoader:new(tilemap)
+	self.map = tilemap
 	
 	self.entities = {}
 	self.deadpool = {}
@@ -41,6 +42,15 @@ function World:init(tilemap)
 	end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
+	local sign = Sign:new()
+	sign.x = 320
+	sign.y = 32
+	self:add(sign)
+	
+	local turret = LaserTurret:new()
+	turret.x = 320
+	turret.y = 320
+	self:add(turret)
 end
 
 function World:add(entity)
@@ -60,6 +70,7 @@ end
 function World:update(dtime)
 	for i = 1, table.getn(self.entities) do
 		if self.entities[i] ~= nil then
+			--print(self.entities[i]:getType())
 			self.entities[i]:update(dtime)
 		end
 	end
