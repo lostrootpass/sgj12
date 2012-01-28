@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tile" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" width="192" height="128"/>
+  <image source="../graphics/room_tileset.png" width="192" height="224"/>
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data>
@@ -38,13 +38,13 @@
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
-   <tile gid="3"/>
+   <tile gid="34"/>
    <tile gid="3"/>
    <tile gid="10"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="4"/>
-   <tile gid="3"/>
+   <tile gid="22"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
@@ -103,7 +103,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="9"/>
+   <tile gid="24"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="9"/>
@@ -156,7 +156,7 @@
    <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
-   <tile gid="9"/>
+   <tile gid="25"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -410,7 +410,7 @@
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
-   <tile gid="3"/>
+   <tile gid="22"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
@@ -463,37 +463,37 @@
   <object type="hiddenpit" x="64" y="64" width="32" height="32"/>
   <object name="!!" type="sign" x="64" y="192" width="32" height="32">
    <properties>
-    <property name="text" value="&gt;"/>
+    <property name="text" value="RIGHT"/>
    </properties>
   </object>
   <object name="!!" type="sign" x="320" y="320" width="32" height="32">
    <properties>
-    <property name="text" value="&lt;"/>
+    <property name="text" value="LEFT"/>
    </properties>
   </object>
   <object name="!!" type="sign" x="288" y="448" width="32" height="32">
    <properties>
-    <property name="text" value="Follow the signs. /\"/>
+    <property name="text" value="OBEY \n \n UP"/>
    </properties>
   </object>
   <object name="!!" type="sign" x="704" y="192" width="32" height="32">
    <properties>
-    <property name="text" value="/\"/>
+    <property name="text" value="UP"/>
    </properties>
   </object>
   <object name="!!" type="sign" x="672" y="64" width="32" height="32">
    <properties>
-    <property name="text" value="&lt;"/>
+    <property name="text" value="LEFT"/>
    </properties>
   </object>
   <object name="!!" type="sign" x="288" y="64" width="32" height="32">
    <properties>
-    <property name="text" value="Dead End"/>
+    <property name="text" value="TOO FAR"/>
    </properties>
   </object>
   <object name="!!" type="sign" x="96" y="320" width="32" height="32">
    <properties>
-    <property name="text" value="/\"/>
+    <property name="text" value="UP"/>
    </properties>
   </object>
   <object type="hiddenpit" x="96" y="64" width="32" height="32"/>
