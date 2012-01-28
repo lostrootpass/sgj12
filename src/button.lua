@@ -10,8 +10,10 @@ function Button:init()
 	self.graphic:add("on", {2})
 	self.is_pressed = false
 	self.graphic:play("off")
-	self.hitbox = Hitbox:new(0, 32, 32, 32)
+	self.interactBox = Hitbox:new(0, 32, 32, 32)
+	self.hitbox = Hitbox:new(8, 8, 16, 24)
 	self.id = nil
+	self.solid = true
 end
 
 function Button:broadcast(id)
@@ -23,8 +25,11 @@ function Button:broadcast(id)
 end	
 
 function Button:update(dtime)
-	self.hitbox.x = self.x
-	self.hitbox.y = self.y + 32
+	self.interactBox.x = self.x
+	self.interactBox.y = self.y + 32
+	
+	self.hitbox.x = self.x + 8
+	self.hitbox.y = self.y + 8
 	
 	self.graphic:update(dtime)
 	if self.is_pressed then
@@ -32,7 +37,7 @@ function Button:update(dtime)
 	end
 	
 	if love.keyboard.isDown(' ') then
-		if self.hitbox:intersects(State.player.hitbox) then
+		if self.interactBox:intersects(State.player.hitbox) then
 			self.is_pressed = true
 			if self.id then
 				self:broadcast(self.id)
