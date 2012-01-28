@@ -8,6 +8,8 @@ LaserTurret = Entity:new()
 function LaserTurret:init(x, y)
 	self.type = "turret"
 	self.graphic = Image:new('graphics/laser_turret.png', 32, 32)
+	self.charge = 0
+	self.chargeTime = 0.5
 end
 
 function LaserTurret:fire(targetX, targetY)	
@@ -17,7 +19,7 @@ function LaserTurret:fire(targetX, targetY)
 	State.player:die()
 end
 
-function LaserTurret:scanX(dx)
+function LaserTurret:scanX(dx, dtime)
 	local rayX = self.x + 16
 	local rayY = self.y + 16
 	
@@ -36,11 +38,15 @@ function LaserTurret:scanX(dx)
 	end
 
 	if State.player.hitbox:intersects(rayBox) and State.player.alive then		
-		self:fire(rayX+1, rayY+1)
+		self.charging = true
+		self.charge = self.charge + dtime
+		if self.charge > self.chargeTime then
+			self:fire(rayX+1, rayY+1)
+		end
 	end
 end
 
-function LaserTurret:scanY(dy)
+function LaserTurret:scanY(dy, dtime)
 	local rayX = self.x + 16
 	local rayY = self.y + 16
 	
@@ -58,13 +64,19 @@ function LaserTurret:scanY(dy)
 	end
 
 	if State.player.hitbox:intersects(rayBox) and State.player.alive then	
-		self:fire(rayX+1, rayY+1)
+		self.charging = true
+		self.charge = self.charge + dtime
+		if self.charge > self.chargeTime then
+			self:fire(rayX+1, rayY+1)
+		end
 	end
 end
 
 function LaserTurret:update(dtime)
-	self:scanX(32)
-	self:scanX(-32)
-	self:scanY(32)
-	self:scanY(-32)
+	self.charging = false
+	self:scanX(32, dtime)
+	self:scanX(-32, dtime)
+	self:scanY(32, dtime)
+	self:scanY(-32, dtime)
+	if not self.charging then self.charge = 0 end
 end
