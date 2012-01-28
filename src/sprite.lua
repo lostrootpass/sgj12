@@ -9,12 +9,13 @@ Sprite.frame = 1
 Sprite.animation = ''
 Sprite.frameWidth = 32
 Sprite.frameHeight = 32
+Sprite.loop = true
 
 function Sprite:init(imageName, frameWidth, frameHeight)
 	self.animations = {}
 	self.image = love.graphics.newImage(imageName)
 	self.frameWidth = frameWidth or 32
-	self.frameHeight = frameHeight or 32
+	self.frameHeight = frameHeight or 32	
 	self.loop = true
 end
 

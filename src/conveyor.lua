@@ -4,6 +4,7 @@ require('sprite')
 Conveyor = Entity:new()
 
 function Conveyor:init()
+	self.type = "conveyor"
 	self.graphic = Sprite:new('graphics/conveyor.png', 32, 32)
 end
 

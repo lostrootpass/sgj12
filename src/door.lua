@@ -1,13 +1,27 @@
 require('entity')
 require('sprite')
+require('hitbox')
+require('state')
 
 Door = Entity:new()
 
 function Door:init(dir, st)
+	self.type = "door"
 	self.state = st or "closed"
-	
+	self.dir = dir
 	self.switchOffsetX = 0
 	self.switchOffsetY = 0
+
+	local x = 0
+	local y = 0
+
+	if dir == "n" or dir == "s" then
+		x = 64
+		y = 32
+	elseif dir =="e"  or dir == "w" then
+		x = 32
+		y = 64
+	end
 
 	if dir == "n" then
 		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
@@ -30,11 +44,11 @@ function Door:init(dir, st)
 		self.switchHitbox = Hitbox:new(32, 0, 32, 64)
 		self.switchOffsetX = 32
 	end
-	
+
 	self.graphic:add("closed", {1})
 	self.graphic:add("opening", {1, 2, 3})
 	self.graphic:add("open", {3})
-	
+
 	self.is_pressed = false
 	self.graphic:play(self.state)
 end
@@ -49,8 +63,8 @@ function Door:update(dtime)
 		self.graphic:play("opening", true)
 	end
 
-	if self.doorHitbox ~= nil and self.doorHitbox:intersects(State.player.hitbox) then
-		print "Change rooms.."
+	if self.doorHitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then --and self.state == "open" then
+		State.player:changeRoom( self.dir )
 	end
 
 	self.graphic:update(dtime)

@@ -23,9 +23,9 @@ function loadEntities(world, map_objects)
 	for i, o in ipairs(map_objects) do
 		if o.t == "door" then
 			if o.y <= 64 then
-				e = Door:new("n", "open")
+				e = Door:new("n", "closed")
 			elseif o.y >= 576-64 then --world.height - 64 then
-				e = Door:new("s", "closed")
+				e = Door:new("s", "open")
 			elseif o.x <= 64 then
 				e = Door:new("w", "closed")
 			else

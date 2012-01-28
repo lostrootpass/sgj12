@@ -1,14 +1,13 @@
 require('object')
 require('state')
 require('player')
-require('tmap')
 require('entity')
 require('dialogue')
 require('entloader')
 require('playergen')
 require('entloader')
+require('maploader')
 require('laserturret')
-
 require('sign')
 
 World = Object:new()
@@ -16,12 +15,13 @@ World = Object:new()
 World.entities = {}
 
 function World:init(tilemap)
-	tilemap = tilemap or "level/test4.tmx"
-	TiledMap_Load(tilemap)
+	tilemap = tilemap or "level/Darren_Room1.tmx"
+	self.map = MapLoader:new(tilemap)
 	
 	self.entities = {}
+	self.deadpool = {}
 	
-	loadEntities(self, TiledMap_GetMapObjects())
+	loadEntities(self, self.map:getMapObjects())
 	
 	self.width = 800
 	self.height = 576
@@ -37,9 +37,9 @@ function World:init(tilemap)
 
 	if State.player == nil then
 		State.player = Player:new()
-		print(State.player)
+		self:add(State.player)
 	end
-	
+
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
 	local sign = Sign:new()
 	sign.x = 320
@@ -50,7 +50,6 @@ function World:init(tilemap)
 	turret.x = 320
 	turret.y = 320
 	self:add(turret)
-	
 end
 
 function World:add(entity)
@@ -59,23 +58,21 @@ end
 
 function World:draw()
 	love.graphics.translate(0, 12)
-	TiledMap_DrawNearCam(432,332)
+	self.map:drawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
-	
-	State.player:draw()
 
 	Dialogue:draw()
 end
 
 function World:update(dtime)
 	for i = 1, table.getn(self.entities) do
-		self.entities[i]:update(dtime)
+		if self.entities[i] ~= nil then
+			self.entities[i]:update(dtime)
+		end
 	end
 	
-	State.player:update(dtime)
-
 	Dialogue:update(dtime)
 
 	if love.keyboard.isDown("a") then
@@ -85,16 +82,21 @@ function World:update(dtime)
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
 	end
+	
+	for dead=1, table.getn(self.deadpool) do
+		for index=1, table.getn(self.entities) do
+			if self.entities[index] == self.deadpool[dead] then
+				table.remove(self.entities, index)
+			end
+		end
+	end
+	self.deadpool = {}
 end
 
 function World:blocked(tx, ty)
-	return TiledMap_GetMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
+	return self.map:getMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
 end
 
 function World:remove(entity)
-	for index=1, table.getn(self.entities) do
-		if self.entities[index] == entity then
-			table.remove(self.entities, index)
-		end
-	end
+	table.insert(self.deadpool, entity)
 end
