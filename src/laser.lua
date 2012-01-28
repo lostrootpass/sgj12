@@ -5,13 +5,9 @@ require('state')
 Laser = Entity:new()
 
 function Laser:init()
-	self.sprite = Sprite:new('graphics/laser_turret.png', 32, 32)
-end
-
-function Laser:draw()
-	self.sprite:draw()
+	self.graphic = Sprite:new('graphics/laser_turret.png', 32, 32)
 end
 
 function Laser:update(dtime)
-	self.sprite:update(dtime)
+	self.graphic:update(dtime)
 end
