@@ -28,13 +28,7 @@ function Player:init()
 	sprite:add("walk_right", {17, 18, 19, 20}, 0.1)
 	
 	sprite:play("stand_down")
-end
-
-function Player:draw()
-	love.graphics.push()
-		love.graphics.translate(self.x, self.y)
-		sprite:draw()
-	love.graphics.pop()
+	self.graphic = sprite
 end
 
 function Player:update(dtime)
