@@ -8,6 +8,9 @@ require('entloader')
 require('playergen')
 require('entloader')
 
+
+require('sign')
+
 World = Object:new()
 
 World.entities = {}
@@ -36,10 +39,12 @@ function World:init(tilemap)
 		State.player = Player:new()
 		print(State.player)
 	end
-
-	Dialogue:show("Welcome")
 	
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
+	local sign = Sign:new()
+	sign.x = 320
+	sign.y = 32
+	self:add(sign)
 end
 
 function World:add(entity)
