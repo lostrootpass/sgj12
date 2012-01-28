@@ -33,7 +33,6 @@ function loadEntities(world, map_objects)
 			else
 				e = Door:new("e", "closed")
 			end
-			print(tostring(o.x).. tostring(o.y))
 			e:setPosition(o.x, o.y)
 			world:add(e)
 		elseif o.t == "sign" then

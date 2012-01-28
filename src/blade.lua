@@ -19,7 +19,7 @@ function Blade:update(dtime)
 	self.timer = self.timer + dtime
 	local py = self.y + (self.speed * dtime * self.dir)
 	
-	self.hitbox.x = self.x +8
+	self.hitbox.x = self.x + 8
 	self.hitbox.y = self.y
 	
 	if self.timer > .2 and (State.world:blocked(self.x, py) or State.world:blocked(self.x + self.hitbox.width, py) 

@@ -97,8 +97,7 @@ function Player:update(dtime)
 		self.footsteps:stop()
 	end
 	
-	sprite:update(dtime)
-	
+	sprite:update(dtime)	
 end
 
 function Player:checkCollisions(x, y)
@@ -152,5 +151,6 @@ function Player:die(animation)
 end
 
 function Player:changeRoom(newRoom)
-	print(newRoom)
+	State.world:remove(self)
+	State.universe:moveToArea(State.universe:nextArea(State.world.name, newRoom))
 end

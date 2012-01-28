@@ -173,12 +173,10 @@ end
 
 function PlayerGen:randomName()
 	name = self.forenames[math.random(#self.forenames)] .. " " .. self.surnames[math.random(#self.surnames)]
-	print(name)
 	return name
 end
 
 function PlayerGen:randomBio()
 	bio = self.bios1[math.random(#self.bios1)] .. " " .. self.bios2[math.random(#self.bios2)] .. " " .. self.bios3[math.random(#self.bios3)]
-	print(bio)
 	return bio
 end
