@@ -5,6 +5,7 @@ require('dialogue')
 Sign = Entity:new()
 
 function Sign:init()
+	self.type = "sign"
 	self.sprite = Image:new('graphics/sign.png')
 	self.text = "This is a sign."
 	self.hitbox = Hitbox:new(0, 32, 32, 32)

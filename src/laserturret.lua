@@ -6,6 +6,7 @@ require('laser')
 LaserTurret = Entity:new()
 
 function LaserTurret:init(x, y)
+	self.type = "turret"
 	self.graphic = Image:new('graphics/laser_turret.png', 32, 32)
 end
 

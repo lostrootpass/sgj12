@@ -7,6 +7,7 @@ Door = Entity:new()
 function Door:init(dir, st)
 	self.type = "door"
 	self.state = st
+	self.dir = dir
 	
 	local x = 0
 	local y = 0
@@ -26,11 +27,15 @@ function Door:init(dir, st)
 	self.graphic:add("open", {3})
 	
 	self.is_pressed = false
-	self.graphic:play("closed")
+	self.graphic:play("open")
 	
 	self.hitbox = Hitbox:new(0, 0, x, y)
 end
 
 function Door:update(dtime)
 	self.graphic:update(dtime)
+	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) and self.state == "open" then
+		State.player:change_room( self.dir )
+	end
+	
 end

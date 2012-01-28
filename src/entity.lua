@@ -4,6 +4,7 @@ require('image')
 Entity = Object:new()
 
 function Entity:init()
+	self.type = "generic"
 	self.graphic = nil
 	self.x = 0
 	self.y = 0
@@ -17,6 +18,10 @@ end
 function Entity:setPosition(x, y)
 	self.x = x
 	self.y = y
+end
+
+function Entity:getType()
+	return self.type
 end
 
 function Entity:setVisible(isVisible)
