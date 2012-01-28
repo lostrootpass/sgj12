@@ -146,7 +146,7 @@ function Player:die(animation)
 	print "Player has died..."
 	self.alive = false
 	State.world:remove(self)
-	local corpse = Corpse:new()
+	local corpse = Corpse:new(animation)
 	corpse.x = self.x
 	corpse.y = self.y
 	State.world:add(corpse)
