@@ -1,6 +1,7 @@
 require('entity')
 require('sprite')
 require('hitbox')
+require('corpse')
 
 Player = Entity:new()
 
@@ -11,7 +12,6 @@ function Player:init()
 	self.spriteWidth = 32
 	self.moving = false
 	self.direction = 'down'
-	self.alive = true
 	
 	self.name = "NAME NOT SET"
 	self.bio = "BIO NOT SET"
@@ -33,6 +33,8 @@ function Player:init()
 	self.graphic = sprite
 	
 	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
+	
+	self.alive = true
 end
 
 function Player:update(dtime)
@@ -123,4 +125,13 @@ end
 function Player:die()
 	print "Player has died..."
 	self.alive = false
+	State.world:remove(self)
+	local corpse = Corpse:new()
+	corpse.x = self.x
+	corpse.y = self.y
+	State.world:add(corpse)
+end
+
+function Player:changeRoom(newRoom)
+	print(newRoom)
 end

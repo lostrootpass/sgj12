@@ -6,6 +6,7 @@ require('line')
 Laser = Entity:new()
 
 function Laser:init(x, y, targetX, targetY)
+	self.type = "laser"
 	self.line = Line:new(x, y, targetX, targetY)
 	self.line.colour = {0xff, 0, 0}
 	self.graphic = self.line
