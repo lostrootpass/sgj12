@@ -5,6 +5,7 @@ Door = Entity:new()
 
 function Door:init(dir, st)
 	self.state = st or "closed"
+	self.direction = dir
 	
 	if dir == "n" then
 		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
@@ -26,4 +27,7 @@ end
 
 function Door:update(dtime)
 	self.graphic:update(dtime)
+	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) and self.state == "open" then
+		State.player:change_room( self.direction )
+	end
 end
