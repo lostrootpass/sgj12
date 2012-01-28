@@ -106,7 +106,15 @@ function Player:update(dtime)
 end
 
 function Player:checkCollisions(x, y)
-	return State.world:blocked(x, y) or State.world:blocked(self.hitbox.x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
+	for _, e in ipairs(State.world.entities) do
+		if e.solid then
+			if e.hitbox:intersects(Hitbox:new(x, y, self.hitbox.width, self.hitbox.height)) then
+				return true
+			end
+		end
+	end
+
+	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
 end
 
 function Player:checkOffScreen()
