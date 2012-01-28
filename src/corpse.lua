@@ -6,7 +6,11 @@ function Corpse:init(animation)
 	if animation == "ash" then
 		self.graphic = Sprite:new("graphics/ash.png", 32, 32)
 		self.graphic:add("collapse", {1, 2, 3, 4, 5, 6}, 0.1)
-		self.graphic:play("collapse", false)
+		self.graphic:play("collapse", true)
+	elseif animation == "gibs" then
+		self.graphic = Sprite:new("graphics/gibs.png", 32, 32)
+		self.graphic:add("collapse", {1, 2, 3, 4}, 0.1)
+		self.graphic:play("collapse", true)
 	end
 end
 

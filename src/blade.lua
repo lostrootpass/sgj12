@@ -31,6 +31,6 @@ function Blade:update(dtime)
 	end
 	
 	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then
-		State.player:die()
+		State.player:die("gibs")
 	end
 end
