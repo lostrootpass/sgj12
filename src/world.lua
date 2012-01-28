@@ -4,6 +4,7 @@ require('player')
 require('tmap')
 require('entity')
 require('dialogue')
+require('entloader')
 
 World = Object:new()
 
@@ -14,6 +15,8 @@ function World:init(tilemap)
 	TiledMap_Load(tilemap)
 	
 	self.entities = {}
+	
+	loadEntities(TiledMap_GetMapObjects())
 	
 	if State.player == nil then
 		State.player = Player:new()
