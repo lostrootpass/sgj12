@@ -4,6 +4,7 @@ require('sprite')
 Pit = Entity:new()
 
 function Pit:init()
+	self.type = "pit"
 	self.sprite = Image:new('graphics/pit.png')
 	self.hitbox = Hitbox:new(0, 0, 32, 32)
 end

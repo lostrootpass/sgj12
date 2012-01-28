@@ -4,6 +4,7 @@ require('sprite')
 Button = Entity:new()
 
 function Button:init()
+	self.type = "button"
 	self.graphic = Sprite:new('graphics/terminal.png', 32, 32)
 	self.graphic:add("off", {1})
 	self.graphic:add("on", {2})

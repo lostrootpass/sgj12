@@ -69,7 +69,10 @@ end
 
 function World:update(dtime)
 	for i = 1, table.getn(self.entities) do
-		self.entities[i]:update(dtime)
+		if self.entities[i] ~= nil then
+			print(self.entities[i]:getType())
+			self.entities[i]:update(dtime)
+		end
 	end
 	
 	State.player:update(dtime)

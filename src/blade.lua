@@ -1,10 +1,11 @@
 require('entity')
 require('sprite')
---require('s
+require('hitbox')
 
 Blade = Entity:new()
 
 function Blade:init()
+	self.type = "blade"
 	self.graphic = Sprite:new('graphics/blade.png', 32, 32)
 	self.graphic:add("spin", {1, 2, 3}, 0.05)
 	self.dir = 1
