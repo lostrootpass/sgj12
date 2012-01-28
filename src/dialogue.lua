@@ -6,6 +6,8 @@ function Dialogue:init()
 	self.text = ""
 	self.textX = 0
 	self.textY = 0
+	self.font = nil
+	self.color = {255, 255, 255, 255}
 end
 
 function Dialogue:setText(text)
@@ -17,12 +19,32 @@ function Dialogue:setTextPosition(x, y)
 	self.textY = y
 end
 
+function Dialogue:setFont(filepath, size)
+	self.font = love.graphics.newFont(filepath, size)
+end
+
+function Dialogue:setColor(r, g, b, a)
+	self.color = {r, g, b, a}
+end
+
 function Dialogue:draw()
-	Entity:draw()
+	Entity.draw(self)
 
 	if self.visible then
 		if self.text ~= nil then
+			if self.font ~= nil then
+				font = love.graphics.getFont()
+				love.graphics.setFont(self.font)
+			end
+
+			r, g, b, a = love.graphics.getColor()
+			love.graphics.setColor(self.color)
 			love.graphics.print(self.text, self.x + self.textX, self.y + self.textY)
+			love.graphics.setColor(r, g, b, a)
+
+			if self.font ~= nil then
+				love.graphics.setFont(font)
+			end
 		end
 	end
 end
