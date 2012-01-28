@@ -38,6 +38,8 @@ function World:init(tilemap)
 	end
 
 	Dialogue:show("Welcome")
+	
+	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
 end
 
 function World:add(entity)
