@@ -21,7 +21,7 @@
   <object type="laser" x="512" y="128" width="32" height="32"/>
   <object type="laser" x="96" y="128" width="32" height="32"/>
   <object type="laser" x="128" y="352" width="32" height="32"/>
-  <object type="laser" x="64" y="256" width="32" height="32"/>
+  <object type="laser" x="96" y="288" width="32" height="32"/>
   <object type="pit" x="128" y="480" width="32" height="32"/>
   <object type="pit" x="224" y="448" width="32" height="32"/>
   <object type="pit" x="416" y="448" width="32" height="32"/>
