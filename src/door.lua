@@ -61,6 +61,10 @@ function Door:setPosition(x, y)
 	self.hitbox = Hitbox:new(self.x, self.y, x, y)
 end
 
+function Door:open()
+	self.state = "open"
+end
+
 function Door:update(dtime)
 	self.doorHitbox.x = self.x
 	self.doorHitbox.y = self.y

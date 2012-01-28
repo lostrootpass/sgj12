@@ -10,11 +10,18 @@ function Button:init()
 	self.graphic:add("on", {2})
 	self.is_pressed = false
 	self.graphic:play("off")
+	self.hitbox = Hitbox:new(0, 32, 32, 32)
 end
 
 function Button:update(dtime)
 	self.graphic:update(dtime)
 	if self.is_pressed then
 		self.graphic:play("on")
+	end
+	
+	if love.keyboard.isDown(' ') then
+		if self.hitbox:intersects(State.player.hitbox) then
+			self.is_pressed = true
+		end
 	end
 end

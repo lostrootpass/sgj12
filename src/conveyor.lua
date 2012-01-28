@@ -8,7 +8,7 @@ function Conveyor:init(dir)
 	self.type = "conveyor"
 	--self.graphic = Sprite:new('graphics/conveyor.png', 32, 32)
 	self.direction = dir
-	self.hitbox = Hitbox:new(0, 0, 30, 30)
+	self.hitbox = Hitbox:new(0, 0, 32, 32)
 	self.timer = 0
 	
 	local x = 0
@@ -41,8 +41,8 @@ end
 function Conveyor:update(dtime)
 	self.graphic:update(dtime)
 	
-	self.hitbox.x = self.x + 1
-	self.hitbox.y = self.y + 1
+	self.hitbox.x = self.x + 2
+	self.hitbox.y = self.y + 2
 	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) 
 	or self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32)) then 
 		self.timer = self.timer + dtime
