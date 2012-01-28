@@ -27,6 +27,21 @@ function Universe:generateLinks()
 		self.available[file] = parsedArea:getDoors()
 		self.areas[file] = parsedArea
 	end
+	
+	self.available = self:shuffle(self.available)
+	self:findPartner(self.startingArea, "s")
+end
+
+function Universe:findPartner(fromArea, travelDirection)
+	for toArea, availability in self.available do
+		local opposite = Universe.opposites[travelDirection]
+		
+		if availability[opposite] == true then
+			availability[opposite] = false
+			
+			self:link(fromArea, toArea, travelDirection)
+		end
+	end
 end
 
 function Universe:loadArea(file)
@@ -82,4 +97,17 @@ end
 
 function Universe:restart()
 	self:moveToArea(self.startingArea)
+end
+
+function Universe:shuffle(t)
+	math.randomseed(os.time())
+	local n = #t
+	
+	while n >= 2 do
+		local k = math.random(n)
+		t[n], t[k] = t[k], t[n]
+		n = n - 1
+	end
+	
+	return t
 end
