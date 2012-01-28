@@ -5,38 +5,20 @@
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data encoding="base64" compression="zlib">
-   eJy9lN0KgCAMRlddlPRf7/+u7cJARL+50frgYIFy3LRmIlodWZid6ZjBgZ45oiMwtwKqjPlzAI7aGm0sjtI7qjV1eOVvh6ZX6A7k55Y7KJlbcqQjSquj5b6iWiSHJVqH1B/Nd2TtVc1pqQPt3cMhBa35wiH18nWM5PNvn6LjZDZHLuYBCTIOrw==
+   eJzjZmBg4KUh5gFifiBmBGJmKIYBZipgJiAWgNrBCcTCUAwDwlTAnCPMDnT7SLGf2nZgE0e2g1pgoO2gR1hRagel/iAW09qO4eYPBjT99C5L2BloU7ZzQO0QBGI+GmIhIAYAvswV+w==
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
-  <object name="DOOR" type="door" x="32" y="160" width="32" height="64"/>
-  <object name="DOOR" type="door" x="736" y="448" width="32" height="64"/>
-  <object name="Gate" type="hiddenpit" x="672" y="384" width="64" height="32"/>
-  <object name="Blade" type="blade" x="96" y="256" width="32" height="160"/>
-  <object name="Blade" type="blade" x="257" y="97" width="30" height="188"/>
-  <object name="laser" type="laser" x="352" y="96" width="32" height="32"/>
-  <object name="Button" type="button" x="64" y="448" width="32" height="29"/>
-  <object name="Blade" type="blade" x="160" y="96" width="30" height="188"/>
-  <object name="laser" type="laser" x="512" y="448" width="32" height="32"/>
-  <object name="Blade" type="blade" x="320" y="256" width="32" height="160"/>
-  <object name="laser" type="laser" x="608" y="256" width="32" height="32"/>
-  <object name="laser" type="laser" x="576" y="480" width="32" height="32"/>
-  <object name="Blade" type="blade" x="448" y="384" width="32" height="128"/>
-  <object name="Pit" type="pit" x="224" y="448" width="32" height="32"/>
-  <object name="Pit" type="pit" x="160" y="480" width="32" height="32"/>
-  <object name="Pit" type="pit" x="224" y="480" width="32" height="32"/>
-  <object name="Pit" type="pit" x="160" y="448" width="32" height="32"/>
-  <object name="Button" type="button" x="192" y="480" width="32" height="32"/>
-  <object name="Pit" type="pit" x="160" y="416" width="32" height="32"/>
-  <object name="Pit" type="pit" x="608" y="160" width="32" height="32"/>
-  <object name="laser" type="laser" x="65" y="321" width="32" height="32"/>
-  <object name="Pit" type="pit" x="480" y="192" width="32" height="32"/>
-  <object name="Pit" type="pit" x="448" y="160" width="32" height="32"/>
-  <object name="Pit" type="pit" x="384" y="192" width="32" height="32"/>
-  <object name="Pit" type="pit" x="288" y="160" width="32" height="32"/>
-  <object name="Pit" type="pit" x="256" y="160" width="32" height="32"/>
-  <object name="Pit" type="pit" x="192" y="192" width="32" height="32"/>
-  <object name="Pit" type="pit" x="160" y="192" width="32" height="32"/>
-  <object name="Pit" type="pit" x="96" y="160" width="32" height="32"/>
+  <object name="DOOR" type="door" x="32" y="224" width="32" height="64"/>
+  <object name="Blade" type="blade" x="256" y="160" width="30" height="188"/>
+  <object name="laser" type="laser" x="576" y="192" width="32" height="32"/>
+  <object name="Pit" type="pit" x="384" y="256" width="32" height="32"/>
+  <object name="Pit" type="pit" x="352" y="256" width="32" height="32"/>
+  <object name="Pit" type="pit" x="256" y="224" width="32" height="32"/>
+  <object name="Pit" type="pit" x="224" y="224" width="32" height="32"/>
+  <object type="door" x="128" y="32" width="64" height="32"/>
+  <object name="Blade" type="blade" x="384" y="160" width="30" height="188"/>
+  <object type="button" x="672" y="448" width="32" height="32"/>
+  <object type="door" x="128" y="512" width="64" height="32"/>
  </objectgroup>
 </map>
