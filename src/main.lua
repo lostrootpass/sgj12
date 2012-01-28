@@ -1,10 +1,15 @@
 require('object')
 require('world')
 require('state')
+require('director')
 
 function love.load()
 	love.graphics.setCaption('Ouroboros')
-	State.world = World:new("level/test4.tmx")
+	d = Director:new()
+	State.director = d
+	d:loadAllLevels()
+	d:restart()
+	--State.world = World:new("level/test4.tmx")
 end
 
 function love.draw()

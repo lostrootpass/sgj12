@@ -62,6 +62,7 @@ end
 
 
 function MapLoader:parse(filename)
+	print(filename)
 	local xml = LoadXML(love.filesystem.read(filename))
 	local tiles = getTilesets(xml[2])
 	local layers = getLayers(xml[2])
