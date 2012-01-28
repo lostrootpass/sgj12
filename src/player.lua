@@ -7,8 +7,8 @@ require('deathtimer')
 Player = Entity:new()
 
 function Player:init()
-	self.x = 420
-	self.y = 280
+	self.x = 400
+	self.y = 300
 	self.movementSpeed = 100
 	self.spriteWidth = 32
 	self.moving = false
@@ -19,16 +19,16 @@ function Player:init()
 
 	sprite = Sprite:new("graphics/contestant.png", 32,  32)
 	sprite:add("stand_up", {1})
-	sprite:add("walk_up", {2, 3, 4, 5}, 0.2)
+	sprite:add("walk_up", {2, 3, 4, 5}, 0.1)
 	
 	sprite:add("stand_down", {6})
-	sprite:add("walk_down", {7, 8, 9, 10}, 0.2)
+	sprite:add("walk_down", {7, 8, 9, 10}, 0.1)
 	
 	sprite:add("stand_left", {11})
-	sprite:add("walk_left", {12, 13, 14, 15}, 0.2)
+	sprite:add("walk_left", {12, 13, 14, 15}, 0.1)
 	
 	sprite:add("stand_right", {16})
-	sprite:add("walk_right", {17, 18, 19, 20}, 0.2)
+	sprite:add("walk_right", {17, 18, 19, 20}, 0.1)
 	
 	sprite:play("stand_down")
 	self.graphic = sprite
@@ -36,10 +36,14 @@ function Player:init()
 	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
 	
 	self.alive = true
-	self.deathTimer = 0
-	self.respawnTime = 1.5
 	
 	self.footsteps = love.audio.newSource('audio/footsteps.ogg')
+end
+
+function Player:setPosition(x, y)
+	self.x = x
+	self.y = y
+	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
 end
 
 function Player:update(dtime)
@@ -54,6 +58,7 @@ function Player:update(dtime)
 			self.direction = 'up'
 		end
 	elseif love.keyboard.isDown("down") then
+		
 		local nextY = self.y + (self.movementSpeed * dtime)
 		
 		if not self:checkCollisions(self.x, nextY) then
@@ -141,7 +146,7 @@ function Player:die(animation)
 	print "Player has died..."
 	self.alive = false
 	State.world:remove(self)
-	local corpse = Corpse:new(animation)
+	local corpse = Corpse:new()
 	corpse.x = self.x
 	corpse.y = self.y
 	State.world:add(corpse)

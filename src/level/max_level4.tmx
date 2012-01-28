@@ -514,7 +514,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -524,6 +523,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -539,7 +539,6 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -549,6 +548,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -564,18 +564,18 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -589,18 +589,18 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -614,17 +614,17 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -640,17 +640,17 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
@@ -665,17 +665,17 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
@@ -739,8 +739,8 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
@@ -915,30 +915,64 @@
   <object name="DOOR" type="door" x="352" y="32" width="64" height="32"/>
   <object name="DOOR" type="door" x="352" y="512" width="64" height="32"/>
   <object name="DOOR" type="door" x="32" y="256" width="32" height="64"/>
-  <object type="gate" x="192" y="192" width="64" height="32"/>
-  <object type="gate" x="544" y="192" width="64" height="32"/>
   <object type="gate" x="672" y="192" width="64" height="32"/>
   <object type="gate" x="288" y="416" width="32" height="64"/>
   <object x="-64" y="64"/>
-  <object type="conveyor" x="128" y="288" width="32" height="32">
+  <object type="conveyor" x="256" y="192" width="32" height="32">
    <properties>
-    <property name="dir" value="e"/>
+    <property name="dir" value="n"/>
    </properties>
   </object>
-  <object type="conveyor" x="160" y="288" width="32" height="32">
+  <object type="button" x="608" y="64" width="32" height="32"/>
+  <object type="conveyor" x="256" y="224" width="32" height="32">
    <properties>
-    <property name="dir" value="e"/>
+    <property name="dir" value="n"/>
    </properties>
   </object>
-  <object type="conveyor" x="192" y="288" width="32" height="32">
+  <object type="conveyor" x="256" y="256" width="32" height="32">
    <properties>
-    <property name="dir" value="e"/>
+    <property name="dir" value="n"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="256" y="288" width="32" height="32">
+   <properties>
+    <property name="dir" value="n"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="256" y="320" width="32" height="32">
+   <properties>
+    <property name="dir" value="n"/>
    </properties>
   </object>
   <object type="conveyor" x="224" y="288" width="32" height="32">
    <properties>
-    <property name="dir" value="e"/>
+    <property name="dir" value="n"/>
    </properties>
   </object>
+  <object type="conveyor" x="224" y="256" width="32" height="32">
+   <properties>
+    <property name="dir" value="n"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="224" y="224" width="32" height="32">
+   <properties>
+    <property name="dir" value="n"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="224" y="320" width="32" height="32">
+   <properties>
+    <property name="dir" value="n"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="224" y="192" width="32" height="32">
+   <properties>
+    <property name="dir" value="n"/>
+   </properties>
+  </object>
+  <object type="gate" x="192" y="64" width="32" height="64"/>
+  <object type="blade" x="480" y="64" width="32" height="32"/>
+  <object type="blade" x="544" y="320" width="32" height="32"/>
+  <object type="laser" x="672" y="480" width="32" height="32"/>
+  <object type="laser" x="64" y="416" width="32" height="32"/>
  </objectgroup>
 </map>
