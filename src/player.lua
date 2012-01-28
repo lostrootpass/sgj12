@@ -11,6 +11,7 @@ function Player:init()
 	self.spriteWidth = 32
 	self.moving = false
 	self.direction = 'down'
+	self.alive = true
 	
 	self.name = "NAME NOT SET"
 	self.bio = "BIO NOT SET"
@@ -121,4 +122,5 @@ end
 
 function Player:die()
 	print "Player has died..."
+	self.alive = false
 end

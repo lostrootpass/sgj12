@@ -1,13 +1,14 @@
 require('object')
 require('state')
 require('player')
-require('tmap')
 require('entity')
 require('dialogue')
 require('entloader')
 require('playergen')
 require('entloader')
 require('maploader')
+require('laserturret')
+require('sign')
 
 World = Object:new()
 
@@ -38,7 +39,16 @@ function World:init(tilemap)
 		print(State.player)
 	end
 
-	Dialogue:show("Welcome")
+	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
+	local sign = Sign:new()
+	sign.x = 320
+	sign.y = 32
+	self:add(sign)
+	
+	local turret = LaserTurret:new()
+	turret.x = 320
+	turret.y = 320
+	self:add(turret)
 end
 
 function World:add(entity)
@@ -82,7 +92,7 @@ end
 function World:remove(entity)
 	for index=1, table.getn(self.entities) do
 		if self.entities[index] == entity then
-			table.insert(self.entities, index)
+			table.remove(self.entities, index)
 		end
 	end
 end

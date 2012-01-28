@@ -13,6 +13,8 @@ Sprite.frameHeight = 32
 
 function Sprite:init(imageName, frameWidth, frameHeight)
 	self.image = love.graphics.newImage(imageName)
+	self.frameWidth = frameWidth or 32
+	self.frameHeight = frameHeight or 32
 end
 
 function Sprite:add(animation, frames, frameTime)
