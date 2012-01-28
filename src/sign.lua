@@ -4,7 +4,7 @@ require('sprite')
 Sign = Entity:new()
 
 function Sign:init()
-	self.sprite = Sprite:new('assets/graphics/terminal.png', 32, 32)
+	self.sprite = Sprite:new('graphics/terminal.png', 32, 32)
 end
 
 function Sign:draw()

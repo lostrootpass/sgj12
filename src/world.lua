@@ -6,6 +6,7 @@ require('entity')
 require('dialogue')
 require('entloader')
 require('playergen')
+require('entloader')
 
 World = Object:new()
 
@@ -17,7 +18,7 @@ function World:init(tilemap)
 	
 	self.entities = {}
 	
-	--loadEntities(TiledMap_GetMapObjects())
+	loadEntities(self, TiledMap_GetMapObjects())
 	
 	self.width = 800
 	self.height = 576

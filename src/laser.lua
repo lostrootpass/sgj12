@@ -5,7 +5,7 @@ require('state')
 Laser = Entity:new()
 
 function Laser:init()
-	self.sprite = Sprite:new('assets/graphics/laser_turret.png', 32, 32)
+	self.sprite = Sprite:new('graphics/laser_turret.png', 32, 32)
 end
 
 function Laser:draw()

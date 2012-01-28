@@ -4,7 +4,7 @@ require('sprite')
 Pit = Entity:new()
 
 function Pit:init()
-	self.sprite = Sprite:new('assets/graphics/pit.png', 32, 32)
+	self.sprite = Sprite:new('graphics/pit.png', 32, 32)
 end
 
 function Pit:draw()
