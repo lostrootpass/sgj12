@@ -1,6 +1,7 @@
 require('entity')
 require('sprite')
 require('hitbox')
+require('corpse')
 
 Player = Entity:new()
 
@@ -123,4 +124,9 @@ end
 function Player:die()
 	print "Player has died..."
 	self.alive = false
+	State.world:remove(self)
+	local corpse = Corpse:new()
+	corpse.x = self.x
+	corpse.y = self.y
+	State.world:add(corpse)
 end
