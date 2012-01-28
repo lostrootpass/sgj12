@@ -10,4 +10,7 @@ end
 
 function Conveyor:update(dtime)
 	self.graphic:update(dtime)
+	
+	
+	
 end
