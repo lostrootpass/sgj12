@@ -6,14 +6,29 @@ Door = Entity:new()
 function Door:init(dir, st)
 	self.state = st or "closed"
 	
+	self.switchOffsetX = 0
+	self.switchOffsetY = 0
+
 	if dir == "n" then
 		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
+		self.doorHitbox = Hitbox:new(0, 0, 64, 32)
+		self.switchHitbox = Hitbox:new(0, 32, 64, 32)
+		self.switchOffsetY = 32
 	elseif dir =="e" then
 		self.graphic = Sprite:new('graphics/door_e.png', 32, 64)
+		self.doorHitbox = Hitbox:new(0, 0, 32, 64)
+		self.switchHitbox = Hitbox:new(-32, 0, 32, 64)
+		self.switchOffsetX = -32
 	elseif dir == "s" then
 		self.graphic = Sprite:new('graphics/door_s.png', 64, 32)
+		self.doorHitbox = Hitbox:new(0, 0, 64, 32)
+		self.switchHitbox = Hitbox:new(0, -32, 64, 32)
+		self.switchOffsetY = -32
 	else
 		self.graphic = Sprite:new('graphics/door_w.png', 32, 64)
+		self.doorHitbox = Hitbox:new(0, 0, 32, 64)
+		self.switchHitbox = Hitbox:new(32, 0, 32, 64)
+		self.switchOffsetX = 32
 	end
 	
 	self.graphic:add("closed", {1})
@@ -25,5 +40,18 @@ function Door:init(dir, st)
 end
 
 function Door:update(dtime)
+	self.doorHitbox.x = self.x
+	self.doorHitbox.y = self.y
+	self.switchHitbox.x = self.x + self.switchOffsetX
+	self.switchHitbox.y = self.y + self.switchOffsetY
+
+	if self.state == "closed" and self.switchHitbox ~= nil and self.switchHitbox:intersects(State.player.hitbox) then
+		self.graphic:play("opening", true)
+	end
+
+	if self.doorHitbox ~= nil and self.doorHitbox:intersects(State.player.hitbox) then
+		print "Change rooms.."
+	end
+
 	self.graphic:update(dtime)
 end

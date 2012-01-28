@@ -25,11 +25,11 @@ function loadEntities(world, map_objects)
 			if o.y <= 64 then
 				e = Door:new("n", "open")
 			elseif o.y >= 576-64 then --world.height - 64 then
-				e = Door:new("s", "open")
+				e = Door:new("s", "closed")
 			elseif o.x <= 64 then
-				e = Door:new("w", "open")
+				e = Door:new("w", "closed")
 			else
-				e = Door:new("e", "open")
+				e = Door:new("e", "closed")
 			end
 			print(tostring(o.x).. tostring(o.y))
 			e:setPosition(o.x, o.y)
