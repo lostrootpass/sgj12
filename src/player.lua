@@ -106,7 +106,7 @@ function Player:update(dtime)
 end
 
 function Player:checkCollisions(x, y)
-	return State.world:blocked(x, y) or State.world:blocked(self.hitbox.x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
+	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
 end
 
 function Player:checkOffScreen()

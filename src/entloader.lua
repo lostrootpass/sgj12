@@ -6,6 +6,7 @@ require("door")
 require("sign")
 require("hiddenpit")
 require("conveyor")
+require("gate")
 
 mobiles = {
 	laser = LaserTurret,

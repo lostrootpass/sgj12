@@ -28,7 +28,7 @@ function Sprite:add(animation, frames, frameTime)
 		local fx = (frames[i]-1) % rowLength
 		local fy = math.floor((frames[i]-1) / rowLength)
 		
-		table.insert(self.animations[animation].frames, love.graphics.newQuad(fx * self.frameWidth, fy * self.frameHeight, self.frameWidth, self.frameHeight, self.image:getWidth(), self.image:getHeight()))
+		table.insert(self.animations[animation].frames, love.graphics.newQuad(math.floor(fx) * self.frameWidth, math.floor(fy) * self.frameHeight, self.frameWidth, self.frameHeight, self.image:getWidth(), self.image:getHeight()))
 	end
 	
 	if self.animation == "" then
@@ -37,7 +37,7 @@ function Sprite:add(animation, frames, frameTime)
 end
 
 function Sprite:draw()
-	love.graphics.drawq(self.image, self.animations[self.animation].frames[self.frame], self.x, self.y)
+	love.graphics.drawq(self.image, self.animations[self.animation].frames[self.frame], math.floor(self.x), math.floor(self.y))
 end
 
 function Sprite:play(animation, disableLoop)
