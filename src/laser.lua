@@ -18,3 +18,4 @@ function Laser:update(dtime)
 		State.world:remove(self)
 	end
 end
+

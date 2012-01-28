@@ -7,27 +7,23 @@ function Door:init(dir, st)
 	self.state = st
 	
 	if dir == "n" then
-		self.sprite = Sprite:new('graphics/door_n.png', 32, 64)
+		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
 	elseif dir =="e" then
-		self.sprite = Sprite:new('graphics/door_e.png', 64, 32)
+		self.graphic = Sprite:new('graphics/door_e.png', 32, 64)
 	elseif dir == "s" then
-		self.sprite = Sprite:new('graphics/door_s.png', 32, 64)
+		self.graphic = Sprite:new('graphics/door_s.png', 64, 32)
 	else
-		self.sprite = Sprite:new('graphics/door_w.png', 64, 32)
+		self.graphic = Sprite:new('graphics/door_w.png', 32, 64)
 	end
 	
-	self.sprite:add("closed", {1})
-	self.sprite:add("opening", {1, 2, 3})
-	self.sprite:add("open", {3})
+	self.graphic:add("closed", {1})
+	self.graphic:add("opening", {1, 2, 3})
+	self.graphic:add("open", {3})
 	
 	self.is_pressed = false
-	self.sprite:play("open")
-end
-
-function Door:draw()
-	self.sprite:draw()
+	self.graphic:play("closed")
 end
 
 function Door:update(dtime)
-	self.sprite:update(dtime)
+	self.graphic:update(dtime)
 end
