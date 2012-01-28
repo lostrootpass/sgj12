@@ -8,7 +8,6 @@ function love.load()
 	State.universe = Universe:new()
 	
 	State.universe:link("level/max_level4.tmx", "level/Darren_Room1.tmx", "s")
-	State.universe:link("level/Darren_Room1.tmx", "level/max_level4.tmx", "n")
 	
 	State.universe.startingArea = "level/max_level4.tmx"
 	State.universe:restart()

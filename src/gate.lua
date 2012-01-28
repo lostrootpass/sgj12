@@ -11,6 +11,7 @@ function Door:init(dir, st)
 	self.dir = dir
 	self.switchOffsetX = 0
 	self.switchOffsetY = 0
+	self.id = nil
 
 	local x = 0
 	local y = 0
@@ -53,6 +54,10 @@ function Door:init(dir, st)
 	self.graphic:play(self.state)
 end
 
+
+function Door:activate()
+	self:open()
+end
 
 function Door:setPosition(x, y)
 	self.x = x
