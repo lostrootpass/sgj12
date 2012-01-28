@@ -33,6 +33,8 @@ function Player:init()
 	self.graphic = sprite
 	
 	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
+	
+	self.alive = true
 end
 
 function Player:update(dtime)
