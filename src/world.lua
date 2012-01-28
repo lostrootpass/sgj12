@@ -7,7 +7,7 @@ require('dialogue')
 require('entloader')
 require('playergen')
 require('entloader')
-
+require('laserturret')
 
 require('sign')
 
@@ -46,10 +46,11 @@ function World:init(tilemap)
 	sign.y = 32
 	self:add(sign)
 	
-	local pit = Pit:new()
-	pit.x = 320
-	pit.y = 320
-	self:add(pit)
+	local turret = LaserTurret:new()
+	turret.x = 320
+	turret.y = 320
+	self:add(turret)
+	
 end
 
 function World:add(entity)
@@ -93,7 +94,7 @@ end
 function World:remove(entity)
 	for index=1, table.getn(self.entities) do
 		if self.entities[index] == entity then
-			table.insert(self.entities, index)
+			table.remove(self.entities, index)
 		end
 	end
 end
