@@ -15,7 +15,7 @@ World = Object:new()
 World.entities = {}
 
 function World:init(tilemap)
-	tilemap = tilemap or "level/test4.tmx"
+	tilemap = tilemap or "level/Darren_Room1.tmx"
 	self.map = MapLoader:new(tilemap)
 	
 	self.entities = {}

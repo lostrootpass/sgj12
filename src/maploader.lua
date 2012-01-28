@@ -10,6 +10,10 @@ function MapLoader:init(filepath)
 	self.tiletype, self.layers, self.objects = self:parse(filepath)
 	
 	for gid, path in pairs(self.tiletype) do
+		local i, j = string.find(path, "../")
+		if i == 1 then
+			path = string.sub(path, 4, -1)
+		end
 		local raw = love.image.newImageData(path)
 		local w, h = raw:getWidth(), raw:getHeight()
 		local e = self.tileSize
