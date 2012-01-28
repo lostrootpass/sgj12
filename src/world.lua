@@ -16,7 +16,7 @@ function World:init(tilemap)
 	
 	self.entities = {}
 	
-	loadEntities(TiledMap_GetMapObjects())
+	--loadEntities(TiledMap_GetMapObjects())
 	
 	if State.player == nil then
 		State.player = Player:new()
