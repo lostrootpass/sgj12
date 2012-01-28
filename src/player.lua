@@ -136,7 +136,7 @@ function Player:setBio(bio)
 end
 
 function Player:die(animation)
-	if not self.alive then return
+	if not self.alive then return end
 	
 	animation = animation or ''
 	print "Player has died..."
