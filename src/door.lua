@@ -4,7 +4,7 @@ require('sprite')
 Door = Entity:new()
 
 function Door:init(dir, st)
-	self.state = st
+	self.state = st or "closed"
 	
 	if dir == "n" then
 		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
@@ -21,7 +21,7 @@ function Door:init(dir, st)
 	self.graphic:add("open", {3})
 	
 	self.is_pressed = false
-	self.graphic:play("closed")
+	self.graphic:play(self.state)
 end
 
 function Door:update(dtime)
