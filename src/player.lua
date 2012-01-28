@@ -118,3 +118,7 @@ end
 function Player:setBio(bio)
 	self.bio = bio
 end
+
+function Player:die()
+	print "Player has died..."
+end

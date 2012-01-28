@@ -45,6 +45,11 @@ function World:init(tilemap)
 	sign.x = 320
 	sign.y = 32
 	self:add(sign)
+	
+	local pit = Pit:new()
+	pit.x = 320
+	pit.y = 320
+	self:add(pit)
 end
 
 function World:add(entity)
