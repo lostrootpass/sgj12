@@ -7,11 +7,11 @@ Sprite.y = 0
 Sprite.time = 0
 Sprite.frame = 1
 Sprite.animation = ''
-Sprite.animations = {}
 Sprite.frameWidth = 32
 Sprite.frameHeight = 32
 
 function Sprite:init(imageName, frameWidth, frameHeight)
+	self.animations = {}
 	self.image = love.graphics.newImage(imageName)
 	self.frameWidth = frameWidth or 32
 	self.frameHeight = frameHeight or 32
