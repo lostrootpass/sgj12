@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="room_tileset" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" width="192" height="128"/>
+  <image source="../graphics/room_tileset.png" width="192" height="224"/>
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data encoding="base64" compression="zlib">
-   eJzFlO0KgCAMRVf+KOk73/9dW2AEYvOaEy8cGCIc58SJiJaKzMzGdIyhN0aJntm9wxIel7HXNnC4BDFHyqfRR1iHzhwH2lOpA6lRR2oeX+5Y/vYRrkvnkRzoWyrpA5mtdIcaDjRa70qixV9S2zGQ3n/+5K5H7ziYtSIncwExcQtK
+   eJzFlN0KgCAMRldelPSfLxD1/u/YAsMQnTMVBwdGCMfPxQYAmAoyIgvSIAJMiQSuT98iq3ZI4JeKOCsrOFQAlyPky5HD7m1njIObiXIcDAen5+YIzcPndlXsW/m+U/ehHNx/KSUHZ7bUG+ZwcOvvPKhMNjV2SWlHB2Yfn5C22996+l47NmQuyI7cdMALoA==
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
@@ -26,12 +26,6 @@
   <object type="laser" x="544" y="128" width="32" height="32"/>
   <object type="laser" x="448" y="64" width="32" height="32"/>
   <object type="laser" x="224" y="416" width="32" height="32"/>
-  <object type="pit" x="416" y="224" width="32" height="32"/>
-  <object type="pit" x="320" y="384" width="32" height="32"/>
-  <object type="hiddenpit" x="448" y="160" width="32" height="32"/>
-  <object type="hiddenpit" x="352" y="320" width="32" height="32"/>
-  <object type="hiddenpit" x="352" y="448" width="32" height="32"/>
-  <object type="pit" x="416" y="96" width="32" height="32"/>
   <object type="laser" x="320" y="480" width="32" height="32"/>
   <object type="hiddenpit" x="96" y="416" width="32" height="32"/>
   <object type="pit" x="128" y="448" width="32" height="32"/>

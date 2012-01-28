@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="room_tileset" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" width="192" height="128"/>
+  <image source="../graphics/room_tileset.png" width="192" height="224"/>
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data encoding="base64" compression="zlib">
-   eJzjZmBg4KUh5gFifiBmBGJmGmAmIBaA2sHJQBvASQc7GAjYIUwHO0gF2NxETliR6jd6xMeoHRBATNwMBX/gAsj+Q7aDkFp8YvgAITuoAegdH+wMtCnbOaB2CAIxHw0xyA4AR7oGgw==
+   eJzjZmBg4KUh5gFifiBmBGJmKJaC0spofHR5YvhMQCwAtYOTgTaAkw52MBCwQ5gOdpAKsLmJnLAi1W/0iI9ROyCAmLgZCv7ABZD9p4JkByG1+MTwAWR/0ArQOz7YGRDlsTSUVkLjw8p7ZD66PDqfA2qHIBDz0RCD7AAApTYH6A==
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
