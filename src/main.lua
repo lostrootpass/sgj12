@@ -18,6 +18,8 @@ function love.draw()
 	if State.world ~= nil then
 		State.world:draw()
 	end
+
+	--State.world = World:new("level/max_level3.tmx")
 end
 
 function love.update(dtime)

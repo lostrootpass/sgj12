@@ -16,8 +16,10 @@ function Director:loadAllLevels()
 	
 	for i, v in ipairs(filetable) do
 		if string.sub(v, -1, -1) ~= "~" then
-			local level = LevelData:new("level/" .. v)
-			table.insert(self.levels, level)
+			if string.sub(v, 1, 7) ~= "forrest" then
+				local level = LevelData:new("level/" .. v)
+				table.insert(self.levels, level)
+			end
 		end
 	end
 end

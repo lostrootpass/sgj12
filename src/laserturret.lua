@@ -8,6 +8,8 @@ LaserTurret = Entity:new()
 function LaserTurret:init(x, y)
 	self.type = "turret"
 	self.graphic = Image:new('graphics/laser_turret.png', 32, 32)
+	self.scanTime = 0
+	self.scanInterval = 0.5
 	self.charge = 0
 	self.chargeTime = 0.5
 end
@@ -73,10 +75,13 @@ function LaserTurret:scanY(dy, dtime)
 end
 
 function LaserTurret:update(dtime)
-	self.charging = false
-	self:scanX(32, dtime)
-	self:scanX(-32, dtime)
-	self:scanY(32, dtime)
-	self:scanY(-32, dtime)
-	if not self.charging then self.charge = 0 end
+	self.scanTime = self.scanTime + self.scanInterval
+	if self.scanTime > self.scanInterval then
+		self.charging = false
+		self:scanX(32, dtime)
+		self:scanX(-32, dtime)
+		self:scanY(32, dtime)
+		self:scanY(-32, dtime)
+		if not self.charging then self.charge = 0 end
+	end
 end

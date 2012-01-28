@@ -2,6 +2,7 @@ require('entity')
 require('sprite')
 require('hitbox')
 require('corpse')
+require('deathtimer')
 
 Player = Entity:new()
 
@@ -33,6 +34,10 @@ function Player:init()
 	self.graphic = sprite
 	
 	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
+	
+	self.alive = true
+	
+	self.footsteps = love.audio.newSource('audio/footsteps.ogg')
 end
 
 function Player:update(dtime)
@@ -84,6 +89,7 @@ function Player:update(dtime)
 	self:checkOffScreen()
 	
 	sprite:update(dtime)
+	
 end
 
 function Player:checkCollisions(x, y)
@@ -120,7 +126,10 @@ function Player:setBio(bio)
 	self.bio = bio
 end
 
-function Player:die()
+function Player:die(animation)
+	if not self.alive then return end
+	
+	animation = animation or ''
 	print "Player has died..."
 	self.alive = false
 	State.world:remove(self)
@@ -128,6 +137,9 @@ function Player:die()
 	corpse.x = self.x
 	corpse.y = self.y
 	State.world:add(corpse)
+	self.footsteps:stop()
+	
+	State.world:add(DeathTimer:new())
 end
 
 function Player:changeRoom(newRoom)
