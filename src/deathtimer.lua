@@ -14,8 +14,8 @@ function DeathTimer:update(dtime)
 	if not self.alive then 
 		self.time = self.time + dtime 
 		if self.time > self.respawnTime then
-			--State.director:restart()
 			print("respawn")
+			State.universe:restart()			
 			State.world:remove(self)
 		end
 	end

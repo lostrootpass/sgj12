@@ -37,10 +37,10 @@ function World:init(tilemap)
 
 	PlayerGen:newPlayer()
 
-	if State.player == nil then
-		State.player = Player:new()
-		self:add(State.player)
-	end
+	--if State.player == nil then
+	--	State.player = Player:new()
+	--	self:add(State.player)
+	--end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
 end

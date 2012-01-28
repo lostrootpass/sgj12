@@ -3,6 +3,7 @@ require('object')
 Universe = Object:new()
 
 function Universe:init()
+	self.startingArea = nil
 	self.areas = {}
 	self.links = {}
 end
@@ -23,32 +24,32 @@ function Universe:moveToArea(areaName, direction)
 	State.player = Player:new()
 	area:add(State.player)
 	
-	local opposites = {n = 's', s = 'n', w = 'e', e = 'w'}
-	
-	door = nil
-	for _, k in ipairs(State.world.entities) do
-		if k.dir == opposites[direction] then
-			door = k
+	if direction ~= nil then	
+		local opposites = {n = 's', s = 'n', w = 'e', e = 'w'}
+		
+		door = nil
+		for _, k in ipairs(State.world.entities) do
+			if k.dir == opposites[direction] then
+				door = k
+			end
 		end
+		
+		if door then
+			if direction == 's' then
+				State.player.x = door.x + 16
+				State.player.y = door.y + 32
+			elseif direction == 'n' then
+				State.player.x = door.x + 16
+				State.player.y = door.y - 32
+			elseif direction == 'w' then
+				State.player.x = door.x - 32
+				State.player.y = door.y + 16
+			elseif direction == 'e' then
+				State.player.x = door.x + 32
+				State.player.y = door.y + 16
+			end
+		end	
 	end
-	
-	if door then
-		if direction == 's' then
-			State.player.x = door.x + 16
-			State.player.y = door.y + 32
-		elseif direction == 'n' then
-			State.player.x = door.x + 16
-			State.player.y = door.y - 32
-		elseif direction == 'w' then
-			State.player.x = door.x - 32
-			State.player.y = door.y + 16
-		elseif direction == 'e' then
-			State.player.x = door.x + 32
-			State.player.y = door.y + 16
-		end
-	end
-	
-	State.player.graphic:play('stand_right')
 end
 
 function Universe:nextArea(current, direction)
@@ -58,4 +59,8 @@ function Universe:nextArea(current, direction)
 			return link.to
 		end
 	end
+end
+
+function Universe:restart()
+	self:moveToArea(self.startingArea)
 end
