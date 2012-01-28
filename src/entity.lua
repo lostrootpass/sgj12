@@ -19,7 +19,11 @@ function Entity:setPosition(x, y)
 end
 
 function Entity:setVisible(isVisible)
-	self.visible = isVisible or true
+	if isVisible == nil then
+		self.visible = true
+	else
+		self.visible = isVisible
+	end
 end
 
 function Entity:draw()

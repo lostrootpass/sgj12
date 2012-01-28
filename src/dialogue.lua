@@ -18,7 +18,7 @@ function Dialogue:setTextPosition(x, y)
 end
 
 function Dialogue:draw()
-	Entity:draw()
+	Entity.draw(self)
 
 	if self.visible then
 		if self.text ~= nil then
