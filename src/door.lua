@@ -46,7 +46,7 @@ function Door:init(dir, st)
 	end
 
 	self.graphic:add("closed", {1})
-	self.graphic:add("opening", {1, 2, 3})
+	self.graphic:add("opening", {1, 2, 3}, 0.15)
 	self.graphic:add("open", {3})
 
 	self.is_pressed = false
@@ -71,7 +71,7 @@ function Door:update(dtime)
 		self.graphic:play("opening", true)
 	end
 
-	if self.doorHitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then --and self.state == "open" then
+	if self.doorHitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then--and self.state == "open" then
 		State.player:changeRoom( self.dir )
 	end
 

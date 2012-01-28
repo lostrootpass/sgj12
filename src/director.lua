@@ -26,7 +26,7 @@ end
 
 function Director:restart()
 	print("Restarting")
-	self:loadLevelByName("test4.tmx")
+	self:loadLevelByName("max_level4.tmx")
 	--State.world = World:new(self.currentLevel.levelMap)
 end
 
@@ -65,10 +65,6 @@ function Director:loadNextLevel(lastExit)
 	
 	self.levels = shuffle(self.levels)
 	for i, v in ipairs(self.levels) do
-		if v.doors[entrance] ~= nil then
-			print("has indexed entrance")
-		end
-		
 		if v.doors[entrance] and v.adjoiningLevels[entrance] == nil then
 			v.adjoiningLevels[entrance] = self.currentLevel
 			
@@ -79,7 +75,7 @@ function Director:loadNextLevel(lastExit)
 			
 			if entrance == "s" then
 				x = door.x + 16
-				y = door.y - 32
+				y = door.y - 48
 			elseif entrance == "n" then
 				x = door.x + 16
 				y = door.y + 32

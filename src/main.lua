@@ -5,6 +5,7 @@ require('director')
 
 function love.load()
 	love.graphics.setCaption('Ouroboros')
+
 	d = Director:new()
 	State.director = d
 	d:loadAllLevels()

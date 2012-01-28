@@ -40,6 +40,12 @@ function Player:init()
 	self.footsteps = love.audio.newSource('audio/footsteps.ogg')
 end
 
+function Player:setPosition(x, y)
+	self.x = x
+	self.y = y
+	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
+end
+
 function Player:update(dtime)
 	self.moving = false
 	
@@ -52,6 +58,7 @@ function Player:update(dtime)
 			self.direction = 'up'
 		end
 	elseif love.keyboard.isDown("down") then
+		
 		local nextY = self.y + (self.movementSpeed * dtime)
 		
 		if not self:checkCollisions(self.x, nextY) then

@@ -37,20 +37,12 @@ function World:init(tilemap)
 	PlayerGen:newPlayer()
 
 	if State.player == nil then
+		print("Player is nil")
 		State.player = Player:new()
 		self:add(State.player)
 	end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
-	local sign = Sign:new()
-	sign.x = 320
-	sign.y = 32
-	self:add(sign)
-	
-	local turret = LaserTurret:new()
-	turret.x = 320
-	turret.y = 320
-	self:add(turret)
 end
 
 function World:add(entity)
@@ -58,7 +50,6 @@ function World:add(entity)
 end
 
 function World:draw()
-	love.graphics.translate(0, 12)
 	self.map:drawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
