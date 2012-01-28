@@ -34,6 +34,11 @@ function loadEntities(world, map_objects)
 			print(tostring(o.x).. tostring(o.y))
 			e:setPosition(o.x, o.y)
 			world:add(e)
+		elseif o.t == "sign" then
+			e = Sign:new()
+			e:setPosition(o.x, o.y)
+			e.text = o["text"]
+			world:add(e)
 		elseif mobiles[o.t] then
 			e = mobiles[o.t]:new()
 			e:setPosition(o.x, o.y)
