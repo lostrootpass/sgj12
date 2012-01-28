@@ -2,6 +2,8 @@ require('object')
 
 Universe = Object:new()
 
+Universe.opposites = {n = 's', s = 'n', w = 'e', e = 'w'}
+
 function Universe:init()
 	self.startingArea = nil
 	self.areas = {}
@@ -9,8 +11,9 @@ function Universe:init()
 	self.available = {}
 end
 
-function Universe:link(from, to, direction)
+function Universe:link(from, to, direction)	
 	table.insert(self.links, {to = to, from = from, direction = direction})
+	table.insert(self.links, {to = from, from = to, direction = Universe.opposites[direction]})
 end
 
 function Universe:generateLinks()
@@ -42,12 +45,11 @@ function Universe:moveToArea(areaName, direction)
 	State.player = Player:new()
 	area:add(State.player)
 	
-	if direction ~= nil then	
-		local opposites = {n = 's', s = 'n', w = 'e', e = 'w'}
+	if direction ~= nil then
 		
 		door = nil
 		for _, k in ipairs(State.world.entities) do
-			if k.dir == opposites[direction] then
+			if k.dir == Universe.opposites[direction] then
 				door = k
 			end
 		end
@@ -55,7 +57,7 @@ function Universe:moveToArea(areaName, direction)
 		if door then
 			if direction == 's' then
 				State.player.x = door.x + 16
-				State.player.y = door.y + 40
+				State.player.y = door.y + 32
 			elseif direction == 'n' then
 				State.player.x = door.x + 16
 				State.player.y = door.y - 32
@@ -72,7 +74,6 @@ end
 
 function Universe:nextArea(current, direction)
 	for _, link in ipairs(self.links) do
-		print(current, direction)
 		if link.from == current and link.direction == direction then
 			return link.to
 		end
