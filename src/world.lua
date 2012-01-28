@@ -5,6 +5,7 @@ require('tmap')
 require('entity')
 require('dialogue')
 require('entloader')
+require('playergen')
 
 World = Object:new()
 
@@ -18,19 +19,24 @@ function World:init(tilemap)
 	
 	--loadEntities(TiledMap_GetMapObjects())
 	
+	self.width = 800
+	self.height = 576
+
+	Dialogue:setGraphic("graphics/dialogueBg.png")
+	Dialogue:setPosition(0, 480)
+	Dialogue:setTextPosition(40, 40)
+	Dialogue:setFont("fonts/verdana.ttf", 16)
+	Dialogue:setTextColor(255, 255, 255, 255)
+	Dialogue:setVisible(false)
+
+	PlayerGen:newPlayer()
+
 	if State.player == nil then
 		State.player = Player:new()
 		print(State.player)
 	end
 
-	self.dialogue = Dialogue:new()
-	self.dialogue:setGraphic("graphics/dialogueBg.png")
-	self.dialogue:setPosition(0, 300)
-	self.dialogue:setTextPosition(40, 40)
-	self.dialogue:setText("hello world")
-	self.dialogue:setFont("fonts/verdana.ttf", 72)
-	self.dialogue:setColor(0, 0, 0, 255)
-	self.dialogue:setVisible(true)
+	Dialogue:show("Welcome")
 end
 
 function World:add(entity)
@@ -45,9 +51,7 @@ function World:draw()
 	
 	State.player:draw()
 
-	if self.dialogue ~= nil then
-		self.dialogue:draw()
-	end
+	Dialogue:draw()
 end
 
 function World:update(dtime)
@@ -56,6 +60,16 @@ function World:update(dtime)
 	end
 	
 	State.player:update(dtime)
+
+	Dialogue:update(dtime)
+
+	if love.keyboard.isDown("a") then
+		Dialogue:hide()
+	end
+	
+	if love.keyboard.isDown("z") then
+		PlayerGen:newPlayer()
+	end
 end
 
 function World:remove(entity)

@@ -8,12 +8,12 @@ function Button:init()
 	self.sprite:add("off", {1})
 	self.sprite:add("on", {2})
 	self.is_pressed = false
-	self.play("off")
+	self.sprite:play("off")
 end
 
 function Button:draw()
 	if self.is_pressed then
-		self.play("on")
+		self.sprite:play("on")
 	end
 	self.sprite:draw()
 end

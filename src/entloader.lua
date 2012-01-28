@@ -27,10 +27,9 @@ function loadEntities(map_objects)
 				e = Door:new("s")
 			elseif o.x > 64 then
 				e = Door:new("w")
-			else o.x < state.world.width - 64 then
+			else
 				e = Door:new("e")
 			end
-			e = Door:new()
 			e:setPosition(o.x, o.y)
 			state.world:add(e)
 		elseif mobiles[o.t] then

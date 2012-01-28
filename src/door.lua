@@ -6,13 +6,13 @@ Door = Entity:new()
 function Door:init(dir, st)
 	self.state = st
 	
-	if dir = "n" then
+	if dir == "n" then
 		self.sprite = Sprite:new('assets/graphics/door_n.png', 32, 64)
-	elseif dir = "e" then
+	elseif dir =="e" then
 		self.sprite = Sprite:new('assets/graphics/door_e.png', 64, 32)
-	elseif dir = "s" then
+	elseif dir == "s" then
 		self.sprite = Sprite:new('assets/graphics/door_s.png', 32, 64)
-	elseif die = "w" then
+	elseif die == "w" then
 		self.sprite = Sprite:new('assets/graphics/door_w.png', 64, 32)
 	end
 	
@@ -21,7 +21,7 @@ function Door:init(dir, st)
 	self.sprite:add("open", {3})
 	
 	self.is_pressed = false
-	self.play(st)
+	self.sprite:play(st)
 end
 
 function Door:draw()
