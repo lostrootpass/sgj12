@@ -14,6 +14,9 @@ function Button:init()
 end
 
 function Button:update(dtime)
+	self.hitbox.x = self.x
+	self.hitbox.y = self.y + 32
+	
 	self.graphic:update(dtime)
 	if self.is_pressed then
 		self.graphic:play("on")
