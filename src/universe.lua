@@ -13,9 +13,13 @@ function Universe:link(from, to, direction)
 end
 
 function Universe:loadArea(file)
-	local world = World:new(file)
-	self.areas[file] = world
-	return world
+	if self.areas[file] == nil then
+		local world = World:new(file)
+		self.areas[file] = world
+		return world
+	else
+		return self.areas[file]
+	end
 end
 
 function Universe:moveToArea(areaName, direction)
@@ -37,7 +41,7 @@ function Universe:moveToArea(areaName, direction)
 		if door then
 			if direction == 's' then
 				State.player.x = door.x + 16
-				State.player.y = door.y + 32
+				State.player.y = door.y + 40
 			elseif direction == 'n' then
 				State.player.x = door.x + 16
 				State.player.y = door.y - 32
