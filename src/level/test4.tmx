@@ -460,7 +460,8 @@
  <objectgroup name="Object Layer 1" width="25" height="18">
   <object name="DOOR" type="door" x="352" y="32" width="64" height="32"/>
   <object name="DOOR" type="door" x="352" y="512" width="64" height="32"/>
-  <object name="DOOR" type="door" x="32" y="256" width="32" height="64"/>
   <object name="DOOR" type="door" x="736" y="256" width="32" height="64"/>
+  <object name="DOOR" type="door" x="32" y="256" width="32" height="64"/>
+  <object type="blade" x="192" y="96" width="32" height="32"/>
  </objectgroup>
 </map>
