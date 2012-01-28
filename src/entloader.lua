@@ -42,9 +42,8 @@ function loadEntities(world, map_objects)
 			e.text = o["text"]
 			world:add(e)
 		elseif o.t == "conveyor" then
-			e = Conveyor:new()
+			e = Conveyor:new(o["dir"])
 			e:setPosition(o.x, o.y)
-			e.direction = o["dir"]
 			world:add(e)
 		elseif mobiles[o.t] then
 			e = mobiles[o.t]:new()

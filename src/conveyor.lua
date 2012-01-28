@@ -4,13 +4,38 @@ require('state')
 
 Conveyor = Entity:new()
 
-function Conveyor:init()
+function Conveyor:init(dir)
 	self.type = "conveyor"
-	self.graphic = Sprite:new('graphics/conveyor.png', 32, 32)
-	self.graphic:add("go", {1, 2, 3, 4}, 0.1)
-	self.direction = "n"
+	--self.graphic = Sprite:new('graphics/conveyor.png', 32, 32)
+	self.direction = dir
 	self.hitbox = Hitbox:new(0, 0, 30, 30)
 	self.timer = 0
+	
+	local x = 0
+	local y = 0
+
+	if dir == "n" or dir == "s" then
+		x = 64
+		y = 32
+	elseif dir =="e"  or dir == "w" then
+		x = 32
+		y = 64
+	end
+
+	if dir == "n" then
+		self.graphic = Sprite:new('graphics/conveyor_n.png', 32, 32)
+		self.doorHitbox = Hitbox:new(0, 0, 64, 32)
+	elseif dir =="e" then
+		self.graphic = Sprite:new('graphics/conveyor_e.png', 32, 32)
+		self.doorHitbox = Hitbox:new(0, 0, 32, 64)
+	elseif dir == "s" then
+		self.graphic = Sprite:new('graphics/conveyor_s.png', 32, 32)
+		self.doorHitbox = Hitbox:new(0, 0, 64, 32)
+	else
+		self.graphic = Sprite:new('graphics/conveyor_w.png', 32, 32)
+		self.doorHitbox = Hitbox:new(0, 0, 32, 64)
+	end
+	self.graphic:add("go", {1, 2, 3, 4}, 0.1)
 end
 
 function Conveyor:update(dtime)
@@ -24,13 +49,17 @@ function Conveyor:update(dtime)
 		if self.timer > .1 then
 			self.timer = 0
 			if self.direction == "n" then
-				State.player.y = self.y - State.player.hitbox.height
+				State.player.x = self.hitbox.x
+				State.player.y = self.hitbox.y - State.player.hitbox.height
 			elseif self.direction == "s" then
-				State.player.y = self.y + self.hitbox.height
+				State.player.x = self.hitbox.x
+				State.player.y = self.hitbox.y + self.hitbox.height
 			elseif self.direction == "w" then
-				State.player.x = self.x - State.player.hitbox.width
+				State.player.y = self.hitbox.y
+				State.player.x = self.hitbox.x - State.player.hitbox.width
 			elseif self.direction == "e" then
-				State.player.x = self.x + self.hitbox.width
+				State.player.y = self.hitbox.y
+				State.player.x = self.hitbox.x + self.hitbox.width
 			end
 		end
 	end
