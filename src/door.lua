@@ -13,7 +13,7 @@ function Door:init(dir, st)
 	elseif dir == "s" then
 		self.graphic = Sprite:new('graphics/door_s.png', 64, 32)
 	else
-		self.graphic = Sprite:new('graphics/door_w.png', 32, 64)
+		self.graphic = Sprite:new('graphics/door_w.png', 64, 64)
 	end
 	
 	self.graphic:add("closed", {1})
