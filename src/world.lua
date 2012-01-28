@@ -85,7 +85,7 @@ function World:update(dtime)
 end
 
 function World:blocked(tx, ty)
-	return self.map:getMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 1) ~= 0
+	return self.map:getMapTile(math.floor(tx / 32)+1, math.floor(ty / 32)+1, 2) ~= 0
 end
 
 function World:remove(entity)

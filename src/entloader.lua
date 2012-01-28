@@ -4,6 +4,7 @@ require("button")
 require("pit")
 require("door")
 require("sign")
+require("hiddenpit")
 require("conveyor")
 
 mobiles = {
@@ -11,6 +12,7 @@ mobiles = {
 	blade = Blade,
 	button = Button,
 	pit = Pit,
+	hiddenpit = HiddenPit,
 	door = Door,
 	sign = Sign,
 	conveyor = Conveyor
@@ -38,6 +40,11 @@ function loadEntities(world, map_objects)
 			e = Sign:new()
 			e:setPosition(o.x, o.y)
 			e.text = o["text"]
+			world:add(e)
+		elseif o.t == "conveyor" then
+			e = Conveyor:new()
+			e:setPosition(o.x, o.y)
+			e.direction = o["dir"]
 			world:add(e)
 		elseif mobiles[o.t] then
 			e = mobiles[o.t]:new()
