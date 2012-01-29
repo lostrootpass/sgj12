@@ -712,16 +712,7 @@
    <tile gid="15"/>
    <tile gid="9"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
@@ -731,52 +722,11 @@
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="9"/>
-   <tile gid="16"/>
-   <tile gid="15"/>
-   <tile gid="9"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="9"/>
-   <tile gid="16"/>
-   <tile gid="15"/>
-   <tile gid="9"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
@@ -787,8 +737,58 @@
    <tile gid="15"/>
    <tile gid="9"/>
    <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="9"/>
+   <tile gid="16"/>
+   <tile gid="15"/>
+   <tile gid="9"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="9"/>
+   <tile gid="16"/>
+   <tile gid="15"/>
+   <tile gid="9"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
@@ -812,7 +812,7 @@
    <tile gid="15"/>
    <tile gid="9"/>
    <tile gid="0"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
@@ -915,7 +915,7 @@
   <object name="DOOR" type="door" x="352" y="32" width="64" height="32"/>
   <object name="DOOR" type="door" x="384" y="512" width="64" height="32"/>
   <object name="DOOR" type="door" x="32" y="224" width="32" height="64"/>
-  <object type="laser" x="64" y="480" width="32" height="32"/>
+  <object type="laser" x="96" y="480" width="32" height="32"/>
   <object type="laser" x="416" y="224" width="32" height="32"/>
   <object type="laser" x="256" y="288" width="32" height="32"/>
   <object type="laser" x="704" y="480" width="32" height="32"/>
@@ -932,15 +932,12 @@
   <object type="hiddenpit" x="448" y="160" width="32" height="32"/>
   <object type="hiddenpit" x="416" y="160" width="32" height="32"/>
   <object type="hiddenpit" x="448" y="128" width="32" height="32"/>
-  <object type="hiddenpit" x="128" y="352" width="32" height="32"/>
   <object type="hiddenpit" x="160" y="384" width="32" height="32"/>
-  <object type="hiddenpit" x="128" y="384" width="32" height="32"/>
   <object type="hiddenpit" x="160" y="352" width="32" height="32"/>
   <object type="hiddenpit" x="192" y="352" width="32" height="32"/>
   <object type="hiddenpit" x="192" y="384" width="32" height="32"/>
   <object type="hiddenpit" x="192" y="416" width="32" height="32"/>
   <object type="hiddenpit" x="160" y="416" width="32" height="32"/>
-  <object type="hiddenpit" x="128" y="416" width="32" height="32"/>
   <object type="hiddenpit" x="480" y="128" width="32" height="32"/>
   <object type="hiddenpit" x="480" y="160" width="32" height="32"/>
   <object type="hiddenpit" x="320" y="288" width="32" height="32"/>
