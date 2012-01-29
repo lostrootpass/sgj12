@@ -86,7 +86,7 @@ function Universe:moveToArea(areaName, direction)
 	
 	if direction ~= nil then
 		
-		door = nil
+		local door = nil
 		for _, k in ipairs(State.world.entities) do
 			if k.dir == Universe.opposites[direction] then
 				door = k

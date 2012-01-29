@@ -52,6 +52,11 @@ function World:draw()
 end
 
 function World:update(dtime)
+
+	if Keyboard:isPressed(" ") and Dialogue.visible then
+		Dialogue:hide()
+	end
+	
 	for i = 1, table.getn(self.entities) do
 		if self.entities[i] ~= nil then
 			self.entities[i]:update(dtime)
@@ -59,10 +64,6 @@ function World:update(dtime)
 	end
 	
 	Dialogue:update(dtime)
-
-	if love.keyboard.isDown("a") then
-		Dialogue:hide()
-	end
 	
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
