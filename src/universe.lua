@@ -139,7 +139,18 @@ function Universe:restart()
 end
 
 function Universe:reboot()
+	--[[self.links = {}
+	self.partnerships = 0
 	
+	for name, area in pairs(self.areas) do
+		self.available[name] = area:getDoors()
+	end]]--
+	
+	State.universe = Universe:new()
+	State.universe.startingArea = "level/tom_room_start.tmx"
+	State.universe.endingArea = "level/tom_room_end.tmx"
+	State.universe:generateLinks()
+	State.universe:restart()
 end
 
 function Universe.shuffle(t)
