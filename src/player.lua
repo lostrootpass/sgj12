@@ -115,7 +115,11 @@ function Player:checkCollisions(x, y)
 		end
 	end
 
-	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
+	if State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height)  then
+		gx = math.floor(x / 32)+1
+		gy = math.floor((y + self.hitbox.height) / 32)+1
+		return true
+	end
 end
 
 function Player:checkOffScreen()
@@ -165,6 +169,7 @@ function Player:die(animation)
 end
 
 function Player:changeRoom(newRoom)
+	self.footsteps:stop()
 	State.world:remove(self)
 	print("player", State.world.name, newRoom)
 	State.universe:moveToArea(State.universe:nextArea(State.world.name, newRoom), newRoom)
