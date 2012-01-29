@@ -921,7 +921,7 @@
   <object name="Pit" type="pit" x="256" y="224" width="32" height="32"/>
   <object type="door" x="96" y="32" width="64" height="32"/>
   <object name="Blade" type="blade" x="416" y="320" width="32" height="32"/>
-  <object type="button" x="672" y="448" width="32" height="32">
+  <object type="button" x="640" y="416" width="32" height="32">
    <properties>
     <property name="id" value="1"/>
    </properties>

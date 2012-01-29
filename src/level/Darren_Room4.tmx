@@ -925,7 +925,7 @@
     <property name="id" value="1"/>
    </properties>
   </object>
-  <object type="button" x="672" y="96" width="32" height="32">
+  <object type="button" x="672" y="64" width="32" height="32">
    <properties>
     <property name="id" value="1"/>
    </properties>
