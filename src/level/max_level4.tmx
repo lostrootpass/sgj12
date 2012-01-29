@@ -1000,5 +1000,10 @@
     <property name="id" value="3"/>
    </properties>
   </object>
+  <object name="Candidates are asked not to place bets on their own session." type="sign" x="448" y="384" width="32" height="32">
+   <properties>
+    <property name="text" value="Candidates are asked not to place bets on their own session."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

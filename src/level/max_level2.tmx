@@ -928,5 +928,10 @@
   <object type="pit" x="192" y="224" width="32" height="32"/>
   <object type="pit" x="192" y="256" width="32" height="32"/>
   <object type="pit" x="192" y="288" width="32" height="32"/>
+  <object name="Where possible, all Candidate clothing is cleaned and reused upon death." type="sign" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="text" value="Where possible, all Candidate clothing is cleaned and reused upon death."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
