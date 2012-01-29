@@ -35,7 +35,9 @@ function World:init(tilemap)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
 
-	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
+	self.bgm = love.audio.newSource('audio/ambience02.ogg', 'stream')
+	self.bgm:setVolume(0.20)
+	love.audio.play(self.bgm)
 end
 
 function World:add(entity)
@@ -49,22 +51,14 @@ function World:draw()
 	end
 
 	Dialogue:draw()
---[[
-	if State.debug then
-		local r, g, b, a = love.graphics.getColor()
-		love.graphics.setColor(0, 0, 0, 255)
-
-		love.graphics.print("DEBUG", 5, 5)
-		love.graphics.print("Player X: " .. State.player.x, 5, 25)
-		love.graphics.print("Player Y: " .. State.player.y, 5, 45)
-		love.graphics.print("Entities: " .. table.getn(self.entities), 5, 65)
-
-		love.graphics.setColor(r, g, b, a)
-	end
-]]--
 end
 
 function World:update(dtime)
+
+	if Keyboard:isPressed(" ") and Dialogue.visible then
+		Dialogue:hide()
+	end
+	
 	for i = 1, table.getn(self.entities) do
 		if self.entities[i] ~= nil then
 			self.entities[i]:update(dtime)
@@ -72,10 +66,6 @@ function World:update(dtime)
 	end
 	
 	Dialogue:update(dtime)
-
-	if love.keyboard.isDown("a") then
-		Dialogue:hide()
-	end
 	
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
