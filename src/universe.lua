@@ -66,9 +66,9 @@ function Universe:findPartner(fromArea, travelDirection)
 	end
 end
 
-function Universe:loadArea(file)
+function Universe:loadArea(file, background)
 	if self.areas[file] == nil then
-		local world = World:new(file)
+		local world = World:new(file, background)
 		self.areas[file] = world
 		return world
 	else
@@ -76,10 +76,10 @@ function Universe:loadArea(file)
 	end
 end
 
-function Universe:moveToArea(areaName, direction)
+function Universe:moveToArea(areaName, direction, background)
 	Dialogue:hide()
-	print("movetoarea", areaName, direction)
-	local area = self:loadArea(areaName)
+	print("movetoarea", areaName, direction, background)
+	local area = self:loadArea(areaName, background)
 	State.world = area
 	
 	if State.player ~= nil then

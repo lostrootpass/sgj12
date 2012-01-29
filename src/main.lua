@@ -6,12 +6,14 @@ require('keyboard')
 
 function love.load()
 	love.graphics.setCaption('MUD: Multi-User Deathtrap')
-	--love.graphics.setMode(800, 600, true)
 	State.universe = Universe:new()
 	State.universe.startingArea = "level/tom_room_start.tmx"
 	State.universe.endingArea = "level/tom_room_end.tmx"
 	State.universe:generateLinks()
-	State.universe:restart()
+	--State.universe:restart()
+	State.universe:moveToArea("level/tom_room_menu.tmx", "n", "audio/titlescreen.ogg")
+	State.player.x = 64
+	State.player.y = 450
 
 	Keyboard:registerKeys({"q"})
 end
