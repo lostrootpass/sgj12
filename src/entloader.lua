@@ -46,11 +46,11 @@ function loadEntities(world, map_objects)
 			e = Conveyor:new(o["dir"])
 			e:setPosition(o.x, o.y)
 			world:add(e)
-		--elseif o.t == "gate" then
-			--e = Gate:new()
-			--e:setPosition(o.x, o.y)
-			--e.id = o["id"]
-			--world:add(e)
+		elseif o.t == "gate" then
+			e = Gate:new(o.w)
+			e:setPosition(o.x, o.y)
+			e.id = o["id"]
+			world:add(e)
 		elseif o.t == "button" then
 			e = Button:new()
 			e:setPosition(o.x, o.y)

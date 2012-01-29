@@ -1,4 +1,4 @@
---[[require('entity')
+require('entity')
 require('sprite')
 require('hitbox')
 require('state')
@@ -14,29 +14,30 @@ function Gate:init(dir)
 	
 	if dir > 32 then
 		self.dir = "n"
+	end
 
 	local x = 0
 	local y = 0
 
-	if dir == "n" then
+	if self.dir == "n" then
 		x = 64
 		y = 32
-	elseif dir =="e" then
+	elseif self.dir =="e" then
 		x = 32
 		y = 64
 	end
 
-	if dir == "n" then
+	if self.dir == "n" then
 		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
 		self.doorHitbox = Hitbox:new(0, 0, 64, 32)
 		self.switchHitbox = Hitbox:new(0, 32, 64, 32)
 		self.switchOffsetY = 32
-	elseif dir =="e" then
+	elseif self.dir =="e" then
 		self.graphic = Sprite:new('graphics/door_e.png', 32, 64)
 		self.doorHitbox = Hitbox:new(0, 0, 32, 64)
 		self.switchHitbox = Hitbox:new(-32, 0, 32, 64)
 		self.switchOffsetX = -32
-	elseif dir == "s" then
+	elseif self.dir == "s" then
 		self.graphic = Sprite:new('graphics/door_s.png', 64, 32)
 		self.doorHitbox = Hitbox:new(0, 0, 64, 32)
 		self.switchHitbox = Hitbox:new(0, -32, 64, 32)
@@ -84,4 +85,3 @@ function Gate:update(dtime)
 	self.graphic:update(dtime)
 	
 end
---]]

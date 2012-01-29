@@ -35,7 +35,7 @@ function Conveyor:init(dir)
 		self.graphic = Sprite:new('graphics/conveyor_w.png', 32, 32)
 		self.doorHitbox = Hitbox:new(0, 0, 32, 64)
 	end
-	self.graphic:add("go", {1, 2, 3, 4}, 0.1)
+	self.graphic:add("go", {4, 3, 2, 1}, 0.1)
 end
 
 function Conveyor:update(dtime)
