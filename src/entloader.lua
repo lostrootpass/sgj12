@@ -17,7 +17,8 @@ mobiles = {
 	door = Door,
 	sign = Sign,
 	conveyor = Conveyor,
-	gate = Gate
+	gate = Gate,
+	commandterminal = CommandTerminal	
 }
 
 function loadEntities(world, map_objects)
