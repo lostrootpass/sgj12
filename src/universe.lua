@@ -32,13 +32,11 @@ function Universe:generateLinks()
 	local filetable = lfs.enumerate("level")
 	
 	for _, name in ipairs(filetable) do
-		if string.sub(name, 1, 7) ~= "forrest"  then
-			local file = "level/" .. name
-			local parsedArea = self:loadArea(file)
-			
-			self.available[file] = parsedArea:getDoors()
-			self.areas[file] = parsedArea
-		end
+		local file = "level/" .. name
+		local parsedArea = self:loadArea(file)
+		
+		self.available[file] = parsedArea:getDoors()
+		self.areas[file] = parsedArea
 	end
 	
 	self:findPartner(self.startingArea, "s")
