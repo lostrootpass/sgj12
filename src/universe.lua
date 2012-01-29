@@ -78,7 +78,7 @@ end
 
 function Universe:moveToArea(areaName, direction, background)
 	Dialogue:hide()
-	print("movetoarea", areaName, direction)
+	print("movetoarea", areaName, direction, background)
 	local area = self:loadArea(areaName, background)
 	State.world = area
 	

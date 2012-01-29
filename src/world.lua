@@ -15,6 +15,7 @@ World = Object:new()
 World.entities = {}
 
 function World:init(tilemap, background)
+	print("background is", background)
 	tilemap = tilemap or "level/Darren_Room1.tmx"
 	
 	self.name = tilemap
@@ -35,7 +36,14 @@ function World:init(tilemap, background)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
 
-	self.bgm = love.audio.newSource(background or 'audio/ambience02.ogg', 'stream')
+	local music = ""
+	if tilemap == "level/tom_room_menu.tmx" then
+		music = "audio/titlescreen.ogg"
+	else
+		music = "audio/ambience02.ogg"
+	end
+	
+	self.bgm = love.audio.newSource(music, 'stream')
 	self.bgm:setVolume(0.20)
 	love.audio.play(self.bgm)
 end
