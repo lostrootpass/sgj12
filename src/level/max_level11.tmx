@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tile" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" width="192" height="224"/>
+  <image source="../graphics/room_tileset.png" width="192" height="256"/>
  </tileset>
  <layer name="Tile Layer 2" width="25" height="18">
   <data>
@@ -600,7 +600,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
@@ -625,13 +625,13 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="9"/>
    <tile gid="29"/>
-   <tile gid="25"/>
+   <tile gid="9"/>
    <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
@@ -655,9 +655,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="25"/>
-   <tile gid="24"/>
-   <tile gid="24"/>
-   <tile gid="24"/>
+   <tile gid="9"/>
+   <tile gid="9"/>
+   <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="28"/>
@@ -707,7 +707,7 @@
    <tile gid="9"/>
    <tile gid="9"/>
    <tile gid="25"/>
-   <tile gid="9"/>
+   <tile gid="25"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="9"/>
@@ -732,7 +732,7 @@
    <tile gid="0"/>
    <tile gid="29"/>
    <tile gid="9"/>
-   <tile gid="24"/>
+   <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="9"/>
@@ -742,7 +742,7 @@
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -767,7 +767,7 @@
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
