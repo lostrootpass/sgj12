@@ -10,6 +10,7 @@ function Pit:init()
 	self.sprite:add("visible", {2})
 	self.sprite:play("visible", 1)
 	self.graphic = self.sprite
+	self.scream = love.audio.newSource('audio/wilhelm.wav')
 end
 
 function Pit:draw()
@@ -21,7 +22,8 @@ function Pit:update(dtime)
 	self.sprite.y = self.y
 	self.hitbox.x = self.x
 	self.hitbox.y = self.y
-	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (28)) then
+	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then
+		love.audio.play(self.scream, "stream")
 		State.player:die()
 	end
 end
