@@ -1,4 +1,5 @@
 require('object')
+require('dialogue')
 
 Universe = Object:new()
 
@@ -50,6 +51,7 @@ function Universe:findPartner(fromArea, travelDirection)
 	math.randomseed(os.time())
 	if math.random() < endProbability and travelDirection == "n" then
 		self:link(fromArea, self.endingArea, travelDirection)
+		return
 	end
 
 	self.available = Universe.shuffle(self.available)
@@ -80,7 +82,7 @@ function Universe:moveToArea(areaName, direction)
 	print("movetoarea", areaName, direction)
 	local area = self:loadArea(areaName)
 	State.world = area
-	State.player = Player:new()
+	State.player = PlayerGen:newPlayer()
 	area:add(State.player)
 	
 	if direction ~= nil then
@@ -123,6 +125,8 @@ end
 
 function Universe:restart()
 	self:moveToArea(self.startingArea)
+	
+	Dialogue:show(State.player.name .. ": " .. State.player.bio)
 end
 
 function Universe.shuffle(t)

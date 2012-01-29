@@ -35,10 +35,8 @@ function World:init(tilemap)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
 
-	PlayerGen:newPlayer()
-
 	if State.player == nil then
-		State.player = Player:new()
+		State.player = PlayerGen:newPlayer()
 		self:add(State.player)
 	end
 
