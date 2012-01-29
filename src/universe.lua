@@ -12,7 +12,7 @@ function Universe:init()
 	self.links = {}
 	self.available = {}
 	self.partnerships = 0
-	self.roomLimit = 1
+	self.roomLimit = 50
 end
 
 function Universe:link(from, to, direction)	

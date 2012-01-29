@@ -2,7 +2,7 @@ require('entity')
 require('sprite')
 require('hitbox')
 require('state')
-require('dialogue')
+require('end_dialogue')
 
 CommandTerminal = Entity:new()
 
@@ -20,7 +20,13 @@ function CommandTerminal:init()
 end
 
 function CommandTerminal:activate()
-	Dialogue:show("Welcome, Controller.")
+	local message = EndDialogue:new()
+	message:add("Good news, Candidate!")
+	message:add("You have now ascended to Controller Level 1.")
+	message:add("Your Candidates are awaiting you. Please play responsibly.")
+	message:add("Press RETURN to begin your session.")
+	State.world:add(message)
+	message:nextLine()
 end	
 
 function CommandTerminal:update(dtime)
