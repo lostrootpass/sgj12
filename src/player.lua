@@ -96,12 +96,12 @@ function Player:update(dtime)
 	self.hitbox.y = self.y + 8
 	self:checkOffScreen()
 	
-	if self.moving and self.footsteps:isStopped() then 
+	--[[if self.moving and self.footsteps:isStopped() then 
 		self.footsteps:play()
 		self.footsteps:setLooping(true)
 	elseif not self.moving then
 		self.footsteps:stop()
-	end
+	end]]--
 	
 	sprite:update(dtime)	
 end
