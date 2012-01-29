@@ -47,7 +47,7 @@ function Universe:findPartner(fromArea, travelDirection)
 	print("end likelihood", endProbability)
 	
 	math.randomseed(os.time())
-	if math.random() < endProbability and travelDirection == "n" then
+	if math.random() < endProbability and travelDirection == "n" and self.partnerships > 10 then
 		self:link(fromArea, self.endingArea, travelDirection)
 		return
 	end
@@ -56,7 +56,7 @@ function Universe:findPartner(fromArea, travelDirection)
 	
 	for toArea, availability in pairs(self.available) do
 		local opposite = Universe.opposites[travelDirection]
-		if availability[opposite] == true then
+		if availability[opposite] == true and not (toArea == self.endingArea and self.partnerships < 10) then
 			print(toArea, availability)
 			availability[opposite] = false
 			
