@@ -93,7 +93,7 @@ function Player:update(dtime)
 	end
 	
 	self.hitbox.x = self.x + 8
-	self.hitbox.y = self.y + 8
+	self.hitbox.y = self.y + 2
 	self:checkOffScreen()
 	
 	--[[if self.moving and self.footsteps:isStopped() then 
@@ -115,11 +115,7 @@ function Player:checkCollisions(x, y)
 		end
 	end
 
-	if State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height)  then
-		gx = math.floor(x / 32)+1
-		gy = math.floor((y + self.hitbox.height) / 32)+1
-		return true
-	end
+	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
 end
 
 function Player:checkOffScreen()
@@ -169,7 +165,6 @@ function Player:die(animation)
 end
 
 function Player:changeRoom(newRoom)
-	self.footsteps:stop()
 	State.world:remove(self)
 	print("player", State.world.name, newRoom)
 	State.universe:moveToArea(State.universe:nextArea(State.world.name, newRoom), newRoom)
