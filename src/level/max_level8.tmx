@@ -496,8 +496,8 @@
    <tile gid="3"/>
    <tile gid="22"/>
    <tile gid="3"/>
-   <tile gid="3"/>
-   <tile gid="3"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
@@ -625,14 +625,14 @@
    <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="19"/>
+   <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="9"/>
+   <tile gid="29"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="6"/>
@@ -649,14 +649,14 @@
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
@@ -675,14 +675,14 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="9"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="0"/>
@@ -705,9 +705,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
    <tile gid="0"/>
-   <tile gid="9"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="16"/>
    <tile gid="15"/>
    <tile gid="5"/>
@@ -731,7 +731,7 @@
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
@@ -763,7 +763,32 @@
    <tile gid="9"/>
    <tile gid="0"/>
    <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="29"/>
+   <tile gid="16"/>
+   <tile gid="15"/>
+   <tile gid="9"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -789,35 +814,10 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="9"/>
-   <tile gid="16"/>
-   <tile gid="15"/>
-   <tile gid="9"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
@@ -876,7 +876,7 @@
    <tile gid="4"/>
    <tile gid="3"/>
    <tile gid="3"/>
-   <tile gid="3"/>
+   <tile gid="27"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="23"/>
@@ -913,11 +913,79 @@
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
   <object name="DOOR" type="door" x="32" y="256" width="32" height="64"/>
-  <object type="gate" x="128" y="256" width="32" height="64"/>
-  <object type="gate" x="224" y="96" width="64" height="32"/>
+  <object type="gate" x="128" y="256" width="32" height="64">
+   <properties>
+    <property name="id" value="1"/>
+   </properties>
+  </object>
+  <object type="gate" x="224" y="96" width="64" height="32">
+   <properties>
+    <property name="id" value="1"/>
+   </properties>
+  </object>
   <object type="blade" x="384" y="192" width="32" height="32"/>
   <object type="blade" x="448" y="320" width="32" height="32"/>
   <object type="laser" x="160" y="128" width="32" height="32"/>
   <object name="DOOR" type="door" x="384" y="512" width="64" height="32"/>
+  <object name="DOOR" type="door" x="384" y="32" width="64" height="32"/>
+  <object type="button" x="544" y="192" width="32" height="32">
+   <properties>
+    <property name="id" value="1"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="64" y="96" width="32" height="32">
+   <properties>
+    <property name="dir" value="s"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="96" y="96" width="32" height="32">
+   <properties>
+    <property name="dir" value="s"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="96" y="128" width="32" height="32">
+   <properties>
+    <property name="dir" value="s"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="64" y="128" width="32" height="32">
+   <properties>
+    <property name="dir" value="s"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="96" y="384" width="32" height="32">
+   <properties>
+    <property name="dir" value="e"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="96" y="416" width="32" height="32">
+   <properties>
+    <property name="dir" value="e"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="64" y="416" width="32" height="32">
+   <properties>
+    <property name="dir" value="e"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="64" y="384" width="32" height="32">
+   <properties>
+    <property name="dir" value="e"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="128" y="384" width="32" height="32">
+   <properties>
+    <property name="dir" value="e"/>
+   </properties>
+  </object>
+  <object type="conveyor" x="128" y="416" width="32" height="32">
+   <properties>
+    <property name="dir" value="e"/>
+   </properties>
+  </object>
+  <object type="laser" x="256" y="352" width="32" height="32"/>
+  <object name="DOOR" type="door" x="736" y="256" width="32" height="64"/>
+  <object type="laser" x="704" y="192" width="32" height="32"/>
+  <object type="laser" x="704" y="352" width="32" height="32"/>
  </objectgroup>
 </map>

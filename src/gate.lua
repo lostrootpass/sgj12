@@ -13,32 +13,20 @@ function Gate:init(dir, i)
 	
 	local x = 0
 	local y = 0
-	
-	if dir > 32 then
-		self.dir = "n"
-	else
-		self.dir = "e"
-	end
 
-	if self.dir == "n" then
+	if dir > 32 then
 		x = 64
 		y = 32
-	elseif self.dir =="e" then
+	else
 		x = 32
 		y = 64
 	end
 
-	if self.dir == "n" then
+	if dir > 32 then
 		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
 		self.hitbox = Hitbox:new(0, 0, 64, 32)
-	elseif self.dir =="e" then
-		self.graphic = Sprite:new('graphics/door_e.png', 32, 64)
-		self.hitbox = Hitbox:new(0, 0, 32, 64)
-	elseif self.dir == "s" then
-		self.graphic = Sprite:new('graphics/door_s.png', 64, 32)
-		self.hitbox = Hitbox:new(0, 0, 64, 32)
 	else
-		self.graphic = Sprite:new('graphics/door_w.png', 32, 64)
+		self.graphic = Sprite:new('graphics/door_e.png', 32, 64)
 		self.hitbox = Hitbox:new(0, 0, 32, 64)
 	end
 
