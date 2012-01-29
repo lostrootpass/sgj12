@@ -44,7 +44,7 @@ function MapLoader:drawNearCam(camx, camy)
 	local minx, maxx = math.floor((camx - sw / 2)/self.tileSize), math.ceil((camx + sw / 2)/self.tileSize)
 	local miny, maxy = math.floor((camy - sh / 2)/self.tileSize), math.ceil((camy + sh / 2)/self.tileSize)
 	
-	for z = 1,#self.layers do
+	for z = 2,#self.layers do
 		for x = minx, maxx do
 			for y = miny, maxy do
 				local gfx = self.tileGfx[self:getMapTile(x, y, z)]

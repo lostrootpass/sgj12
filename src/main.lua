@@ -6,7 +6,8 @@ require('universe')
 function love.load()
 	love.graphics.setCaption('Ouroboros')
 	State.universe = Universe:new()
-	State.universe.startingArea = "level/max_level4.tmx"
+	State.universe.startingArea = "level/tom_room_start.tmx"
+	State.universe.endingArea = "level/tom_room_end.tmx"
 	State.universe:generateLinks()
 	State.universe:restart()
 end

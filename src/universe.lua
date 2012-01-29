@@ -6,9 +6,12 @@ Universe.opposites = {n = 's', s = 'n', w = 'e', e = 'w'}
 
 function Universe:init()
 	self.startingArea = nil
+	self.endingArea = nil
 	self.areas = {}
 	self.links = {}
 	self.available = {}
+	self.partnerships = 0
+	self.roomLimit = 5
 end
 
 function Universe:link(from, to, direction)	
@@ -19,6 +22,8 @@ function Universe:link(from, to, direction)
 	
 	self.available[to][direction] = false
 	self.available[from][reverse] = false
+	
+	self.partnerships = self.partnerships + 1
 end
 
 function Universe:generateLinks()
@@ -30,21 +35,25 @@ function Universe:generateLinks()
 			local file = "level/" .. name
 			local parsedArea = self:loadArea(file)
 			
-			print(file)
-			
 			self.available[file] = parsedArea:getDoors()
 			self.areas[file] = parsedArea
 		end
 	end
 	
-	self.available = self:shuffle(self.available)
-	
-	self.available[self.startingArea]["s"] = false
 	self:findPartner(self.startingArea, "s")
 end
 
 function Universe:findPartner(fromArea, travelDirection)
-	print("finding partner", fromArea, travelDirection)
+	local endProbability = self.partnerships / self.roomLimit
+	print("end likelihood", endProbability)
+	
+	math.randomseed(os.time())
+	if math.random() < endProbability and travelDirection == "n" then
+		self:link(fromArea, self.endingArea, travelDirection)
+	end
+
+	self.available = Universe.shuffle(self.available)
+	
 	for toArea, availability in pairs(self.available) do
 		local opposite = Universe.opposites[travelDirection]
 		if availability[opposite] == true then
@@ -78,7 +87,7 @@ function Universe:moveToArea(areaName, direction)
 		
 		door = nil
 		for _, k in ipairs(State.world.entities) do
-			if k.type == 'door' and k.dir == Universe.opposites[direction] then
+			if k.dir == Universe.opposites[direction] then
 				door = k
 			end
 		end
@@ -86,15 +95,15 @@ function Universe:moveToArea(areaName, direction)
 		if door then
 			if direction == 's' then
 				State.player.x = door.x + 16
-				State.player.y = door.y + 28
+				State.player.y = door.y + 32
 			elseif direction == 'n' then
 				State.player.x = door.x + 16
-				State.player.y = door.y - 28
+				State.player.y = door.y - 32
 			elseif direction == 'w' then
-				State.player.x = door.x - 28
+				State.player.x = door.x - 32
 				State.player.y = door.y + 16
 			elseif direction == 'e' then
-				State.player.x = door.x + 28
+				State.player.x = door.x + 32
 				State.player.y = door.y + 16
 			end
 		end	
@@ -116,14 +125,20 @@ function Universe:restart()
 	self:moveToArea(self.startingArea)
 end
 
-function Universe:shuffle(t)
+function Universe.shuffle(t)
 	math.randomseed(os.time())
+	
 	local n = #t
 	
 	while n >= 2 do
 		local k = math.random(n)
+		print(n, k)
 		t[n], t[k] = t[k], t[n]
 		n = n - 1
+	end
+	
+	for a, b in pairs(t) do
+		print(a, b)
 	end
 	
 	return t
