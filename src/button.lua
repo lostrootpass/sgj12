@@ -37,8 +37,9 @@ function Button:update(dtime)
 	end
 	
 	if love.keyboard.isDown(' ') then
-		if self.interactBox:intersects(State.player.hitbox) then
+		if self.interactBox:intersects(State.player.hitbox) and not self.is_pressed then
 			self.is_pressed = true
+			love.audio.play(love.audio.newSource('audio/terminal.wav'))
 			if self.id then
 				self:broadcast(self.id)
 			end
