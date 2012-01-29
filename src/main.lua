@@ -12,8 +12,8 @@ function love.load()
 	State.universe:generateLinks()
 	--State.universe:restart()
 	State.universe:moveToArea("level/tom_room_menu.tmx", "n", "audio/titlescreen.ogg")
-	State.player.x = 64
-	State.player.y = 450
+	State.player.x = 640
+	State.player.y = 320
 
 	Keyboard:registerKeys({"q"})
 end

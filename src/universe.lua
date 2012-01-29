@@ -138,6 +138,10 @@ function Universe:restart()
 	Dialogue:show(State.player.name .. ": " .. State.player.bio)
 end
 
+function Universe:reboot()
+	
+end
+
 function Universe.shuffle(t)
 	math.randomseed(os.time())
 	
