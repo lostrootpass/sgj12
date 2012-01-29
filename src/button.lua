@@ -18,8 +18,8 @@ end
 
 function Button:broadcast(id)
 	for _, e in ipairs(State.world.entities) do
-		if e.id == id then
-			e.activate()
+		if e.id == id and e.type == "gate" then
+			e:activate()
 		end
 	end
 end	
