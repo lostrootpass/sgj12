@@ -54,6 +54,13 @@ function MapLoader:drawNearCam(camx, camy)
 					local sy = y * self.tileSize - camy + sh / 2
 					
 					love.graphics.draw(gfx, sx, sy)
+
+					if State.debug and z == 2 and self:getMapTile(x, y, z) ~= self.emptyType then
+						local r, g, b, a = love.graphics.getColor()
+						love.graphics.setColor(0, 0, 255, 255)
+						love.graphics.rectangle("line", x * self.tileSize - camx + sw / 2, y * self.tileSize - camy + sh / 2, self.tileSize, self.tileSize)
+						love.graphics.setColor(r, g, b, a)
+					end
 				end
 			end
 		end

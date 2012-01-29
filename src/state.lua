@@ -4,3 +4,4 @@ State = {}
 State.player = nil
 State.world = nil
 State.universe = nil
+State.debug = false

@@ -62,3 +62,11 @@ function Sprite:update(dtime)
 		end
 	end
 end
+
+function Sprite:getWidth()
+	return self.frameWidth
+end
+
+function Sprite:getHeight()
+	return self.frameHeight
+end
