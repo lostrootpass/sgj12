@@ -2,6 +2,7 @@ require('entity')
 require('sprite')
 require('hitbox')
 require('state')
+require('dialogue')
 
 CommandTerminal = Entity:new()
 
@@ -19,7 +20,7 @@ function CommandTerminal:init()
 end
 
 function CommandTerminal:activate()
-	
+	Dialogue:show("Welcome, Controller.")
 end	
 
 function CommandTerminal:update(dtime)
@@ -38,9 +39,7 @@ function CommandTerminal:update(dtime)
 		if self.interactBox:intersects(State.player.hitbox) and not self.is_pressed then
 			self.is_pressed = true
 			love.audio.play(love.audio.newSource('audio/terminal.wav'))
-			if self.id then
-				self:activate()
-			end
+			self:activate()
 		end
 	end
 end

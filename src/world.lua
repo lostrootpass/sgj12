@@ -55,7 +55,7 @@ end
 
 function World:update(dtime)
 
-	if Keyboard:isPressed(" ") and Dialogue.visible then
+	if Keyboard:isPressed("return") and Dialogue.visible then
 		Dialogue:hide()
 	end
 	
