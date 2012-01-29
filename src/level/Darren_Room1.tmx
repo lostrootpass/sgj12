@@ -929,12 +929,12 @@
   <object type="door" x="96" y="512" width="64" height="32"/>
   <object name="DOOR" type="door" x="736" y="256" width="32" height="64"/>
   <object type="laser" x="352" y="160" width="32" height="32"/>
-  <object type="conveyer" x="672" y="352" width="32" height="32">
+  <object type="conveyor" x="672" y="352" width="32" height="32">
    <properties>
     <property name="dir" value="s"/>
    </properties>
   </object>
-  <object type="conveyer" x="672" y="384" width="32" height="32">
+  <object type="conveyor" x="672" y="384" width="32" height="32">
    <properties>
     <property name="dir" value="s"/>
    </properties>
