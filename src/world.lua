@@ -15,7 +15,6 @@ World = Object:new()
 World.entities = {}
 
 function World:init(tilemap, background)
-	print("background is", background)
 	tilemap = tilemap or "level/Darren_Room1.tmx"
 	
 	self.name = tilemap
