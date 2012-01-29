@@ -4,7 +4,6 @@ MapLoader = Object:new()
 
 
 function MapLoader:init(filepath)
-	print(filepath)
 	self.tileSize = 32
 	self.emptyType = 0
 	self.tileGfx = {}

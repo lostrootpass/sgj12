@@ -12,8 +12,13 @@ function Universe:init()
 end
 
 function Universe:link(from, to, direction)	
+	local reverse = Universe.opposites[direction]
+	
 	table.insert(self.links, {to = to, from = from, direction = direction})
-	table.insert(self.links, {to = from, from = to, direction = Universe.opposites[direction]})
+	table.insert(self.links, {to = from, from = to, direction = reverse})
+	
+	self.available[to][direction] = false
+	self.available[from][reverse] = false
 end
 
 function Universe:generateLinks()
@@ -21,25 +26,33 @@ function Universe:generateLinks()
 	local filetable = lfs.enumerate("level")
 	
 	for _, name in ipairs(filetable) do
-		local file = "level/" .. name
-		local parsedArea = self:loadArea(file)
-		
-		self.available[file] = parsedArea:getDoors()
-		self.areas[file] = parsedArea
+		if string.sub(name, 1, 7) ~= "forrest"  then
+			local file = "level/" .. name
+			local parsedArea = self:loadArea(file)
+			
+			print(file)
+			
+			self.available[file] = parsedArea:getDoors()
+			self.areas[file] = parsedArea
+		end
 	end
 	
 	self.available = self:shuffle(self.available)
+	
+	self.available[self.startingArea]["s"] = false
 	self:findPartner(self.startingArea, "s")
 end
 
 function Universe:findPartner(fromArea, travelDirection)
-	for toArea, availability in self.available do
+	print("finding partner", fromArea, travelDirection)
+	for toArea, availability in pairs(self.available) do
 		local opposite = Universe.opposites[travelDirection]
-		
 		if availability[opposite] == true then
+			print(toArea, availability)
 			availability[opposite] = false
 			
 			self:link(fromArea, toArea, travelDirection)
+			return
 		end
 	end
 end
@@ -55,6 +68,7 @@ function Universe:loadArea(file)
 end
 
 function Universe:moveToArea(areaName, direction)
+	print("movetoarea", areaName, direction)
 	local area = self:loadArea(areaName)
 	State.world = area
 	State.player = Player:new()
@@ -93,6 +107,9 @@ function Universe:nextArea(current, direction)
 			return link.to
 		end
 	end
+	
+	self:findPartner(current, direction)
+	return self:nextArea(current, direction)
 end
 
 function Universe:restart()

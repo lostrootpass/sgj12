@@ -165,5 +165,6 @@ end
 
 function Player:changeRoom(newRoom)
 	State.world:remove(self)
+	print("player", State.world.name, newRoom)
 	State.universe:moveToArea(State.universe:nextArea(State.world.name, newRoom), newRoom)
 end
