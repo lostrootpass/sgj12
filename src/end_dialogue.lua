@@ -25,7 +25,7 @@ function EndDialogue:nextLine()
 	self.line = self.line + 1
 	if self.line > #self.lines then
 		--State.world:remove(self)
-		State.universe:restart()
+		State.universe:reboot()
 	end
 end
 
