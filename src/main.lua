@@ -7,7 +7,7 @@ require('keyboard')
 function love.load()
 	love.graphics.setCaption('MUD: Multi-User Deathtrap')
 	State.universe = Universe:new()
-	State.universe.startingArea = "level/tom_room_start.tmx"
+	State.universe.startingArea = "level/max_level4.tmx"
 	State.universe.endingArea = "level/tom_room_end.tmx"
 	State.universe:generateLinks()
 	--State.universe:restart()
