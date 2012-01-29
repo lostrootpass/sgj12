@@ -61,14 +61,15 @@ function World:draw()
 end
 
 function World:update(dtime)
+
+	if Keyboard:isPressed(" ") and Dialogue.visible then
+		Dialogue:hide()
+	end
+	
 	for i = 1, table.getn(self.entities) do
 		if self.entities[i] ~= nil then
 			self.entities[i]:update(dtime)
 		end
-	end
-
-	if Keyboard:isPressed(" ") and Dialogue.visible then
-		Dialogue:hide()
 	end
 	
 	Dialogue:update(dtime)
