@@ -35,11 +35,6 @@ function World:init(tilemap)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
 
-	if State.player == nil then
-		State.player = PlayerGen:newPlayer()
-		self:add(State.player)
-	end
-
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
 end
 
