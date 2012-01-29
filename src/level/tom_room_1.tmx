@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="GGJ2012" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" trans="ff00ff" width="192" height="224"/>
+  <image source="../graphics/room_tileset.png" trans="ff00ff" width="192" height="256"/>
  </tileset>
  <layer name="Tile Layer 1" width="25" height="18">
   <data>
@@ -604,9 +604,9 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="2684354579"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
+   <tile gid="19"/>
    <tile gid="9"/>
    <tile gid="16"/>
    <tile gid="15"/>
@@ -688,7 +688,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -959,15 +959,15 @@
   <object name="Laser" type="laser" x="704" y="64" width="32" height="32"/>
   <object name="Pit" type="pit" x="416" y="256" width="32" height="32"/>
   <object name="Pit" type="pit" x="544" y="256" width="32" height="32"/>
-  <object name="Pit" type="pit" x="224" y="321" width="32" height="32"/>
-  <object name="Pit" type="pit" x="253" y="320" width="32" height="32"/>
+  <object name="Pit" type="pit" x="224" y="320" width="32" height="32"/>
+  <object name="Pit" type="pit" x="256" y="320" width="32" height="32"/>
   <object name="Pit" type="pit" x="512" y="448" width="32" height="32"/>
   <object name="Pit" type="pit" x="512" y="448" width="32" height="32"/>
   <object name="Pit" type="pit" x="704" y="448" width="32" height="32"/>
   <object name="Pit" type="pit" x="704" y="416" width="32" height="32"/>
   <object name="Pit" type="pit" x="704" y="416" height="32"/>
   <object name="Pit" type="pit" x="704" y="384" width="32" height="32"/>
-  <object name="Pit" type="pit" x="323" y="289" width="32" height="32"/>
+  <object name="Pit" type="pit" x="320" y="288" width="32" height="32"/>
   <object name="Pit" type="pit" x="288" y="384" width="32" height="32"/>
   <object name="Pit" type="pit" x="480" y="288" width="32" height="32"/>
   <object name="Pit" type="pit" x="160" y="256" width="32" height="32"/>
@@ -978,8 +978,8 @@
     <property name="text" value="Scylla and Charybdis&quot;"/>
    </properties>
   </object>
-  <object name="Pit" type="pit" x="253" y="288" width="32" height="32"/>
-  <object name="Pit" type="pit" x="224" y="289" width="32" height="32"/>
+  <object name="Pit" type="pit" x="256" y="288" width="32" height="32"/>
+  <object name="Pit" type="pit" x="224" y="288" width="32" height="32"/>
   <object name="Pit" type="pit" x="160" y="320" width="32" height="32"/>
   <object name="Pit" type="pit" x="192" y="384" width="32" height="32"/>
   <object name="Pit" type="pit" x="192" y="416" width="32" height="32"/>
@@ -988,7 +988,7 @@
     <property name="dir" value="e"/>
    </properties>
   </object>
-  <object name="Conveyor E" type="conveyor" x="288" y="481" width="32" height="32">
+  <object name="Conveyor E" type="conveyor" x="288" y="480" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>
@@ -998,7 +998,7 @@
     <property name="dir" value="e"/>
    </properties>
   </object>
-  <object name="Conveyor E" type="conveyor" x="196" y="480" width="32" height="32">
+  <object name="Conveyor E" type="conveyor" x="192" y="480" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>
@@ -1008,7 +1008,7 @@
     <property name="dir" value="e"/>
    </properties>
   </object>
-  <object name="Conveyor E" type="conveyor" x="227" y="480" width="32" height="32">
+  <object name="Conveyor E" type="conveyor" x="224" y="480" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>
@@ -1039,12 +1039,12 @@
     <property name="text" value="Scylla and Charybdis&quot;"/>
    </properties>
   </object>
-  <object name="Conveyor E" type="conveyor" x="131" y="480" width="32" height="32">
+  <object name="Conveyor E" type="conveyor" x="128" y="480" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>
   </object>
-  <object name="Conveyor E" type="conveyor" x="100" y="480" width="32" height="32">
+  <object name="Conveyor E" type="conveyor" x="96" y="480" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>
