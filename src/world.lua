@@ -49,6 +49,19 @@ function World:draw()
 	end
 
 	Dialogue:draw()
+--[[
+	if State.debug then
+		local r, g, b, a = love.graphics.getColor()
+		love.graphics.setColor(0, 0, 0, 255)
+
+		love.graphics.print("DEBUG", 5, 5)
+		love.graphics.print("Player X: " .. State.player.x, 5, 25)
+		love.graphics.print("Player Y: " .. State.player.y, 5, 45)
+		love.graphics.print("Entities: " .. table.getn(self.entities), 5, 65)
+
+		love.graphics.setColor(r, g, b, a)
+	end
+]]--
 end
 
 function World:update(dtime)

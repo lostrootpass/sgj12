@@ -6,6 +6,7 @@ require('keyboard')
 
 function love.load()
 	love.graphics.setCaption('MUD: Multi-User Deathtrap')
+	--love.graphics.setMode(800, 600, true)
 	State.universe = Universe:new()
 	State.universe.startingArea = "level/tom_room_start.tmx"
 	State.universe.endingArea = "level/tom_room_end.tmx"
