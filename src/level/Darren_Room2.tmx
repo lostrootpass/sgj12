@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="18" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="room_tileset" tilewidth="32" tileheight="32">
-  <image source="../graphics/room_tileset.png" width="192" height="224"/>
+  <image source="../graphics/room_tileset.png" width="192" height="256"/>
  </tileset>
  <layer name="Tile Layer 2" width="25" height="18">
   <data>
@@ -492,15 +492,15 @@
    <tile gid="3"/>
    <tile gid="35"/>
    <tile gid="3"/>
-   <tile gid="26"/>
    <tile gid="3"/>
-   <tile gid="3"/>
-   <tile gid="3"/>
-   <tile gid="26"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="26"/>
+   <tile gid="3"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
@@ -867,15 +867,15 @@
    <tile gid="3"/>
    <tile gid="34"/>
    <tile gid="3"/>
-   <tile gid="27"/>
+   <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="35"/>
    <tile gid="27"/>
    <tile gid="3"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="3"/>
-   <tile gid="3"/>
-   <tile gid="27"/>
    <tile gid="3"/>
    <tile gid="3"/>
    <tile gid="3"/>
@@ -970,5 +970,7 @@
   <object name="Hidden Pit" type="pit" x="704" y="384" width="32" height="32"/>
   <object name="Hidden Pit" type="pit" x="576" y="384" width="32" height="32"/>
   <object name="Hidden Pit" type="pit" x="640" y="320" width="32" height="32"/>
+  <object type="door" x="448" y="32" width="64" height="32"/>
+  <object type="door" x="448" y="512" width="64" height="32"/>
  </objectgroup>
 </map>
