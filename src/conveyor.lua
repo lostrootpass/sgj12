@@ -55,7 +55,7 @@ function Conveyor:update(dtime)
 				State.player.x = self.hitbox.x
 				State.player.y = self.hitbox.y + self.hitbox.height
 			elseif self.direction == "w" then
-				State.player.y = self.hitbox.y
+				State.player.y = self.hitbox.y - 4
 				State.player.x = self.hitbox.x - State.player.hitbox.width
 			elseif self.direction == "e" then
 				State.player.y = self.hitbox.y

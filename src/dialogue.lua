@@ -48,7 +48,7 @@ function Dialogue:draw()
 
 			r, g, b, a = love.graphics.getColor()
 			love.graphics.setColor(self.textColor)
-			love.graphics.print(self.text, self.x + self.textX, self.y + self.textY)
+			love.graphics.printf(self.text, self.x + self.textX, self.y + self.textY, 760)
 			love.graphics.setColor(r, g, b, a)
 
 			if self.font ~= nil then
