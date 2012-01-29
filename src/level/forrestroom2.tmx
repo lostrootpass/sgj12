@@ -960,5 +960,10 @@
     <property name="text" value="Danger"/>
    </properties>
   </object>
+  <object name="button (safe)" type="button" x="512" y="64" width="32" height="32">
+   <properties>
+    <property name="id" value="1"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
