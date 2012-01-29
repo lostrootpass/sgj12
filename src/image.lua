@@ -12,3 +12,10 @@ function Image:draw()
 	love.graphics.draw(self.image, self.x, self.y)
 end
 	
+function Image:getWidth()
+	return self.image:getWidth()
+end
+
+function Image:getHeight()
+	return self.image:getHeight()
+end

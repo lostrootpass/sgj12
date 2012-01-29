@@ -35,7 +35,10 @@ function World:init(tilemap)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
 
-	PlayerGen:newPlayer()
+	if State.player == nil then
+		State.player = PlayerGen:newPlayer()
+		self:add(State.player)
+	end
 
 	love.audio.play(love.audio.newSource('audio/ambience02.ogg', 'stream'))
 end
@@ -45,7 +48,6 @@ function World:add(entity)
 end
 
 function World:draw()
-	love.graphics.translate(0, 12)
 	self.map:drawNearCam(432,332)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
