@@ -21,7 +21,7 @@ function Pit:update(dtime)
 	self.sprite.y = self.y
 	self.hitbox.x = self.x
 	self.hitbox.y = self.y
-	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then
+	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (28)) then
 		State.player:die()
 	end
 end
