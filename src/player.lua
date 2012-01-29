@@ -93,7 +93,7 @@ function Player:update(dtime)
 	end
 	
 	self.hitbox.x = self.x + 8
-	self.hitbox.y = self.y + 2
+	self.hitbox.y = self.y + 8
 	self:checkOffScreen()
 	
 	if self.moving and self.footsteps:isStopped() then 
