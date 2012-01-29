@@ -952,5 +952,10 @@
   <object type="hiddenpit" x="64" y="480" width="32" height="32"/>
   <object type="hiddenpit" x="128" y="320" width="32" height="32"/>
   <object name="laser" type="laser" x="544" y="384" width="32" height="32"/>
+  <object name="Biscuits and coffee are complimentary, where available." type="sign" x="576" y="192" width="32" height="32">
+   <properties>
+    <property name="text" value="Biscuits and coffee are complimentary, where available."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -918,22 +918,30 @@
   <object type="laser" x="512" y="192" width="32" height="32"/>
   <object type="laser" x="64" y="416" width="32" height="32"/>
   <object type="laser" x="64" y="384" width="32" height="32"/>
-  <object type="button" x="256" y="320" width="32" height="32">
-   <properties>
-    <property name="id" value="1"/>
-   </properties>
-  </object>
+  <object type="button" x="256" y="320" width="32" height="32"/>
   <object type="pit" x="160" y="128" width="32" height="32"/>
+  <object type="pit" x="128" y="64" width="32" height="32"/>
+  <object type="pit" x="192" y="64" width="32" height="32"/>
   <object type="pit" x="192" y="128" width="32" height="32"/>
   <object type="pit" x="192" y="160" width="32" height="32"/>
+  <object type="pit" x="160" y="64" width="32" height="32"/>
   <object type="pit" x="128" y="128" width="32" height="32"/>
+  <object type="pit" x="224" y="96" width="32" height="32"/>
   <object type="pit" x="224" y="160" width="32" height="32"/>
+  <object type="pit" x="224" y="64" width="32" height="32"/>
   <object type="pit" x="224" y="128" width="32" height="32"/>
+  <object type="pit" x="128" y="96" width="32" height="32"/>
+  <object type="pit" x="192" y="96" width="32" height="32"/>
+  <object type="pit" x="160" y="96" width="32" height="32"/>
   <object type="pit" x="160" y="160" width="32" height="32"/>
   <object type="pit" x="128" y="160" width="32" height="32"/>
+  <object type="pit" x="64" y="96" width="32" height="32"/>
+  <object type="pit" x="64" y="64" width="32" height="32"/>
+  <object type="pit" x="96" y="96" width="32" height="32"/>
   <object type="pit" x="64" y="128" width="32" height="32"/>
   <object type="pit" x="96" y="160" width="32" height="32"/>
   <object type="pit" x="64" y="160" width="32" height="32"/>
+  <object type="pit" x="96" y="64" width="32" height="32"/>
   <object type="pit" x="96" y="128" width="32" height="32"/>
   <object type="pit" x="64" y="224" width="32" height="32"/>
   <object type="pit" x="64" y="192" width="32" height="32"/>
@@ -1059,19 +1067,9 @@
   <object type="pit" x="416" y="192" width="32" height="32"/>
   <object type="pit" x="448" y="192" width="32" height="32"/>
   <object type="pit" x="416" y="224" width="32" height="32"/>
-  <object type="button" x="96" y="64" width="32" height="32">
+  <object name="Trust in your Controller." type="sign" x="704" y="64" width="32" height="32">
    <properties>
-    <property name="id" value="1"/>
-   </properties>
-  </object>
-  <object type="gate" x="256" y="128" width="64" height="32">
-   <properties>
-    <property name="id" value="1"/>
-   </properties>
-  </object>
-  <object type="gate" x="448" y="64" width="32" height="64">
-   <properties>
-    <property name="id" value="1"/>
+    <property name="text" value="Trust in your Controller."/>
    </properties>
   </object>
  </objectgroup>

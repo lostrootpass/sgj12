@@ -937,5 +937,15 @@
   <object type="hiddenpit" x="544" y="224" width="32" height="32"/>
   <object type="hiddenpit" x="288" y="352" width="32" height="32"/>
   <object type="door" x="608" y="512" width="64" height="32"/>
+  <object name="Damage to lasers from overheating will be billed to your account." type="sign" x="128" y="64" width="32" height="32">
+   <properties>
+    <property name="text" value="Damage to lasers from overheating will be billed to your account."/>
+   </properties>
+  </object>
+  <object name="Damage to lasers from overheating will be billed to your account." type="sign" x="544" y="256" width="32" height="32">
+   <properties>
+    <property name="text" value="Damage to lasers from overheating will be billed to your account."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
