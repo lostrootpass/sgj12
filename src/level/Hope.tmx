@@ -912,7 +912,6 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
-  <object type="laser" x="64" y="64" width="32" height="32"/>
   <object type="pit" x="416" y="128" width="32" height="32"/>
   <object type="pit" x="448" y="128" width="32" height="32"/>
   <object type="pit" x="352" y="160" width="32" height="32"/>
@@ -1444,6 +1443,6 @@
   <object type="pit" x="224" y="448" width="32" height="32"/>
   <object type="door" x="736" y="384" width="32" height="64"/>
   <object type="door" x="608" y="512" width="64" height="32"/>
-  <object x="352" y="-32"/>
+  <object type="hiddenpit" x="64" y="64" width="32" height="32"/>
  </objectgroup>
 </map>
