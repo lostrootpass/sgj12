@@ -81,6 +81,12 @@ function Universe:moveToArea(areaName, direction)
 	print("movetoarea", areaName, direction)
 	local area = self:loadArea(areaName)
 	State.world = area
+	
+	if State.player ~= nil then
+		State.player.footsteps:stop()
+	end
+	
+	
 	State.player = PlayerGen:newPlayer()
 	area:add(State.player)
 	
@@ -123,6 +129,10 @@ function Universe:nextArea(current, direction)
 end
 
 function Universe:restart()
+	if State.player ~= nil then
+		State.player.footsteps:stop()
+	end
+	
 	self:moveToArea(self.startingArea)
 	
 	Dialogue:show(State.player.name .. ": " .. State.player.bio)
