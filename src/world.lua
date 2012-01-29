@@ -14,7 +14,7 @@ World = Object:new()
 
 World.entities = {}
 
-function World:init(tilemap)
+function World:init(tilemap, background)
 	tilemap = tilemap or "level/Darren_Room1.tmx"
 	
 	self.name = tilemap
@@ -35,7 +35,7 @@ function World:init(tilemap)
 	Dialogue:setTextColor(255, 255, 255, 255)
 	Dialogue:setVisible(false)
 
-	self.bgm = love.audio.newSource('audio/ambience02.ogg', 'stream')
+	self.bgm = love.audio.newSource(background or 'audio/ambience02.ogg', 'stream')
 	self.bgm:setVolume(0.20)
 	love.audio.play(self.bgm)
 end
@@ -55,7 +55,7 @@ end
 
 function World:update(dtime)
 
-	if Keyboard:isPressed("return") and Dialogue.visible then
+	if Keyboard:isPressed(" ") and Dialogue.visible then
 		Dialogue:hide()
 	end
 	
