@@ -33,7 +33,7 @@ function Player:init()
 	sprite:play("stand_down")
 	self.graphic = sprite
 	
-	self.hitbox = Hitbox:new(self.x + 8, self.y + 2, 16, 30)
+	self.hitbox = Hitbox:new(self.x + 8, self.y + 8, 16, 24)
 	
 	self.alive = true
 	
@@ -43,7 +43,8 @@ end
 function Player:setPosition(x, y)
 	self.x = x
 	self.y = y
-	self.hitbox = Hitbox:new(self.x, self.y, 32, 32)
+	self.hitbox.x = x + 8
+	self.hitbox.y = y + 8
 end
 
 function Player:update(dtime)
@@ -52,7 +53,7 @@ function Player:update(dtime)
 	if love.keyboard.isDown("up") then
 		local nextY = self.y - (self.movementSpeed * dtime)
 		
-		if not self:checkCollisions(self.x + 8, nextY + 2) then
+		if not self:checkCollisions(self.x + 8, nextY + 8) then
 			self.y = nextY
 			self.moving = true
 			self.direction = 'up'
@@ -61,7 +62,7 @@ function Player:update(dtime)
 		
 		local nextY = self.y + (self.movementSpeed * dtime)
 		
-		if not self:checkCollisions(self.x + 8, nextY + 2) then
+		if not self:checkCollisions(self.x + 8, nextY + 8) then
 			self.y = nextY
 			self.moving = true
 			self.direction = 'down'
@@ -70,7 +71,7 @@ function Player:update(dtime)
 	
 	if love.keyboard.isDown("left") then
 		local nextX = self.x - (self.movementSpeed * dtime)
-		if not self:checkCollisions(nextX + 8, self.y + 2) then
+		if not self:checkCollisions(nextX + 8, self.y + 8) then
 			self.x = nextX
 			self.moving = true
 			self.direction = 'left'
@@ -78,7 +79,7 @@ function Player:update(dtime)
 			
 	elseif love.keyboard.isDown("right") then
 		local nextX = self.x + (self.movementSpeed * dtime)
-		if not self:checkCollisions(nextX + 8, self.y + 2) then
+		if not self:checkCollisions(nextX + 8, self.y + 8) then
 			self.x = nextX
 			self.moving = true
 			self.direction = 'right'

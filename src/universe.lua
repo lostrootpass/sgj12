@@ -86,15 +86,15 @@ function Universe:moveToArea(areaName, direction)
 		if door then
 			if direction == 's' then
 				State.player.x = door.x + 16
-				State.player.y = door.y + 32
+				State.player.y = door.y + 28
 			elseif direction == 'n' then
 				State.player.x = door.x + 16
-				State.player.y = door.y - 32
+				State.player.y = door.y - 28
 			elseif direction == 'w' then
-				State.player.x = door.x - 32
+				State.player.x = door.x - 28
 				State.player.y = door.y + 16
 			elseif direction == 'e' then
-				State.player.x = door.x + 32
+				State.player.x = door.x + 28
 				State.player.y = door.y + 16
 			end
 		end	
