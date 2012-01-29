@@ -9,6 +9,7 @@ function Entity:init()
 	self.x = 0
 	self.y = 0
 	self.visible = true
+	self.hitbox = nil
 end
 
 function Entity:setGraphic(filepath)
@@ -38,7 +39,22 @@ function Entity:draw()
 			self.graphic.x = self.x
 			self.graphic.y = self.y
 			self.graphic:draw()
+
+			if State.debug then
+				local r, g, b, a = love.graphics.getColor()
+				love.graphics.setColor(0,255,0,255)
+				love.graphics.rectangle("line", self.x, self.y, self.graphic:getWidth(), self.graphic:getHeight())
+				love.graphics.setColor(r, g, b, a)
+			end
 		end
+	end
+
+	if State.debug and self.hitbox ~= nil then
+		--print "debug"
+		local r, g, b, a = love.graphics.getColor()
+		love.graphics.setColor(255,0, 0, 255)
+		love.graphics.rectangle("line", self.hitbox.x, self.hitbox.y, self.hitbox.width, self.hitbox.height)
+		love.graphics.setColor(r, g, b, a)
 	end
 end
 
