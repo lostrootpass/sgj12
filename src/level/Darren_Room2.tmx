@@ -972,5 +972,15 @@
   <object name="Hidden Pit" type="pit" x="640" y="320" width="32" height="32"/>
   <object type="door" x="448" y="32" width="64" height="32"/>
   <object type="door" x="448" y="512" width="64" height="32"/>
+  <object name="Running does not increase your chance of success." type="sign" x="160" y="160" width="32" height="32">
+   <properties>
+    <property name="text" value="Running does not increase your chance of success."/>
+   </properties>
+  </object>
+  <object name="Running does not increase your chance of success." type="sign" x="544" y="192" width="32" height="32">
+   <properties>
+    <property name="text" value="Running does not increase your chance of success."/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
