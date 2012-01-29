@@ -79,6 +79,7 @@ function Universe:loadArea(file)
 end
 
 function Universe:moveToArea(areaName, direction)
+	Dialogue:hide()
 	print("movetoarea", areaName, direction)
 	local area = self:loadArea(areaName)
 	State.world = area
