@@ -47,9 +47,9 @@ function loadEntities(world, map_objects)
 			e:setPosition(o.x, o.y)
 			world:add(e)
 		elseif o.t == "gate" then
-			e = Gate:new(o.w)
+			e = Gate:new(o.w, o.id)
 			e:setPosition(o.x, o.y)
-			e.id = o["id"]
+			--e.id = o["id"]
 			world:add(e)
 		elseif o.t == "button" then
 			e = Button:new()
