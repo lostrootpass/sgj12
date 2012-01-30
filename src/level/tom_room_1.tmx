@@ -978,7 +978,7 @@
   <object name="Pit" type="pit" x="160" y="320" width="32" height="32"/>
   <object name="Pit" type="pit" x="192" y="384" width="32" height="32"/>
   <object name="Pit" type="pit" x="192" y="416" width="32" height="32"/>
-  <object name="Conveyor E" type="conveyor" x="323" y="480" width="32" height="32">
+  <object name="Conveyor E" type="conveyor" x="320" y="480" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>

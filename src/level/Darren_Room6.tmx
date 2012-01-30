@@ -924,18 +924,6 @@
   <object type="hiddenpit" x="384" y="192" width="32" height="32"/>
   <object type="laser" x="192" y="448" width="32" height="32"/>
   <object type="laser" x="224" y="480" width="32" height="32"/>
-  <object type="hiddenpit" x="672" y="256" width="32" height="32"/>
-  <object type="hiddenpit" x="672" y="224" width="32" height="32"/>
-  <object type="hiddenpit" x="640" y="384" width="32" height="32"/>
-  <object type="hiddenpit" x="224" y="288" width="32" height="32"/>
-  <object type="hiddenpit" x="352" y="416" width="32" height="32"/>
-  <object type="hiddenpit" x="480" y="352" width="32" height="32"/>
-  <object type="hiddenpit" x="448" y="448" width="32" height="32"/>
-  <object type="hiddenpit" x="352" y="480" width="32" height="32"/>
-  <object type="hiddenpit" x="544" y="416" width="32" height="32"/>
-  <object type="hiddenpit" x="512" y="256" width="32" height="32"/>
-  <object type="hiddenpit" x="544" y="224" width="32" height="32"/>
-  <object type="hiddenpit" x="288" y="352" width="32" height="32"/>
   <object type="door" x="608" y="512" width="64" height="32"/>
   <object name="Damage to lasers from overheating will be billed to your account." type="sign" x="128" y="64" width="32" height="32">
    <properties>

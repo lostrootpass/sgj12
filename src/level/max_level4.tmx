@@ -920,7 +920,6 @@
     <property name="id" value="2"/>
    </properties>
   </object>
-  <object x="-64" y="64"/>
   <object type="conveyor" x="256" y="192" width="32" height="32">
    <properties>
     <property name="dir" value="n"/>
