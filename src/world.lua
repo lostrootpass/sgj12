@@ -9,22 +9,23 @@ require('entloader')
 require('maploader')
 require('laserturret')
 require('sign')
+require('sfx')
 
 World = Object:new()
 
 World.entities = {}
 
 function World:init(tilemap, background)
-	tilemap = tilemap or "level/Darren_Room1.tmx"
-	
+	tilemap = tilemap or "level/tom_room_menu.tmx"
+
 	self.name = tilemap
 	self.map = MapLoader:new(tilemap)
-	
+
 	self.entities = {}
 	self.deadpool = {}
-	
+
 	loadEntities(self, self.map:getMapObjects())
-	
+
 	self.width = 800
 	self.height = 576
 
@@ -37,12 +38,11 @@ function World:init(tilemap, background)
 
 	local music = ""
 	if tilemap == "level/tom_room_menu.tmx" then
-		music = "audio/titlescreen.ogg"
+		self.bgm = Sfx.title
 	else
-		music = "audio/ambience02.ogg"
+		self.bgm = Sfx.ambience
 	end
-	
-	self.bgm = love.audio.newSource(music, 'stream')
+
 	self.bgm:setVolume(0.20)
 	love.audio.play(self.bgm)
 end
@@ -65,19 +65,19 @@ function World:update(dtime)
 	if Keyboard:isPressed(" ") and Dialogue.visible then
 		Dialogue:hide()
 	end
-	
+
 	for i = 1, table.getn(self.entities) do
 		if self.entities[i] ~= nil then
 			self.entities[i]:update(dtime)
 		end
 	end
-	
+
 	Dialogue:update(dtime)
-	
+
 	if love.keyboard.isDown("z") then
 		PlayerGen:newPlayer()
 	end
-	
+
 	for dead=1, table.getn(self.deadpool) do
 		for index=1, table.getn(self.entities) do
 			if self.entities[index] == self.deadpool[dead] then
@@ -98,13 +98,23 @@ end
 
 function World:getDoors()
 	local doors = {n = false, s = false, w = false, e = false}
-	
+
 	for i = 1, table.getn(self.entities) do
 		if self.entities[i] ~= nil and self.entities[i].type == "door" then
 			local dir = self.entities[i].dir
 			doors[dir] = true
 		end
-	end 
-	
+	end
+
 	return doors
+end
+
+function World:getType(type)
+	local ents = {}
+	for _, e in ipairs(self.entities) do
+		if e.type == type then
+			table.insert(ents, e)
+		end
+	end
+	return ents
 end

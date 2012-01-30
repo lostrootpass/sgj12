@@ -13,30 +13,30 @@ function Player:init()
 	self.spriteWidth = 32
 	self.moving = false
 	self.direction = 'down'
-	
+
 	self.name = "NAME NOT SET"
 	self.bio = "BIO NOT SET"
 
 	sprite = Sprite:new("graphics/contestant.png", 32,  32)
 	sprite:add("stand_up", {1})
 	sprite:add("walk_up", {2, 3, 4, 5}, 0.1)
-	
+
 	sprite:add("stand_down", {6})
 	sprite:add("walk_down", {7, 8, 9, 10}, 0.1)
-	
+
 	sprite:add("stand_left", {11})
 	sprite:add("walk_left", {12, 13, 14, 15}, 0.1)
-	
+
 	sprite:add("stand_right", {16})
 	sprite:add("walk_right", {17, 18, 19, 20}, 0.1)
-	
+
 	sprite:play("stand_down")
 	self.graphic = sprite
-	
+
 	self.hitbox = Hitbox:new(self.x + 8, self.y + 8, 16, 24)
-	
+
 	self.alive = true
-	
+
 	self.footsteps = love.audio.newSource('audio/footsteps.ogg')
 end
 
@@ -49,61 +49,74 @@ end
 
 function Player:update(dtime)
 	self.moving = false
-	
-	if love.keyboard.isDown("up") then
-		local nextY = self.y - (self.movementSpeed * dtime)
-		
-		if not self:checkCollisions(self.x + 8, nextY + 8) then
-			self.y = nextY
-			self.moving = true
-			self.direction = 'up'
-		end
-	elseif love.keyboard.isDown("down") then
-		
-		local nextY = self.y + (self.movementSpeed * dtime)
-		
-		if not self:checkCollisions(self.x + 8, nextY + 8) then
-			self.y = nextY
-			self.moving = true
-			self.direction = 'down'
+
+	local canMove = true
+	local conveyors = State.world:getType("conveyor")
+	for _, e in ipairs(conveyors) do
+		if self.hitbox:intersects(e.hitbox) then
+			canMove = false
+			local delta = e.speed
+			self.x = self.x + delta[1] * dtime
+			self.y = self.y + delta[2] * dtime
 		end
 	end
-	
-	if love.keyboard.isDown("left") then
-		local nextX = self.x - (self.movementSpeed * dtime)
-		if not self:checkCollisions(nextX + 8, self.y + 8) then
-			self.x = nextX
-			self.moving = true
-			self.direction = 'left'
+
+	if canMove then
+		if love.keyboard.isDown("up") then
+			local nextY = self.y - (self.movementSpeed * dtime)
+
+			if not self:checkCollisions(self.x + 8, nextY + 8) then
+				self.y = nextY
+				self.moving = true
+				self.direction = 'up'
+			end
+		elseif love.keyboard.isDown("down") then
+
+			local nextY = self.y + (self.movementSpeed * dtime)
+
+			if not self:checkCollisions(self.x + 8, nextY + 8) then
+				self.y = nextY
+				self.moving = true
+				self.direction = 'down'
+			end
 		end
-			
-	elseif love.keyboard.isDown("right") then
-		local nextX = self.x + (self.movementSpeed * dtime)
-		if not self:checkCollisions(nextX + 8, self.y + 8) then
-			self.x = nextX
-			self.moving = true
-			self.direction = 'right'
+
+		if love.keyboard.isDown("left") then
+			local nextX = self.x - (self.movementSpeed * dtime)
+			if not self:checkCollisions(nextX + 8, self.y + 8) then
+				self.x = nextX
+				self.moving = true
+				self.direction = 'left'
+			end
+
+		elseif love.keyboard.isDown("right") then
+			local nextX = self.x + (self.movementSpeed * dtime)
+			if not self:checkCollisions(nextX + 8, self.y + 8) then
+				self.x = nextX
+				self.moving = true
+				self.direction = 'right'
+			end
 		end
 	end
-	
+
 	if self.moving == true then
 		sprite:play("walk_" .. self.direction)
 	else
 		sprite:play("stand_" .. self.direction)
 	end
-	
+
 	self.hitbox.x = self.x + 8
 	self.hitbox.y = self.y + 2
 	self:checkOffScreen()
-	
-	--[[if self.moving and self.footsteps:isStopped() then 
+
+	--[[if self.moving and self.footsteps:isStopped() then
 		self.footsteps:play()
 		self.footsteps:setLooping(true)
 	elseif not self.moving then
 		self.footsteps:stop()
 	end]]--
-	
-	sprite:update(dtime)	
+
+	sprite:update(dtime)
 end
 
 function Player:checkCollisions(x, y)
@@ -115,7 +128,7 @@ function Player:checkCollisions(x, y)
 		end
 	end
 
-	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height) 
+	return State.world:blocked(x, y) or State.world:blocked(x + self.hitbox.width, y) or State.world:blocked(x, y + self.hitbox.height) or State.world:blocked(x + self.hitbox.width, y + self.hitbox.height)
 end
 
 function Player:checkOffScreen()
@@ -124,7 +137,7 @@ function Player:checkOffScreen()
 	elseif self.x < 0 then
 		self.x = State.world.width
 	end
-	
+
 	if self.y > State.world.height then
 		self.y = 0
 	elseif self.y < 0 then
@@ -150,7 +163,7 @@ end
 
 function Player:die(animation)
 	if not self.alive then return end
-	
+
 	animation = animation or ''
 	print "Player has died..."
 	self.alive = false
@@ -160,7 +173,7 @@ function Player:die(animation)
 	corpse.y = self.y
 	State.world:add(corpse)
 	self.footsteps:stop()
-	
+
 	State.world:add(DeathTimer:new())
 end
 

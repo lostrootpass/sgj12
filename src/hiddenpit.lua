@@ -1,5 +1,6 @@
 require('entity')
 require('sprite')
+require('sfx')
 
 HiddenPit = Entity:new()
 
@@ -11,7 +12,6 @@ function HiddenPit:init()
 	self.sprite:add("visible", {2})
 	self.sprite:play("hidden", 1)
 	self.graphic = self.sprite
-	self.scream = love.audio.newSource('audio/wilhelm.wav')
 end
 
 function HiddenPit:update(dtime)
@@ -22,6 +22,6 @@ function HiddenPit:update(dtime)
 	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then
 		self.sprite:play("visible", 1)
 		State.player:die()
-		love.audio.play(self.scream)
+		love.audio.play(Sfx.scream)
 	end
 end

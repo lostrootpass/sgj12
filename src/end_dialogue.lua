@@ -24,7 +24,6 @@ function EndDialogue:nextLine()
 	self:setVisible(true)
 	self.line = self.line + 1
 	if self.line > #self.lines then
-		--State.world:remove(self)
 		State.universe:reboot()
 	end
 end
