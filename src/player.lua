@@ -19,16 +19,16 @@ function Player:init()
 
 	sprite = Sprite:new("graphics/contestant.png", 32,  32)
 	sprite:add("stand_up", {1})
-	sprite:add("walk_up", {2, 3, 4, 5}, 0.1)
+	sprite:add("walk_up", {2, 3, 4, 5}, 0.15)
 
 	sprite:add("stand_down", {6})
-	sprite:add("walk_down", {7, 8, 9, 10}, 0.1)
+	sprite:add("walk_down", {7, 8, 9, 10}, 0.15)
 
 	sprite:add("stand_left", {11})
-	sprite:add("walk_left", {12, 13, 14, 15}, 0.1)
+	sprite:add("walk_left", {12, 13, 14, 15}, 0.15)
 
 	sprite:add("stand_right", {16})
-	sprite:add("walk_right", {17, 18, 19, 20}, 0.1)
+	sprite:add("walk_right", {17, 18, 19, 20}, 0.15)
 
 	sprite:play("stand_down")
 	self.graphic = sprite
