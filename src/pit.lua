@@ -23,7 +23,7 @@ function Pit:update(dtime)
 	self.hitbox.x = self.x
 	self.hitbox.y = self.y
 	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then
-		love.audio.play(self.scream, "stream")
+		love.audio.play(self.scream)
 		State.player:die()
 	end
 end
