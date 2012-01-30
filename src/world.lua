@@ -42,9 +42,6 @@ function World:init(tilemap, background)
 	else
 		self.bgm = Sfx.ambience
 	end
-
-	self.bgm:setVolume(0.20)
-	love.audio.play(self.bgm)
 end
 
 function World:add(entity)
@@ -58,6 +55,16 @@ function World:draw()
 	end
 
 	Dialogue:draw()
+end
+
+function World:start()
+	if self.bgm ~= Sfx.bgm then
+		love.audio.stop()
+		self.bgm:setVolume(0.20)
+		self.bgm:play()
+		self.bgm:setLooping(true)
+		Sfx.bgm = self.bgm
+	end
 end
 
 function World:update(dtime)
