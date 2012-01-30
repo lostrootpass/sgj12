@@ -48,7 +48,7 @@ function EndDialogue:draw()
 end
 
 function EndDialogue:update(dtime)
-	if Keyboard:isPressed("return") then
+	if Keyboard:isPressed(" ") then
 		self:nextLine()
 	end
 end

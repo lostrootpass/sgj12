@@ -41,8 +41,10 @@ end
 function Conveyor:update(dtime)
 	self.graphic:update(dtime)
 	
-	self.hitbox.x = self.x + 2
-	self.hitbox.y = self.y + 2
+	local speed = 256
+	
+	self.hitbox.x = self.x + 0
+	self.hitbox.y = self.y + 0
 	if self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) 
 	or self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32)) then 
 		self.timer = self.timer + dtime
@@ -50,16 +52,16 @@ function Conveyor:update(dtime)
 			self.timer = 0
 			if self.direction == "n" then
 				State.player.x = self.hitbox.x
-				State.player.y = self.hitbox.y - State.player.hitbox.height
+				State.player.y = State.player.y - speed * dtime
 			elseif self.direction == "s" then
 				State.player.x = self.hitbox.x
-				State.player.y = self.hitbox.y + self.hitbox.height
+				State.player.y = State.player.y + speed * dtime
 			elseif self.direction == "w" then
 				State.player.y = self.hitbox.y - 4
-				State.player.x = self.hitbox.x - State.player.hitbox.width
+				State.player.x = State.player.x - speed * dtime
 			elseif self.direction == "e" then
 				State.player.y = self.hitbox.y
-				State.player.x = self.hitbox.x + self.hitbox.width
+				State.player.x = State.player.x + speed * dtime
 			end
 		end
 	end

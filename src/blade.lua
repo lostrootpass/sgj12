@@ -32,6 +32,6 @@ function Blade:update(dtime)
 	
 	if State.player.alive and self.hitbox:pointIntersects(State.player.x + (32 / 2), State.player.y + (32 / 2)) then
 		State.player:die("gibs")
-		love.audio.play(love.audio.newSource('audio/deathsaw.wav'))
+		love.audio.play(love.audio.newSource('audio/deathsaw.ogg'))
 	end
 end
