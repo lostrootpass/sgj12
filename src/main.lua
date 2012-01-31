@@ -5,6 +5,8 @@ require('universe')
 require('keyboard')
 
 function love.load()
+	math.randomseed(os.time())
+
 	love.graphics.setCaption('MUD: Multi-User Deathtrap')
 	State.universe = Universe:new()
 	State.universe.startingArea = "level/tom_room_start.tmx"
@@ -20,7 +22,7 @@ end
 
 function love.draw()
 	love.graphics.translate(0, 12)
-	
+
 	if State.world ~= nil then
 		State.world:draw()
 	end

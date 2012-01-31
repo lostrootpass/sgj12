@@ -44,27 +44,28 @@ end
 
 function Universe:findPartner(fromArea, travelDirection)
 	local endProbability = self.partnerships / self.roomLimit
+	if self.partnerships < 10 then endProbability = 0 end
 	print("end likelihood", endProbability)
 
-	math.randomseed(os.time())
 	if math.random() < endProbability and travelDirection == "n" then
 		self:link(fromArea, self.endingArea, travelDirection)
 		return
 	end
 
-	self.available = Universe.shuffle(self.available)
+	local candidates = {}
+	local opposite = Universe.opposites[travelDirection]
 
 	for toArea, availability in pairs(self.available) do
-		local opposite = Universe.opposites[travelDirection]
 		if availability[opposite] == true then
-			print(toArea, availability)
-			availability[opposite] = false
-
-			self:link(fromArea, toArea, travelDirection)
-			return
+			table.insert(candidates, toArea)
 		end
 	end
 
+	candidates = Universe.shuffle(candidates)
+	local destination = candidates[1]
+	self.available[destination][opposite] = false
+
+	self:link(fromArea, destination, travelDirection)
 
 end
 
@@ -158,19 +159,13 @@ function Universe:reboot()
 end
 
 function Universe.shuffle(t)
-	math.randomseed(os.time())
 
 	local n = #t
 
 	while n >= 2 do
 		local k = math.random(n)
-		print(n, k)
 		t[n], t[k] = t[k], t[n]
 		n = n - 1
-	end
-
-	for a, b in pairs(t) do
-		print(a, b)
 	end
 
 	return t
