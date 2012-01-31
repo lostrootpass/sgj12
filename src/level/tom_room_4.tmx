@@ -915,16 +915,6 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="25" height="18">
-  <object name="ConW" type="conveyor" x="640" y="448" width="32" height="32">
-   <properties>
-    <property name="dir" value="w"/>
-   </properties>
-  </object>
-  <object name="ConW" type="conveyor" x="608" y="448" width="32" height="32">
-   <properties>
-    <property name="dir" value="w"/>
-   </properties>
-  </object>
   <object name="ConW" type="conveyor" x="576" y="448" width="32" height="32">
    <properties>
     <property name="dir" value="w"/>
@@ -1055,11 +1045,6 @@
     <property name="dir" value="w"/>
    </properties>
   </object>
-  <object name="ConW" type="conveyor" x="96" y="256" width="32" height="32">
-   <properties>
-    <property name="dir" value="w"/>
-   </properties>
-  </object>
   <object name="ConW" type="conveyor" x="544" y="256" width="32" height="32">
    <properties>
     <property name="dir" value="w"/>
@@ -1170,16 +1155,6 @@
     <property name="dir" value="e"/>
    </properties>
   </object>
-  <object name="ConE" type="conveyor" x="128" y="96" width="32" height="32">
-   <properties>
-    <property name="dir" value="e"/>
-   </properties>
-  </object>
-  <object name="ConE" type="conveyor" x="160" y="96" width="32" height="32">
-   <properties>
-    <property name="dir" value="e"/>
-   </properties>
-  </object>
   <object name="ConE" type="conveyor" x="192" y="96" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
@@ -1191,11 +1166,6 @@
    </properties>
   </object>
   <object name="ConE" type="conveyor" x="352" y="288" width="32" height="32">
-   <properties>
-    <property name="dir" value="e"/>
-   </properties>
-  </object>
-  <object name="ConE" type="conveyor" x="672" y="288" width="32" height="32">
    <properties>
     <property name="dir" value="e"/>
    </properties>
@@ -1299,16 +1269,6 @@
   <object name="Saws are sharp. Please stay clear at all times." type="sign" x="704" y="416" width="32" height="32">
    <properties>
     <property name="text" value="Saws are sharp. Please stay clear at all times."/>
-   </properties>
-  </object>
-  <object name="ConW" type="conveyor" x="672" y="256" width="32" height="32">
-   <properties>
-    <property name="dir" value="w"/>
-   </properties>
-  </object>
-  <object name="ConE" type="conveyor" x="96" y="288" width="32" height="32">
-   <properties>
-    <property name="dir" value="e"/>
    </properties>
   </object>
  </objectgroup>
