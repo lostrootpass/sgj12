@@ -23,10 +23,10 @@ function Gate:init(dir, i)
 	end
 
 	if dir > 32 then
-		self.graphic = Sprite:new('graphics/door_n.png', 64, 32)
+		self.graphic = Sprite:new('graphics/gate_h.png', 64, 32)
 		self.hitbox = Hitbox:new(0, 0, 64, 32)
 	else
-		self.graphic = Sprite:new('graphics/door_e.png', 32, 64)
+		self.graphic = Sprite:new('graphics/gate_v.png', 32, 64)
 		self.hitbox = Hitbox:new(0, 0, 32, 64)
 	end
 
