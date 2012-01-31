@@ -815,8 +815,8 @@
    <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
-   <tile gid="19"/>
-   <tile gid="19"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
    <tile gid="19"/>
    <tile gid="19"/>
    <tile gid="19"/>
@@ -995,6 +995,11 @@
   <object name="Your Controller wants you to succeed as much as you do." type="sign" x="384" y="384" width="32" height="32">
    <properties>
     <property name="text" value="Your Controller wants you to succeed as much as you do."/>
+   </properties>
+  </object>
+  <object type="gate" x="192" y="448" width="64" height="32">
+   <properties>
+    <property name="id" value="1"/>
    </properties>
   </object>
  </objectgroup>
