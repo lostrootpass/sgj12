@@ -1,6 +1,7 @@
 require('entity')
 require('sprite')
 require('sfx')
+require('layers')
 
 HiddenPit = Entity:new()
 
@@ -12,6 +13,7 @@ function HiddenPit:init()
 	self.sprite:add("visible", {2})
 	self.sprite:play("hidden", 1)
 	self.graphic = self.sprite
+	self.layer = Layers.FLOOR
 end
 
 function HiddenPit:update(dtime)

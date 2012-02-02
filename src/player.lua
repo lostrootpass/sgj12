@@ -3,6 +3,7 @@ require('sprite')
 require('hitbox')
 require('corpse')
 require('deathtimer')
+require('layers')
 
 Player = Entity:new()
 
@@ -38,6 +39,7 @@ function Player:init()
 	self.alive = true
 
 	self.footsteps = love.audio.newSource('audio/footsteps.ogg')
+	self.layer = Layers.CHARACTER
 end
 
 function Player:setPosition(x, y)

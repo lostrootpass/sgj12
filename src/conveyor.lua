@@ -10,6 +10,7 @@ function Conveyor:init(dir)
 	self.direction = dir
 	self.hitbox = Hitbox:new(0, 0, 32, 32)
 	self.timer = 0
+	self.layer = Layers.FLOOR
 
 	local x = 0
 	local y = 0

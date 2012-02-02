@@ -2,6 +2,7 @@ require('entity')
 require('sprite')
 require('hitbox')
 require('sfx')
+require('layers')
 
 Blade = Entity:new()
 
@@ -13,6 +14,7 @@ function Blade:init()
 	self.speed = 100
 	self.timer = 0
 	self.hitbox = Hitbox:new(0, 0, 16, 31)
+	self.layer = Layers.TRAP
 end
 
 function Blade:update(dtime)

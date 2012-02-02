@@ -1,5 +1,6 @@
 require('entity')
 require('sprite')
+require('layers')
 
 Pit = Entity:new()
 
@@ -10,6 +11,7 @@ function Pit:init()
 	self.sprite:add("visible", {2})
 	self.sprite:play("visible", 1)
 	self.graphic = self.sprite
+	self.layer = Layers.FLOOR
 end
 
 function Pit:draw()

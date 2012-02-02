@@ -15,6 +15,12 @@ World = Object:new()
 
 World.entities = {}
 
+function depthSort(lhs, rhs)
+	if rhs.layer == nil then return false end
+	if lhs.layer == nil then return true end
+	return lhs.layer < rhs.layer
+end
+
 function World:init(tilemap, background)
 	tilemap = tilemap or "level/tom_room_menu.tmx"
 
@@ -50,6 +56,7 @@ end
 
 function World:draw()
 	self.map:drawNearCam(432,332)
+	table.sort(self.entities, depthSort)
 	for i = 1, table.getn(self.entities) do
 		self.entities[i]:draw()
 	end
