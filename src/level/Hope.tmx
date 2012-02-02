@@ -1158,7 +1158,7 @@
   </object>
   <object type="conveyor" x="352" y="224" width="32" height="32">
    <properties>
-    <property name="dir" value="w"/>
+    <property name="dir" value="e"/>
    </properties>
   </object>
   <object type="conveyor" x="544" y="96" width="32" height="32">
@@ -1188,7 +1188,7 @@
   </object>
   <object type="conveyor" x="512" y="160" width="32" height="32">
    <properties>
-    <property name="dir" value="n"/>
+    <property name="dir" value="w"/>
    </properties>
   </object>
   <object type="conveyor" x="224" y="224" width="32" height="32">
