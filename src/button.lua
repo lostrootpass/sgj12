@@ -13,7 +13,7 @@ function Button:init()
 	self.graphic:play("off")
 	self.interactBox = Hitbox:new(0, 32, 32, 32)
 	self.hitbox = Hitbox:new(8, 8, 16, 24)
-	self.id = nil
+	self.id = 0
 	self.solid = true
 end
 

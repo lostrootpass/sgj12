@@ -8,7 +8,7 @@ Gate = Entity:new()
 function Gate:init(dir, i)
 	self.type = "gate"
 	self.state = "closed"
-	self.id = nil or i
+	self.id = i or 0
 	self.solid = true
 	
 	local x = 0
