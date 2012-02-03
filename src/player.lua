@@ -58,8 +58,22 @@ function Player:update(dtime)
 		if self.hitbox:intersects(e.hitbox) then
 			canMove = false
 			local delta = e.speed
+			
 			self.x = self.x + delta[1] * dtime
 			self.y = self.y + delta[2] * dtime
+			
+			if delta[1] ~= 0 then
+				self.x = self.x + delta[1] * dtime
+			else
+				self.x = e.x
+			end
+			
+			if delta[2] ~= 0 then
+				self.y = self.y + delta[2] * dtime
+			else
+				self.y = e.y
+			end
+
 		end
 	end
 
