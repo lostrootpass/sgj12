@@ -41,6 +41,17 @@ function love.update(dtime)
 		State.debug = not State.debug
 	end
 
+	if Keyboard:isPressed("r") then
+		State.world:remove(State.player)
+		State.universe = Universe:new()
+		State.universe.startingArea = "level/tom_room_start.tmx"
+		State.universe.endingArea = "level/tom_room_end.tmx"
+		State.universe:generateLinks()
+		State.universe:moveToArea("level/tom_room_menu.tmx", "n", "audio/titlescreen.ogg")
+		State.player.x = 640
+		State.player.y = 320
+	end
+
 	Keyboard:update(dtime)
 end
 
